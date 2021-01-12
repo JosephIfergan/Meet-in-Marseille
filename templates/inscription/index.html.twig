@@ -1,0 +1,93 @@
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/reset.css') }} ">
+<link rel="stylesheet" href="{{ asset('assets/css/normalize.css') }} ">
+<link rel="stylesheet" href="{{ asset('assets/css/inscriptionStyle.css') }} ">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+{% endblock %}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InscriptionController!{% endblock %}
+
+{% block body %}
+
+<body>
+  <h1 class="color-1 text-uppercase text-center display-3 font-weight-bold">rejoins-nous !</h1>
+  <div id="base">
+
+    <div class="d-flex flex-row">
+      <p class="color-2 mr-5 display-5">Je suis ...</p>
+      <input type="radio" id="sexe" name="drone" value="homme" class="bouttonsexe mr-3 mb-2" checked>
+      <label for="homme" class="display-6 mr-3 color-1 align-self-center">un homme</label>
+      <input type="radio" id="sexe" name="drone" value="femme" class="bouttonsexe mr-3  mb-2">
+      <label for="femme" class="display-6 mr-3 color-3 align-self-center">une femme</label>
+    </div>
+
+    <div class="d-flex flex-row">
+      <p class="color-2 mr-5 display-5">J'aime ...</p>
+      <div class="dropdown mt-2">
+        <button class="btn dropdown-toggle font-weight-bold" type="button" id="dropdownCategorieButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Catégories
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <!-- <li><a class="dropdown-item" href="#">Sport</a></li> -->
+          <div class="ml-3">
+          <input type="checkbox" class="bouttonsexe mr-2 " id="sport">
+          <label for="homme" class="mr-3 color-1">Sport</label>
+        </div>
+          <div class="ml-3">
+          <input type="checkbox" class="bouttonsexe mr-2 " id="culture">
+          <label for="homme" class="mr-3 color-1">Culture</label>
+        </div>
+          <div class="ml-3">
+          <input type="checkbox" class="bouttonsexe mr-2 " id="nature">
+          <label for="homme" class="mr-3 color-1">Nature</label>
+        </div>
+          <div class="ml-3">
+          <input type="checkbox" class="bouttonsexe mr-2 " id="sortie">
+          <label for="homme" class="mr-3 color-1">Sortie</label>
+        </div>
+          <div class="ml-3">
+          <input type="checkbox" class="bouttonsexe mr-2 " id="jeux">
+          <label for="homme" class="mr-3 color-1">Jeux</label>
+        </div>
+          <div class="ml-3">
+          <input type="checkbox" class="bouttonsexe mr-2 " id="gastronomie">
+          <label for="homme" class="mr-3 color-1">Gastronomie</label>
+        </div>
+        <button class="btn-success d-block m-auto">Valider</button>
+        <input type="hidden" name="formCategorie" value="categorie">
+        </div>
+      </div>
+    </div>
+
+    <form method="POST" action="#form-create" id="form-create" enctype="multipart/form-data"
+      class="d-flex flex-column mt-3">
+      <label>
+        <input type="text" name="nom" required placeholder="Nom complet" maxlength="160">
+      </label>
+      <label>
+        <input type="email" name="email" required placeholder="Email" maxlength="160">
+      </label>
+      <label>
+        <input type="number" name="age" required placeholder="Age" min="10" max="100">
+      </label>
+      <label>
+        <input type="text" name="pseudo" required placeholder="Pseudo" maxlength="160">
+      </label>
+      <label>
+        <input type="password" name="motDePasse" required placeholder="Mot de passe" maxlength="160">
+      </label>
+      <button type="submit">CREER VOTRE COMPTE</button>
+      <!-- PARTIE TECHNIQUE -->
+      <input type="hidden" name="formIdentifiant" value="user">
+      <div>
+        <?php require_once "php/controller/traitement-user.php" ?>
+      </div>
+    </form>
+
+  </div>
+  <img src="assets/img/image-inscription2.png" alt="#" class="mt-2">
+
+{% endblock %}
