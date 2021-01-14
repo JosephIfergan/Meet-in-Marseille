@@ -4,6 +4,11 @@ h1 {
     font-family: 'Coiny', cursive !important;
 }
 
+h2 {
+    color: white;
+    font-family: 'Coiny', cursive !important;
+}
+
 header img {
     width: 150px;
     height: 80px;
