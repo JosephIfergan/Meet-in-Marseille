@@ -19,7 +19,11 @@ header img {
     height: 80px;
     }
 
-    .description {
+.description {
         background-color: #5271FF;
         width: 100%;
+    }
+
+.ccm {
+      background-color:  #38B6FF;
     }
