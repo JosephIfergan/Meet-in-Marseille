@@ -2,3 +2,14 @@ h1{
     color:red;
     font-family: 'Coiny', cursive !important;
 }
+
+header img {
+    width: 150px;
+    height: 80px;
+}
+
+.navlogo {
+    margin-left: 10px;
+    margin-right: auto;
+
+}
