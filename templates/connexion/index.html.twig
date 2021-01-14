@@ -1,20 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ConnexionController!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+<link rel="stylesheet" href="{{ asset('assets/css/reset.css') }} ">
+<link rel="stylesheet" href="{{ asset('assets/css/normalize.css') }} ">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ asset('assets/css/connexionStyle.css') }} ">
+
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<section>
+    <h1>connexion</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/MeetInMarseille/src/Controller/ConnexionController.php'|file_link(0) }}">src/Controller/ConnexionController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/MeetInMarseille/templates/connexion/index.html.twig'|file_link(0) }}">templates/connexion/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class="ajust m-auto ">
+        <form class="p-4 mr-auto w--d bgc-form shadow" action="#form-create" method="POST">
+    
+            <h3>connexion</h3>
+            <hr>
+
+            <div class="form-group">
+                <label for="email">Mail *</label>
+                <input type="email" class="form-control" id="" name="email" required placeholder="mon@mail.me">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Mot de passe</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+    
+            <button type="submit" class="btn btn-primary shadow btn-lg btn-block">Connexion</button>
+            <input type="hidden" name="formIdentifiant" value="newsletter">
+    
+        </form><br>
+    </div>
+</section>
 {% endblock %}

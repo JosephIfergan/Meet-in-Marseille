@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Baloo Thambi 2', cursive !important;
+}
+
+h1{
+    color: black;
+}
+
+div form.bgc-form{
+    background-color: #5271fe;
+}
