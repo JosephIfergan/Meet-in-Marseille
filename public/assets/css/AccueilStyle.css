@@ -22,26 +22,67 @@ header img {
 
 }
 .description img {
-    width: 120px;
-    height: 50px;
+    width: 150px;
+    height: 80px;
     }
 
 .description {
         font-family: 'Baloo Thambi 2', cursive;
-        font-weight: 400;
+        font-weight: bold;
         background-color: #5271FF;
         color: white;
         width: 100%;
         height: 20vh;
     }
 
-.ccm {
-      background-color:  #38B6FF;
+    #fonctionnement {
+        background-color:  #38B6FF;
+        padding: 10px 80px;
     }
+
+    #fonctionnement img {
+    width: 150px;
+    height: 150px;
+    }
+
 
 .slideshow {
     background-image: url("../img/slideshow1.jpg");
     background-size: cover;
     width: 100%;
     height: 73vh;
+}
+
+.etape1, .etape2, .etape3 {
+    text-align:center;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+
+
+}
+
+.number {
+    width: 35px;
+    height: 35px;
+    margin: auto;
+    font-size: 35px;
+    color: #5271FF;
+    margin-bottom: 25px;
+
+}
+
+i {
+    color: #5271FF;
+}
+
+.btn {
+    background-color: #5271FF;
+    color: white;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 20px;
 }
