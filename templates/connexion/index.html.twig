@@ -5,7 +5,7 @@
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ asset('assets/css/connexionStyle.css') }} ">
 {% endblock %}
-{# {% block header %}{% endblock %} #}
+{% block header %}{% endblock %}
 {% block body %}
 <style>
 
@@ -13,12 +13,13 @@
 
 <section class="container m-auto" id="base" >
 
-    <img src="assets/img/logo.png" alt="logo" class="mt-2">
-
     <div class="ajust m-auto">
+
+        <a class="p-2" href="{{ path('accueil') }}"><img class="logo ml" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+
         <form class="p-4 mr-auto w--d bgc-form shadow" action="#form-create" method="POST">
     
-            <h3>connexion</h3>
+            <h3 class="text-center">connexion</h3>
 
             <div class="form-group">
                 <label for="email"></label>
@@ -28,14 +29,15 @@
             <div class="form-group">
                 <label for="exampleInputPassword1"></label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="mot de passe">
-            </div>
+            </div><br>
     
             <button type="submit" class="btn btn-color shadow btn-lg btn-block">se conneter</button>
             <input type="hidden" name="formIdentifiant" value="">
     
         </form><br>
+        <img src="assets/img/image-inscription2.png" class="mt-2" alt="illustration">
     </div>
-    <img src="assets/img/image-inscription2.png" alt="illustration" class="mt-2">
+    
 </section>
 
 {% endblock %}
