@@ -1,3 +1,4 @@
+
 h1 {
     color:blue;
     font-family: 'Coiny', cursive !important;
@@ -13,3 +14,8 @@ header img {
     margin-right: auto;
 
 }
+
+.description img {
+    width: 150px;
+    height: 80px;
+    }
