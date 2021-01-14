@@ -18,14 +18,29 @@ div form.bgc-form{
 }
 
 h3 {
+    font-weight: bold;
     color: white;
 }
 
 form.w--d{
-    max-width: 60%;
+    max-width: 80%;
     margin-left: 10%;
 }
 #base{
     margin: 0 auto;
     width: max-content;
 }
+
+form{
+    border-radius: 3%;
+}
+
+img.mt-2.c--img {
+    width: 90%;
+}
+
+div img.ml{
+    margin-left: 45px;
+}
+
+screen
