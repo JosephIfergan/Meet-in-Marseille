@@ -22,10 +22,14 @@ h3 {
 }
 
 form.w--d{
-    max-width: 60%;
+    max-width: 70%;
     margin-left: 10%;
 }
 #base{
     margin: 0 auto;
     width: max-content;
+}
+
+form{
+    border-radius: 3%;
 }
