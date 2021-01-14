@@ -142,7 +142,6 @@
             "branch": "master",
             "version": "1.0",
             "ref": "71599f5b0fdeeeec0fb90e9b17c85e6f5e1350c1"
-<<<<<<< HEAD
         },
         "files": [
             "public/.htaccess"
@@ -153,10 +152,13 @@
         "files": [
             "./public/.htaccess"
         ]
+<<<<<<< HEAD
 =======
         }
 >>>>>>> 4f290e1dc4fb9b916ae2b3d637a2df36965e0ff2
 >>>>>>> 0fb6c26fcf5ad0fe29c27615c91edfebf0bcfefe
+=======
+>>>>>>> 11108c6d1e5049c812d32dd44ac93a384042df76
     },
     "symfony/asset": {
         "version": "v5.2.1"
