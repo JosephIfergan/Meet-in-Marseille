@@ -9,9 +9,11 @@ h2 {
     font-family: 'Coiny', cursive !important;
 }
 
+
+
 header img {
     width: 150px;
-    height: 80px;
+    height: 7vh;
 }
 
 .navlogo {
@@ -20,15 +22,26 @@ header img {
 
 }
 .description img {
-    width: 150px;
-    height: 80px;
+    width: 120px;
+    height: 50px;
     }
 
 .description {
+        font-family: 'Baloo Thambi 2', cursive;
+        font-weight: 400;
         background-color: #5271FF;
+        color: white;
         width: 100%;
+        height: 20vh;
     }
 
 .ccm {
       background-color:  #38B6FF;
     }
+
+.slideshow {
+    background-image: url("../img/slideshow1.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 73vh;
+}
