@@ -14,8 +14,12 @@ header img {
     margin-right: auto;
 
 }
-
 .description img {
     width: 150px;
     height: 80px;
+    }
+
+    .description {
+        background-color: #5271FF;
+        width: 100%;
     }
