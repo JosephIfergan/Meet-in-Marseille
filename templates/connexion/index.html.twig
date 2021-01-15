@@ -6,27 +6,24 @@
 <link rel="stylesheet" href="{{ asset('assets/css/connexionStyle.css') }} ">
 {% endblock %}
 
-{% block header %}
-<nav class="d-flex flex-row justify-content-end">
-                <a class="button-inscription btn p-4 mr-5 align-self-center nav-link m-2" href="{{ path('inscription') }}">S'inscrire !</a>
-                <a class="ccf p-2 pr-5 align-self-center m-2" href="#">Comment ça fonctionne ?</a>
+{% block header %} 
+ <header>
+            <nav class="d-flex flex-row justify-content-center">
+                <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+                <a class="button-inscription btn p-4 align-self-center nav-link m-2 mr-5 " href="{{ path('inscription') }}">S'inscrire !</a>
+                <a class="button-connexion btn p-2 align-self-center m-2 mr-5" href="#">Meeting en cours</a>
             </nav>
-{% endblock %}
+</header>
+ {% endblock %}
 
 {% block body %}
-<style>
-
-</style>
-
-<section class="container m-auto" id="base" >
+<section id="base" >
 
     <div class="ajust m-auto">
 
-        <a class="p-2" href="{{ path('accueil') }}"><img class="logo ml" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-
         <form class="p-4 mr-auto w--d bgc-form shadow" action="#form-create" method="POST">
     
-            <h3 class="text-center">connexion</h3>
+            <h3 class="text-center">Connexion</h3>
 
             <div class="form-group">
                 <label for="email"></label>

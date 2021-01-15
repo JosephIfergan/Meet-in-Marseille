@@ -9,16 +9,18 @@
 
 {% endblock %}
 
-{% block header %}
-	<header>
-		<nav class="d-flex flex-row justify-content-end">
-			<a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-			<a class="p-2" href="{{ path('inscription') }}">S'inscrire !</a>
-			<a class="p-2" href="{{ path('connexion') }}">Se connecter</a>
-			<a class="p-2" href="#fonctionnement">Comment ça fonctionne ?</a>
-		</nav>
-	</header>
-{% endblock %}
+
+ {% block header %}
+    <header>
+            <nav class="d-flex flex-row justify-content-end">
+                <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+                <a class="button-inscription btn p-4 align-self-center nav-link m-2 " href="{{ path('inscription') }}">S'inscrire !</a>
+                <a class="button-connexion btn p-2 align-self-center m-2 " href="{{ path('connexion') }}">Se connecter</a>
+                <a class="ccf p-2 pr-5 align-self-center m-2" href="#fonctionnement">Comment ça fonctionne ?</a>
+            </nav>
+        </header>
+    {% endblock %}
+
 
 {% block body %}
 
@@ -59,7 +61,7 @@
 
 
 			</div>
-			<i class="fas fa-long-arrow-alt-right mt-auto mb-auto fa-10x"></i>
+			<i class="fas fa-long-arrow-alt-right mt-auto mb-auto fa-10x "></i>
 			<div class="etape3">
 				<p class="number">&#9314;</p>
 				<a class="btn" href="#">Je rencontre les utilisateurs !</a>

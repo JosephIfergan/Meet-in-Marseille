@@ -3,6 +3,7 @@
     font-family: 'Baloo Thambi 2', cursive ;
 }
 
+
 h1{
     color: black;
 }
@@ -22,14 +23,31 @@ h3 {
     color: white;
 }
 
+header img {
+    width: 150px;
+    height: auto;
+}
+
+.navlogo {
+    margin-left: 10px;
+    margin-right: auto;
+
+}
+
 form.w--d{
     max-width: 80%;
     margin-left: 10%;
 }
-#base{
-    margin: 0 auto;
+
+#base {
+    margin: 100px auto 0 auto;
     width: max-content;
+    background-image: url("../img/background1.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
 }
+
 
 form{
     border-radius: 3%;
@@ -57,9 +75,23 @@ div img.ml{
   
   .ccf:hover {
     text-decoration: none;
-    color:#5abffa;
+    color:#13dcfb;
   }
-
+  
+  .button-connexion {
+    background-color: #5abffa;
+    color: white;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    height: 60px;
+    width: 300px;
+    margin-bottom: 20px;
+    align-items: center; /* changer sa*/
+    justify-content: center; 
+  }
+  
   .button-inscription {
     background-color: #5271FF;
     color: white;
@@ -67,30 +99,18 @@ div img.ml{
     font-weight: bold;
     font-size: 20px;
     display: flex;
-    width: 200px;
+    width: 300px;
     height: 60px;
     margin-bottom: 20px;
     align-items: center; /* changer sa*/
     justify-content: center; 
   }  
-
-/* STYLE EVENEMENT */
-
-form.wd-e{
-    max-width: 100%;
-    /* margin-left: 10%; */
-}
-div form.bgc-form-e{
-    background-color:#373737;
-}
-.btn-color-e{
-    background-color:  #454444;
+  
+  .button-connexion:hover {
+    background-color: #13dcfb;
     color: white;
-    text-decoration: none;
-}
-.hr-color-e{
-    background-color:  #918f8f;
-}
+  }
+
   .button-inscription:hover {
     background-color: #13dcfb;
     color: white;
