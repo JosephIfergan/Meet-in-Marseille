@@ -92,3 +92,24 @@ i {
     align-items: center; /* changer sa*/
     justify-content: center; /* changer sa*/
 }
+
+nav .btn {
+    background-color: #5abffa;
+    color: white;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    height: 60px;
+}
+
+nav .btn:hover {
+    background-color: #5271FF ;
+    color:#5abffa;
+  }
+
+  .btn:hover {
+    background-color:#33e0ff ;
+    color: #5271FF;
+  }
+  

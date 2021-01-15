@@ -12,9 +12,9 @@
     <header>
             <nav class="d-flex flex-row justify-content-end">
                 <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-                <a class="p-2 align-self-center" href="{{ path('inscription') }}">S'inscrire !</a>
-                <a class="p-2 align-self-center" href="{{ path('connexion') }}">Se connecter</a>
-                <a class="p-2 align-self-center" href="#fonctionnement">Comment ça fonctionne ?</a>
+                <a class="btn p-2 align-self-center nav-link m-2" href="{{ path('inscription') }}">S'inscrire !</a>
+                <a class="btn p-2 align-self-center m-2" href="{{ path('connexion') }}">Se connecter</a>
+                <a class="btn p-2 align-self-center m-2" href="#fonctionnement">Comment ça fonctionne ?</a>
             </nav>
         </header>
     {% endblock %}
@@ -69,5 +69,6 @@
 </div>
 </div>
 </section>
+<div class="background-scrolltop"><img class="scrollTop" src="assets/img/iconescrolltop.png" alt=""></div>
 
 {% endblock %}

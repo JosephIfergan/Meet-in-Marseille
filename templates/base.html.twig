@@ -28,11 +28,11 @@
 
     {% block header %}
     <header>
-            <nav class="d-flex flex-row justify-content-end">
+            <nav class="d-flex flex-row justify-content-end ">
                 <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
                 <a class="p-2" href="{{ path('inscription') }}">S'inscrire !</a>
                 <a class="p-2" href="{{ path('connexion') }}">Se connecter</a>
-                <a class="p-2" href="">Comment ça fonctionne ?</a>
+                <a class="p-2" href="#">Comment ça fonctionne ?</a>
             </nav>
         </header>
     {% endblock %}
@@ -43,7 +43,6 @@
             CONTENU PAR DEFAUT
         {% endblock %}
 
-        <div class="background-scrolltop"><img class="scrollTop" src="assets/img/iconescrolltop.png" alt=""></div>
 <footer id="footer">
     <p class="text-center">&copy; Réalisé par ... | 2021</p>
 </footer>
