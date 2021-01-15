@@ -5,7 +5,14 @@
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ asset('assets/css/connexionStyle.css') }} ">
 {% endblock %}
-{% block header %}{% endblock %}
+
+{% block header %}
+<nav class="d-flex flex-row justify-content-end">
+                <a class="button-inscription btn p-4 mr-5 align-self-center nav-link m-2" href="{{ path('inscription') }}">S'inscrire !</a>
+                <a class="ccf p-2 pr-5 align-self-center m-2" href="#">Comment ça fonctionne ?</a>
+            </nav>
+{% endblock %}
+
 {% block body %}
 <style>
 

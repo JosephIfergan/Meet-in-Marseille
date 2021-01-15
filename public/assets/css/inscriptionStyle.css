@@ -76,3 +76,37 @@ img{
 .display-6{
     font-size: 1.3rem;
 }
+
+
+.ccf {
+    color: #5271FF;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .ccf:hover {
+    text-decoration: none;
+    color:#5abffa;
+  }
+
+  .button-connexion {
+    background-color: #5abffa;
+    color: white;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    height: 60px;
+    width: 300px;
+    margin-bottom: 20px;
+    align-items: center; /* changer sa*/
+    justify-content: center; 
+  }
+  
+  .button-connexion:hover {
+    background-color: #13dcfb;
+    color: white;
+  }
+  
+  
