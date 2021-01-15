@@ -12,9 +12,8 @@ h2 {
 
 
 header img {
-    width: 300px;
+    width: 150px;
     height: auto;
-
 }
 
 .navlogo {
@@ -62,9 +61,6 @@ header img {
     font-size: 20px;
     color: white;
     width: 20%; /* changer sa */
-
-
-
 }
 
 .number {

@@ -51,7 +51,7 @@ div img.ml{
   
   .ccf:hover {
     text-decoration: none;
-    color:#5abffa;
+    color:#13dcfb;
   }
 
   .button-inscription {
@@ -67,6 +67,7 @@ div img.ml{
     align-items: center; /* changer sa*/
     justify-content: center; 
   }  
+
 
   .button-inscription:hover {
     background-color: #13dcfb;
