@@ -3,7 +3,8 @@ h1{
     font-family: 'Coiny', cursive !important;
 }
 header{
-    height:10vh;
+    height: 10vh;
+    position: absolute;
 }
 header img {
     width: 150px;
