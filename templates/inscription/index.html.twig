@@ -9,10 +9,19 @@
 
 {% block title %}Hello InscriptionController!{% endblock %}
 
+ {% block header %}
+    <header>
+            <nav class="d-flex flex-row justify-content-end">
+                <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+                <a class="button-connexion btn p-2 mr-5 align-self-center m-2" href="{{ path('connexion') }}">Se connecter</a>
+                <a class="ccf p-2 pr-5 align-self-center m-2" href="#">Comment ça fonctionne ?</a>
+            </nav>
+        </header>
+    {% endblock %}
+
 {% block body %}
 
-<body>
-  <h1 class="color-1 text-uppercase text-center display-3 font-weight-bold">rejoins-nous !</h1>
+  <h1 class="color-1 text-uppercase mt-5 text-center display-3 font-weight-bold">Rejoins-nous !</h1>
   <div id="base">
 
     <div class="d-flex flex-row">
@@ -79,7 +88,7 @@
       <label>
         <input type="password" name="motDePasse" required placeholder="Mot de passe" maxlength="160">
       </label>
-      <button type="submit">CREER VOTRE COMPTE</button>
+      <button type="submit" class="btn btn-primary">Créer mon compte !</button>
       <!-- PARTIE TECHNIQUE -->
       <input type="hidden" name="formIdentifiant" value="user">
       <div>
