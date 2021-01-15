@@ -38,7 +38,8 @@ form.w--d{
     max-width: 80%;
     margin-left: 10%;
 }
-#base{
+
+#base {
     margin: 100px auto 0 auto;
     width: max-content;
     background-image: url("../img/background1.jpg");
@@ -109,7 +110,7 @@ div img.ml{
     background-color: #13dcfb;
     color: white;
   }
-  
+
   .button-inscription:hover {
     background-color: #13dcfb;
     color: white;
