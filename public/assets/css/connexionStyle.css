@@ -50,6 +50,7 @@ form.w--d{
 
 form{
     border-radius: 3%;
+    color: white;
 }
 
 img.mt-2.c--img {
@@ -58,6 +59,11 @@ img.mt-2.c--img {
 
 div img.ml{
     margin-left: 45px;
+    margin-bottom: 4%;
+    margin-top: 3%;
+}
+.cache{
+    display: none;
 }
 .ccf {
     color: #5271FF;
@@ -98,12 +104,33 @@ div img.ml{
     align-items: center; /* changer sa*/
     justify-content: center; 
   }  
+<<<<<<< HEAD
   
   .button-connexion:hover {
     background-color: #13dcfb;
     color: white;
   }
   
+=======
+
+/* STYLE EVENEMENT */
+
+form.wd-e{
+    max-width: 100%;
+    /* margin-left: 10%; */
+}
+div form.bgc-form-e{
+    background-color:#373737;
+}
+.btn-color-e{
+    background-color:  #454444;
+    color: white;
+    text-decoration: none;
+}
+.hr-color-e{
+    background-color:  #918f8f;
+}
+>>>>>>> 9f46ba7bec1941865d1fad217e9d7b436dbbea53
   .button-inscription:hover {
     background-color: #13dcfb;
     color: white;

@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!{% endblock %}
+{% block title %}Hello AccueilController!
+{% endblock %}
 
-        {% block stylesheets %}
-        <!-- MON CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/css/AccueilStyle.css') }} ">
+{% block stylesheets %}
+	<!-- MON CSS -->
+	<link rel="stylesheet" href="{{ asset('assets/css/AccueilStyle.css') }} ">
 
-       {% endblock %}
+{% endblock %}
 
+<<<<<<< HEAD
  {% block header %}
     <header>
             <nav class="d-flex flex-row justify-content-end">
@@ -18,57 +20,70 @@
             </nav>
         </header>
     {% endblock %}
+=======
+{% block header %}
+	<header>
+		<nav class="d-flex flex-row justify-content-end">
+			<a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+			<a class="p-2" href="{{ path('inscription') }}">S'inscrire !</a>
+			<a class="p-2" href="{{ path('connexion') }}">Se connecter</a>
+			<a class="p-2" href="#fonctionnement">Comment ça fonctionne ?</a>
+		</nav>
+	</header>
+{% endblock %}
+>>>>>>> 9f46ba7bec1941865d1fad217e9d7b436dbbea53
 
 {% block body %}
 
-<div class="slideshow">
+	<div
+		class="slideshow"><!-- SLIDERS JS ICI -->
 
- <!-- SLIDERS JS ICI -->
-
-</div>
- <!-- DESCRIPTION RAPIDE ICI -->
-<div class="description d-flex flex-row container-fluid justify-content-center">
-<img class="mt-" src="assets/img/logodescription.png" alt="MeetInMarseille">
-<div class="mt-5 align-self-center">
-<p class="ml-2 ">est la première plateforme en ligne vous permettant de partager votre temps, vos passions, hobbies et sorties avec les autres.</p>
-<p class="text-center">C'est simple, rapide et gratuit.</p>
-</div>
-</div>
-
+	</div>
+	<!-- DESCRIPTION RAPIDE ICI -->
+	<div class="description d-flex flex-row container-fluid justify-content-center">
+		<img src="assets/img/logodescription.png" alt="MeetInMarseille">
+		<div class="mt-5">
+			<p class="ml-2">est la première plateforme en ligne vous permettant de partager votre temps, vos passions, hobbies et sorties avec les autres.</p>
+			<p class="text-center">C'est simple, rapide et gratuit.</p>
+		</div>
+	</div>
 
 
-
- <!-- COMMENT ÇA MARCHE ? -->
-
-
-<section id="fonctionnement">
-<h2 class="text-center p-2">Comment ça marche ?</h2>
-<div class="ccm d-flex flex-row justify-content-around">
-<div class="etape1">
-<p class="number">&#9312;</p>
-<a class="btn" href="{{ path('inscription') }}">Je m'inscris</a>
-<img src="assets/img/logo1.png" alt="etape1">
-</div>
-
-<i class="fas fa-long-arrow-alt-right mt-auto mb-auto fa-10x"></i>
-
-<div class="etape2">
-<p class="number">&#9313;</p>
-<a class="btn" href="#">Je crée un Meeting</a>
-<p>OU</p>
-<a class="btn" href="#">Je rejoins un Meeting</a>
-<img src="assets/img/logo4.png" alt="etape2">
+	<!-- COMMENT ÇA MARCHE ? -->
 
 
-</div>
-<i class="fas fa-long-arrow-alt-right mt-auto mb-auto fa-10x"></i>
-<div class="etape3">
-<p class="number">&#9314;</p>
-<a class="btn" href="#">Je rencontre les utilisateurs !</a>
-<img src="assets/img/logo3.png" alt="etape3">
-</div>
-</div>
-</section>
-<div class="background-scrolltop"><img class="scrollTop" src="assets/img/iconescrolltop.png" alt=""></div>
+	<section id="fonctionnement">
+		<h2 class="text-center p-2">Comment ça marche ?</h2>
+		<div class="ccm d-flex flex-row justify-content-around">
+			<div class="etape1">
+				<p class="number">&#9312;</p>
+				<a class="btn" href="{{ path('inscription') }}">Je m'inscris</a>
+				<img src="assets/img/logo1.png" alt="etape1">
+			</div>
 
+			<i class="fas fa-long-arrow-alt-right mt-auto mb-auto fa-10x"></i>
+
+			<div class="etape2">
+				<p class="number">&#9313;</p>
+				<a class="btn" href="#">Je crée un Meeting</a>
+				<p>OU</p>
+				<a class="btn" href="#">Je rejoins un Meeting</a>
+				<img src="assets/img/logo4.png" alt="etape2">
+
+
+			</div>
+			<i class="fas fa-long-arrow-alt-right mt-auto mb-auto fa-10x"></i>
+			<div class="etape3">
+				<p class="number">&#9314;</p>
+				<a class="btn" href="#">Je rencontre les utilisateurs !</a>
+				<img src="assets/img/logo3.png" alt="etape3">
+			</div>
+		</div>
+	</section>
+
+
+	<div class="example-wrapper">
+		<h1>Hello
+			{{ controller_name }}! ✅</h1>
+	</div>
 {% endblock %}
