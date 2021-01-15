@@ -2,7 +2,9 @@ h1{
     color:red;
     font-family: 'Coiny', cursive !important;
 }
-
+header{
+    height:10vh;
+}
 header img {
     width: 150px;
     height: 80px;
@@ -12,4 +14,22 @@ header img {
     margin-left: 10px;
     margin-right: auto;
 
+}
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: #5271FF;
+}
+.scrollTop{
+    position: relative;
+    display: flex;
+    bottom: -30px;
+    background-color: transparent;
+    margin-right: 20px;
+    margin-left: auto;
+    animation: all 1s ease-in-out 0s;
+    cursor: pointer;
+}
+.background-scrolltop{
+    background-color: #38B6FF;
 }

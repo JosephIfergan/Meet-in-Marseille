@@ -12,9 +12,9 @@
     <header>
             <nav class="d-flex flex-row justify-content-end">
                 <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-                <a class="p-2" href="{{ path('inscription') }}">S'inscrire !</a>
-                <a class="p-2" href="{{ path('connexion') }}">Se connecter</a>
-                <a class="p-2" href="#fonctionnement">Comment ça fonctionne ?</a>
+                <a class="p-2 align-self-center" href="{{ path('inscription') }}">S'inscrire !</a>
+                <a class="p-2 align-self-center" href="{{ path('connexion') }}">Se connecter</a>
+                <a class="p-2 align-self-center" href="#fonctionnement">Comment ça fonctionne ?</a>
             </nav>
         </header>
     {% endblock %}
@@ -28,9 +28,9 @@
 </div>
  <!-- DESCRIPTION RAPIDE ICI -->
 <div class="description d-flex flex-row container-fluid justify-content-center">
-<img src="assets/img/logodescription.png" alt="MeetInMarseille">
-<div class="mt-5">
-<p class="ml-2">est la première plateforme en ligne vous permettant de partager votre temps, vos passions, hobbies et sorties avec les autres.</p>
+<img class="mt-2" src="assets/img/logodescription.png" alt="MeetInMarseille">
+<div class="mt-5 align-self-center">
+<p class="ml-2 ">est la première plateforme en ligne vous permettant de partager votre temps, vos passions, hobbies et sorties avec les autres.</p>
 <p class="text-center">C'est simple, rapide et gratuit.</p>
 </div>
 </div>
@@ -70,8 +70,4 @@
 </div>
 </section>
 
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-</div>
 {% endblock %}
