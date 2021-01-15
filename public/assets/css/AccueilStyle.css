@@ -80,53 +80,71 @@ i {
     color: #5271FF;
 }
 
-
-  .ccf {
-    color: #5271FF;
-    font-family: 'Baloo Thambi 2', cursive;
-    font-weight: bold;
-    font-size: 20px;
-  }
-  
-  .ccf:hover {
-    text-decoration: none;
-    color:#5abffa;
-  }
-
-  .button-connexion {
-    background-color: #5abffa;
-    color: white;
-    font-family: 'Baloo Thambi 2', cursive;
-    font-weight: bold;
-    font-size: 20px;
-    display: flex;
-    height: 60px;
-    width: 300px;
-    margin-bottom: 20px;
-    align-items: center; /* changer sa*/
-    justify-content: center; 
-  }
-
-  .button-inscription {
+.btn {
     background-color: #5271FF;
     color: white;
     font-family: 'Baloo Thambi 2', cursive;
     font-weight: bold;
     font-size: 20px;
     display: flex;
-    width: 300px;
-    height: 60px;
     margin-bottom: 20px;
-    align-items: center; /* changer sa*/
+    height: 70px;
+    align-items: center;
     justify-content: center; 
-  }  
-  
-  .button-connexion:hover {
-    background-color: #13dcfb;
-    color: white;
-  }
-  
-  .button-inscription:hover {
-    background-color: #13dcfb;
-    color: white;
-  }
+}
+
+.btn:hover {
+  background-color: #13dcfb;
+  color: white;
+}
+
+
+.ccf {
+  color: #5271FF;
+  font-family: 'Baloo Thambi 2', cursive;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.ccf:hover {
+  text-decoration: none;
+  color:#5abffa;
+}
+
+.button-connexion {
+  background-color: #5abffa;
+  color: white;
+  font-family: 'Baloo Thambi 2', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  height: 60px;
+  width: 300px;
+  margin-bottom: 20px;
+  align-items: center; /* changer sa*/
+  justify-content: center; 
+}
+
+.button-inscription {
+  background-color: #5271FF;
+  color: white;
+  font-family: 'Baloo Thambi 2', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  width: 300px;
+  height: 60px;
+  margin-bottom: 20px;
+  align-items: center; /* changer sa*/
+  justify-content: center; 
+}  
+
+.button-connexion:hover {
+  background-color: #13dcfb;
+  color: white;
+}
+
+.button-inscription:hover {
+  background-color: #13dcfb;
+  color: white;
+}
