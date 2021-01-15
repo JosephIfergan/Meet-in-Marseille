@@ -3,6 +3,7 @@
     font-family: 'Baloo Thambi 2', cursive !important;
 }
 
+
 h1{
     color: black;
 }
@@ -40,7 +41,12 @@ form.w--d{
 #base{
     margin: 100px auto 0 auto;
     width: max-content;
+    background-image: url("../img/background1.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
 }
+
 
 form{
     border-radius: 3%;
