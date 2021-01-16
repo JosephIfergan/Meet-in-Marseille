@@ -1,123 +1,196 @@
 * {
     box-sizing: border-box;
-    font-family: 'Baloo Thambi 2', cursive !important;
+    font-family: 'Baloo Thambi 2', cursive;
 }
 
 h1{
-    font-family: 'Coiny', cursive !important;
+    font-family: 'Nunito', sans-serif !important;
+    margin: 0;
 }
-header img {
-    width: 150px;
-    height: auto;
+
+/* HEADER */
+
+.icone-fire{
+    width: 30px;
+}
+
+/* HEADER MOBILE */
+.navbar-toggle{
+    color: white;
+    border: 1.5px solid #5abffa;
+    background-color: #5271ff;
+    width: 40px;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.logo-mobile{
+    width: 120px;
+}
+
+/* BODY */
+.background-inscription{
+    background-image: url("../img/bg-smoke.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 80vh;
+    margin-bottom: 10vh;
+}
+
+#base_inscription{
+    margin-top: 15vh;
+}
+.formulaire-inscription{
+    border: 1px solid #5271ff;
+    background-color: #5271ff;
+    opacity: 0.85;
+    padding:30px 10px;
+    border-radius: 10px;
+    width: 30%;
+    margin: 30px auto ;
 }
 
 label> input{
-    width: 100%;
-    /* width: 60%; */
+    width: 70%;
     border: none;
-    border-bottom: 1.5px solid #5271ff;
-    color: #5271fe;
-    margin-bottom: 1rem;
+    margin: 0 15% 1rem 15%;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px black;
+    text-align: center;
+    cursor: pointer;
+    -moz-appearance: textfield; /* MOZILLA ENLEVER FLECHE SUR INPUT TYPE NUMBER*/
+    /* -webkit-appearance: none; */ /*CHROME*/
+    -o-appearance: none; /*OPERA*/
 }
 form > button{
-    width:50%;
-    margin: auto !important;
-    border-radius: 10px;
-    background-color: #5271FF;
-    /* opacity: 0.9; */
-    color: white;
-    cursor: pointer;
+    box-shadow: 1px 1px 3px black;
 }
 
-.button-connexion, .button-meeting{
-    background-color: #5abffa;
-    color: white;
-    font-family: 'Baloo Thambi 2', cursive;
-    font-weight: bold;
-    font-size: 20px;
-    display: flex;
-    height: 60px;
-    width: 300px;
-    margin-bottom: 20px;
-    align-items: center; /* changer sa*/
-    justify-content: center; 
-  }
-  
-  .button-meeting {
-    background-color: #5271FF;
-  }  
-
-.m-autol{
-    margin: 0 auto;
-}
-img{
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-}
 /* COLOR */
 
 .color-1{
     color:  #5271ff;
 }
 .color-2{
-    color:  #37b6ff;
+    color:  #5abffa;
 }
 .color-3{
     color: #fe66c3;
 }
 
-#base{
-    margin: 0 auto;
-    width: max-content;
-}
 /* STYLE */
 
 .display-5{
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 .display-6{
     font-size: 1.3rem;
 }
 
+/* KEYFRAMES */
 
-/* header img {
-    width: 120px;
-    height: auto;
-} */
+@keyframes pulse1 { /* POUR PULSER COMMENT CA FONCTIONNE HOVER */
+    0% {
+        transform: scale(1, 1);
+    }
 
-.ccf {
+    50% {
+        transform: scale(1.05, 1.05);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+/*mettre sa dans style.css*/
+
+footer{
+    height: 10vh !important; /*mettre dans style.css*/
+}
+
+.ccf { /*mettre sa dans style.css*/
     color: #5271FF;
     font-family: 'Baloo Thambi 2', cursive;
     font-weight: bold;
     font-size: 20px;
-  }
+}
   
-  .ccf:hover {
+.ccf:hover { /*mettre sa dans style.css*/
     text-decoration: none;
     color:#5abffa;
-  }
+    animation: pulse1 0.7s infinite;
+}
 
-  .button-connexion {
+
+  
+.button-connexion:hover, .button-meeting:hover, .button-inscription:hover { /*mettre sa dans style.css*/
+    background-color: #13dcfb;
+    color: white;
+}
+  
+.button-connexion, .button-meeting, .button-inscription{ /*mettre sa dans style.css*/
     background-color: #5abffa;
     color: white;
     font-family: 'Baloo Thambi 2', cursive;
     font-weight: bold;
     font-size: 20px;
     display: flex;
-    height: 60px;
-    width: 300px;
-    margin-bottom: 20px;
-    align-items: center; /* changer sa*/
-    justify-content: center; 
-  }
+    max-height: 35px;
+    max-width: 300px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 3px black;
+}
   
-  .button-connexion:hover {
-    background-color: #13dcfb;
-    color: white;
-  }
-  
-#separation {
-border: 1px solid #5271ff;
-  }
-  
+.button-meeting { /*mettre sa dans style.css*/
+    background-color: #5271FF;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 768px) { /*POUR MODIFIER FORMULAIRE INSCRIPTION MOBILE*/
+    h1{
+        font-size: 40px !important;
+    }
+    #base_inscription{
+        margin-top: 5vh;
+    }
+    .formulaire-inscription{
+        width: 60%;
+        margin: 10px auto;
+        padding: 20px 10px;
+    }
+    .bottom-mobile{
+        margin-bottom: 7px;
+    }
+    .formulaire-inscription div div:first-of-type label{
+        margin-right: 6px !important;
+        margin-bottom: 5px;
+    }
+    form label input{
+        width: 90%;
+        margin: 0 5% 1rem 5%;
+    }
+}
+@media screen and (max-width: 854px) { /*POUR MODIFIER BOUTTON HEADER POUR TABLETTE*/
+    .button-connexion, .button-meeting{
+        line-height: 0.9;
+        font-size: 18px;
+    }
+    .ccf {
+        font-size: 18px;
+        padding-right: 5px !important;
+      }
+}
+@media screen and (min-width : 769px) and (max-width: 1262px) { /* A VOIR SI ON GARDE*/
+    .formulaire-inscription{                                    /*POUR QUE HOMME ET FEMME NE SE CHEVAUCHENT PAS*/
+        width: 40%;
+    }
+}
+
