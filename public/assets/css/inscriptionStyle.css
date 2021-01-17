@@ -6,6 +6,7 @@
 h1{
     font-family: 'Nunito', sans-serif !important;
     margin: 0;
+    transition: 3s; /* TEMPS POUR PASSER DE 0 A 1 EN OPACITE*/
 }
 
 /* HEADER */
@@ -89,6 +90,9 @@ form > button{
 }
 .display-6{
     font-size: 1.3rem;
+}
+.opacity-0{
+    opacity: 0 !important;
 }
 
 /* KEYFRAMES */

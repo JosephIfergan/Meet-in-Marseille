@@ -22,14 +22,6 @@ var compteur = 0;
 
     var scrollTop = $(".scrollTop");
 
-// REMONTER EN HAUT DE PAGE AVEC FLECHE PAGE ACCUEIL
-$(scrollTop).click(function() {
-  $('html, body').animate({
-    scrollTop: 0
-  }, 1400);
-  return false;
-});
-
 // CHANGER LE HEADER POUR MOBILE
 let headerPc= document.querySelector('.header-pc');
 let headerMobile= document.querySelector('.header-mobile');
@@ -47,6 +39,19 @@ let iconeHamburger2 = document.querySelector('.fa-times-circle');
 buttonHamburger.addEventListener('click', function () {
     iconeHamburger1.classList.toggle("d-none");
     iconeHamburger2.classList.toggle("d-none");
+});
+
+// FAIRE APPARAITRE DOUCEMENT LE TITRE PAGE INSCRIPTION
+var titreInscription = document.querySelector('.opacity-0');
+
+titreInscription.classList.remove('opacity-0');
+
+// REMONTER EN HAUT DE PAGE AVEC FLECHE PAGE ACCUEIL (EN JQUERY)
+$(scrollTop).click(function() {
+  $('html, body').animate({
+    scrollTop: 0
+  }, 1400);
+  return false;
 });
 
 
