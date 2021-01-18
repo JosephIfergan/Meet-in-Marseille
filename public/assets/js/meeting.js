@@ -1,11 +1,11 @@
 var marseille = [43.3, 5.4];
 
-var mymap = L.map('mapid').setView(marseille, 13);
+var myMap = L.map('mapid').setView(marseille, 13);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-	maxZoom: 20,
-}).addTo(mymap);
+  maxZoom: 20,
+}).addTo(myMap);
 
-var marker = L.marker(marseille).addTo(mymap);
+var marker = L.marker(marseille).addTo(myMap);
 
 marker.bindPopup('<h4>Marseille</h4>');
 
