@@ -26,7 +26,6 @@ position: absolute;
   }
 
 .description {
-<<<<<<< HEAD
         font-family: 'Baloo Thambi 2', cursive;
         font-weight: bold;
         background-color: #5271FF;
@@ -34,15 +33,6 @@ position: absolute;
         width: 100%;
         min-height: 20vh;
     }
-=======
-      font-family: 'Baloo Thambi 2', cursive;
-      font-weight: bold;
-      background-color: #5271FF;
-      color: white;
-      width: 100%;
-      min-height: 20vh;
-  }
->>>>>>> 3b6d1bfe51f53a02c08d9c25f19cde3d92c57703
 
   #fonctionnement {
       background-color:  #38B6FF;
