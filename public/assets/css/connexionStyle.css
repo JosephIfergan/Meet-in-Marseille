@@ -57,36 +57,6 @@ img.jc {
     margin: 0 29% 2%;
 }
 
-/* FORM CREE EVENEMENT */
-
-.form-e {
-    background-color: #373737;
-    margin-top: 10%;
-    max-width: 55%;
-}
-
-.btn-color-e{
-    background-color:#454444;
-    color: white;
-}
-
-.card-header{
-    padding: 10px;
-
-}
-
-.card-pseudo{
-    font-weight: bold;
-    color: white;
-    font-size: 18px;
-    margin: 5px 0;
-}
-
-.card-date{
-    color: rgba(0,0,0,0.38);
-    font-size: 12px;
-}
-
 .cache{
     display: none;
 }
