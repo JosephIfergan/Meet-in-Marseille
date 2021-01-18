@@ -1,32 +1,32 @@
-
 h1 {
-    color:blue;
-    font-family: 'Coiny', cursive !important;
+  color:blue;
+  font-family: 'Coiny', cursive !important;
 }
 
 h2 {
-    color: white;
-    font-family: 'Coiny', cursive !important;
+  color: white;
+  font-family: 'Coiny', cursive !important;
 }
 
 
 header{
-  position: absolute;
+position: absolute;
 }
 
 
 
 .navlogo {
-    margin-left: 10px;
-    margin-right: auto;
+  margin-left: 10px;
+  margin-right: auto;
 
 }
 .description img {
-    width: 150px;
-    height: 80px;
-    }
+  width: 150px;
+  height: 80px;
+  }
 
 .description {
+<<<<<<< HEAD
         font-family: 'Baloo Thambi 2', cursive;
         font-weight: bold;
         background-color: #5271FF;
@@ -34,68 +34,75 @@ header{
         width: 100%;
         min-height: 20vh;
     }
+=======
+      font-family: 'Baloo Thambi 2', cursive;
+      font-weight: bold;
+      background-color: #5271FF;
+      color: white;
+      width: 100%;
+      min-height: 20vh;
+  }
+>>>>>>> 3b6d1bfe51f53a02c08d9c25f19cde3d92c57703
 
-    #fonctionnement {
-        background-color:  #38B6FF;
-        padding: 10px 80px;
-    }
+  #fonctionnement {
+      background-color:  #38B6FF;
+      padding: 10px 80px;
+  }
 
-    #fonctionnement img {
-    width: 150px;
-    height: 150px;
-    }
+  #fonctionnement img {
+  width: 150px;
+  height: 150px;
+  }
 
 
 .slideshow {
-    background-image: url("../img/slideshow1.jpg");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 80vh;
+  background-image: url("../img/slideshow1.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 80vh;
 }
 
 .etape1, .etape2, .etape3 {
-    text-align:center;
-    font-family: 'Baloo Thambi 2', cursive;
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    width: 20%; /* changer sa */
-}
-/* DERNIRE AJOUT POUR SECTION DESCRIPTION*/
-
-
-p{   /* ajouter sa*/
-  font-size: 18px;
+  text-align:center;
+  font-family: 'Baloo Thambi 2', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  width: 20%; 
 }
 
-.description div p:last-child{ /* ajouter sa*/ /* p=> CEST SIMPLE,RAPIDE ET GRATUIT soit centré*/
-  margin-right: 160px;
+
+p{  
+font-size: 18px;
+}
+
+.description div p:last-child{ 
+margin-right: 160px;
 }
 
 .description img {
-    width: 150px;
-    height: 80px;
-    margin-bottom: 40px;  /* ajouter sa*/
-    }
+  width: 150px;
+  height: 80px;
+  margin-bottom: 40px;  
+  }
 
 .description {
-        font-family: 'Baloo Thambi 2', cursive;
-        font-weight: bold;
-        background-color: #5271FF;
-        color: white;
-        width: 100%;
-        min-height: 20vh;  /* changer sa*/
-        padding: 5px 15px !important; /* changer sa*/
-        align-items: center !important; /* ajouter sa*/
-        line-height: 1 !important;
-    }
+      font-family: 'Baloo Thambi 2', cursive;
+      font-weight: bold;
+      background-color: #5271FF;
+      color: white;
+      width: 100%;
+      min-height: 20vh;  
+      padding: 5px 15px !important; 
+      align-items: center !important; 
+      line-height: 1 !important;
+  }
 
-/* DERNIRE AJOUT POUR SECTION FONCTIONNEMENT */
-.flex-fonctionnement{ /* AJOUTER SA*/
-  flex: 3 1 100px;
+
+.flex-fonctionnement{ 
+flex: 3 1 100px;
 }
-/* //////////////// */
 
 .number {
     width: 35px;
@@ -140,6 +147,8 @@ i {
 .ccf:hover {
   text-decoration: none;
   color:#13dcfb;
+  animation: pulse1 0.7s infinite;
+  -webkit-animation: pulse1 0.7s infinite;
 }
 
 .button-connexion {
@@ -159,7 +168,7 @@ i {
 
 .button-inscription {
   background-color: #5271FF;
-  color: white;
+  color: white !important;
   font-family: 'Baloo Thambi 2', cursive;
   font-weight: bold;
   font-size: 20px;
@@ -171,16 +180,40 @@ i {
   justify-content: center; 
 }  
 
+.button-meeting {
+
+  background-color:#13dcfb;
+  color: white;
+  font-family: 'Baloo Thambi 2', cursive;
+  font-weight: bold;
+  font-size: 40px;
+  display: flex;
+  width: 500px;
+  height: 70px;
+  margin-bottom: 20px;
+  align-items: center; 
+  justify-content: center; 
+
+}
+
+.button-meeting:hover {
+  background-color: #5271FF;
+  color: white;
+  animation: pulse1 0.7s infinite;
+}
+
+
 .button-connexion:hover {
   background-color: #13dcfb;
   color: white;
+  animation: pulse1 0.7s infinite;
 }
 
 .button-inscription:hover {
   background-color: #13dcfb;
   color: white;
+  animation: pulse1 0.7s infinite;
 }
-
 
 
 /* MEDIA QUERIES POUR SECTION DESCRIPTION */
@@ -200,9 +233,6 @@ i {
     margin-right: 0 !important;
   }
 }
-
-
-
 
 
 
