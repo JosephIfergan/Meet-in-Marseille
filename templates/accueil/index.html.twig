@@ -43,26 +43,22 @@
 
 	<section id="fonctionnement">
 		<h2 class="text-center p-2">Comment ça marche ?</h2>
-		<div class="ccm d-flex flex-row justify-content-around">
-			<div class="etape1">
+		<div class="ccm d-flex flex-row justify-content-around flex-wrap">
+			<div class="etape1 flex-fonctionnement">
 				<p class="number">&#9312;</p>
 				<a class="btn" href="{{ path('inscription') }}">Je m'inscris</a>
 				<img src="assets/img/logo1.png" alt="etape1">
 			</div>
-
-			<i class="fas fa-long-arrow-alt-right mt-auto mb-auto fa-10x"></i>
-
-			<div class="etape2">
+			<i class="fas fa-long-arrow-alt-right m-auto fa-10x d-flex justify-content-center flex-fonctionnement"></i>
+			<div class="etape2 flex-fonctionnement">
 				<p class="number">&#9313;</p>
 				<a class="btn" href="#">Je crée un Meeting</a>
 				<p>OU</p>
 				<a class="btn" href="#">Je rejoins un Meeting</a>
 				<img src="assets/img/logo4.png" alt="etape2">
-
-
 			</div>
-			<i class="fas fa-long-arrow-alt-right mt-auto mb-auto fa-10x "></i>
-			<div class="etape3">
+			<i class="fas fa-long-arrow-alt-right m-auto fa-10x d-flex justify-content-center flex-fonctionnement"></i>
+			<div class="etape3 flex-fonctionnement">
 				<p class="number">&#9314;</p>
 				<a class="btn" href="#">Je rencontre les utilisateurs !</a>
 				<img src="assets/img/logo3.png" alt="etape3">
@@ -70,9 +66,7 @@
 		</div>
 	</section>
 
-
-	<div class="example-wrapper">
-		<h1>Hello
-			{{ controller_name }}! ✅</h1>
-	</div>
+<div class="background-scrolltop">
+	<img class="scrollTop" src="assets/img/iconescrolltop.png" alt="etape3">
+</div>
 {% endblock %}
