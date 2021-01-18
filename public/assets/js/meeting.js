@@ -8,3 +8,21 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r
 var marker = L.marker(marseille).addTo(mymap);
 
 marker.bindPopup('<h4>Marseille</h4>');
+
+
+
+
+
+var creerMeeting = $('.creer-meeting');
+var lightbox = $('.lightbox');
+
+  creerMeeting.on('click', function (event) {
+    // IL FAUT AJOUTER LA CLASSE .active SUR LA LIGHTBOX POUR LA VOIR DANS L'ECRAN
+	lightbox.addClass('active');
+	console.log(creerMeeting);
+  });
+
+  // AVEC LA LIGHTBOX, IL FAUT POUVOIR LA CACHER QUAND ON CLIQUE DESSUS
+  lightbox.on('click', function () {
+    lightbox.removeClass('active');
+  });
