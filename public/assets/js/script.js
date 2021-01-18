@@ -20,7 +20,15 @@ var compteur = 0;
     },
     3000);  // 3s
 
-    var scrollTop = $(".scrollTop");
+// REMONTER EN HAUT DE PAGE AVEC FLECHE PAGE ACCUEIL (EN JQUERY)
+var scrollTop = $(".scrollTop");
+
+$(scrollTop).click(function() {
+  $('html, body').animate({
+    scrollTop: 0
+  }, 1400);
+  return false;
+});
 
 // CHANGER LE HEADER POUR MOBILE
 let headerPc= document.querySelector('.header-pc');
@@ -46,12 +54,7 @@ var titreInscription = document.querySelector('.opacity-0');
 
 titreInscription.classList.remove('opacity-0');
 
-// REMONTER EN HAUT DE PAGE AVEC FLECHE PAGE ACCUEIL (EN JQUERY)
-$(scrollTop).click(function() {
-  $('html, body').animate({
-    scrollTop: 0
-  }, 1400);
-  return false;
-});
+
+
 
 

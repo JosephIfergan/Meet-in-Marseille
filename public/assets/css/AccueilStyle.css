@@ -21,6 +21,7 @@ header{
     margin-right: auto;
 
 }
+<<<<<<< HEAD
 .description img {
     width: 150px;
     height: 80px;
@@ -34,6 +35,8 @@ header{
         width: 100%;
         min-height: 20vh;
     }
+=======
+>>>>>>> 2dbc51073167314811797c39fd294f159aab6684
 
     #fonctionnement {
         background-color:  #38B6FF;
@@ -62,6 +65,40 @@ header{
     color: white;
     width: 20%; /* changer sa */
 }
+/* DERNIRE AJOUT POUR SECTION DESCRIPTION*/
+
+
+p{   /* ajouter sa*/
+  font-size: 18px;
+}
+
+.description div p:last-child{ /* ajouter sa*/ /* p=> CEST SIMPLE,RAPIDE ET GRATUIT soit centré*/
+  margin-right: 160px;
+}
+
+.description img {
+    width: 150px;
+    height: 80px;
+    margin-bottom: 40px;  /* ajouter sa*/
+    }
+
+.description {
+        font-family: 'Baloo Thambi 2', cursive;
+        font-weight: bold;
+        background-color: #5271FF;
+        color: white;
+        width: 100%;
+        min-height: 20vh;  /* changer sa*/
+        padding: 5px 15px !important; /* changer sa*/
+        align-items: center !important; /* ajouter sa*/
+        line-height: 1 !important;
+    }
+
+/* DERNIRE AJOUT POUR SECTION FONCTIONNEMENT */
+.flex-fonctionnement{ /* AJOUTER SA*/
+  flex: 3 1 100px;
+}
+/* //////////////// */
 
 .number {
     width: 35px;
@@ -145,4 +182,64 @@ i {
 .button-inscription:hover {
   background-color: #13dcfb;
   color: white;
+}
+
+
+
+/* MEDIA QUERIES POUR SECTION DESCRIPTION */
+
+@media screen and (max-width: 550px) { /*PASSER EN WRAP LE LOGO DE LA SECTION DESCRIPTION*/
+  .description{
+    flex-wrap: wrap;
+  }
+  .description img{
+    margin-bottom: 0 !important;
+  }
+  .description div{
+    margin-top: 0 !important;
+    text-align: center;
+  }
+  .description div p:last-child{
+    margin-right: 0 !important;
+  }
+}
+
+
+
+
+
+
+@media screen and (min-width: 1550px) { /*CHANGER FONT-SIZE DE P*/
+  p{
+    font-size: 24px;
+  }
+}
+/* MEDIA QUERIES POUR SECTION FONCTIONNEMENT */
+
+@media screen and (max-width: 670px) { /* AJOUTER MARGIN POUR QU'IL WRAPPE AU BON MOMENT */
+  .etape1, .etape2, .etape3{
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 910px) { /* SUPPRIMER LES FLECHES */
+  .fa-long-arrow-alt-right{
+    display: none !important;
+    /* opacity: 0 !important; */
+  }
+  .etape2{
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 1000px) { /*LINE-HEIGHT BUTTON SECTION FONCTIONNEMENT*/
+  #fonctionnement a{
+    line-height: 1.2;
+    }
+    .fa-long-arrow-alt-right{
+      font-size: 6em;
+    }
 }
