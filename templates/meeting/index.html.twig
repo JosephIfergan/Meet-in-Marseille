@@ -17,8 +17,77 @@
 <a class="btn btn-primary creer-meeting" href="#">Creer un Meeting</a>
  </div>
 
-<section>
- <div class="lightbox active">
+<section class="container m-auto" id="base">
+ <div class="lightbox ajust m-auto">
+
+ <form class="p-4 m-auto form-e shadow mt-4 shadow" action="#form-create" method="POST">
+
+            <h3 class="text-center">Créer un evenement</h3>
+            <hr class="hr-color-e">
+
+            <header class="card-header card-header-avatar">
+                <img src="assets/img/" class="rounded-circle card-avatar" width="40" height="40" alt="img">
+                <div class="card-pseudo">pseudo</div>
+                <div class="card-date">Il ya 2 min</div>
+            </header>
+
+            <div class="form-group mt-2">
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Décrivez votre evenement 'PSEUDO' " rows="5"></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>sport</option>
+                        <option>culture</option>
+                        <option>sortie</option>
+                        <option>game</option>
+                    </select>
+                </div>
+<div class="form-group col-md-4">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>foot</option>
+                        <option>tenis</option>
+                        <option>volley</option>
+                        <option>baby foot</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option></option>
+                        <option>5</option>
+                        <option>10</option>
+                        <option>15</option>
+                        <option>20</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-9">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="date" class="form-control" id="date/heure" placeholder="date">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-images fa-2x"></i>
+                    <input type="file" class="form-control-file cache">
+                </label>
+
+            </div>
+
+            <button type="submit" class="btn btn-color-e shadow btn-lg btn-block">Publier</button>
+            <input type="hidden" name="formIdentifiant" value="">
+
+       <button class="btn btn-danger button-close m-auto"> Fermer</button>
+
+        </form><br>
+
+
   
 </div>
 

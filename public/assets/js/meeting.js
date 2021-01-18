@@ -14,6 +14,7 @@ marker.bindPopup('<h4>Marseille</h4>');
 
 
 var creerMeeting = $('.creer-meeting');
+var ButtonClose = $('.button-close');
 var lightbox = $('.lightbox');
 
   creerMeeting.on('click', function (event) {
@@ -23,6 +24,6 @@ var lightbox = $('.lightbox');
   });
 
   // AVEC LA LIGHTBOX, IL FAUT POUVOIR LA CACHER QUAND ON CLIQUE DESSUS
-  lightbox.on('click', function () {
+  ButtonClose.on('click', function () {
     lightbox.removeClass('active');
   });

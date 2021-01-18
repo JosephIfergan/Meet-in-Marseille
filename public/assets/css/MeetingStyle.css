@@ -19,7 +19,58 @@
     top: 0 !important;
 }
 
-
-.creer-meeting {
-    
+.form-e {
+    background-color: #373737;
+    margin-top: 10%;
+    max-width: 55%;
 }
+
+.btn-color-e{
+    background-color:#454444;
+    color: white;
+}
+
+.hr-color-e{
+    background-color: rgb(121, 121, 121);
+}
+
+.card-header{
+    padding: 10px;
+    position: relative;
+}
+.card-header-avatar{
+    padding-left:65px ;
+}
+
+.card-avatar{
+    position: absolute;
+    top: 50%;
+    transform:translateY(-50%);
+    left: 10px;
+}
+
+.card-pseudo{
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.card-date{
+    color: #808080;
+    font-size: 12px;
+}
+
+.cache{
+    display: none;
+}
+
+#base {
+    margin: 100px auto 0 auto;
+    width: max-content;
+    background-image: url("../img/background1.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
