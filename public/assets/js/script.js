@@ -33,7 +33,7 @@ $(scrollTop).click(function() {
 // CHANGER LE HEADER POUR MOBILE
 let headerPc= document.querySelector('.header-pc');
 let headerMobile= document.querySelector('.header-mobile');
-  if (window.matchMedia("(max-width: 642px)").matches){ //642px
+  if (window.matchMedia("(max-width: 654px)").matches){ //642px
       headerPc.classList.remove("d-flex");
       headerPc.classList.add("d-none");
       headerMobile.classList.remove("d-none");
