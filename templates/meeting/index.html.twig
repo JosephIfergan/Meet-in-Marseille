@@ -2,19 +2,22 @@
 
 {% block title %}Hello MeetingController!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/MeetInMarseille/src/Controller/MeetingController.php'|file_link(0) }}">src/Controller/MeetingController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/MeetInMarseille/templates/meeting/index.html.twig'|file_link(0) }}">templates/meeting/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% block stylesheets %}
+  <!-- LEAFLET -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+        <link rel="stylesheet" href="{{ asset('assets/css/MeetingStyle.css') }} ">
 {% endblock %}
+
+{% block body %}
+
+ <div id="mapid"></div>
+
+{% endblock %}
+
+{% block javascripts %}
+  <!-- LEAFLET -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+ <script src="{{ asset('assets/js/meeting.js') }}"></script>
+ {% endblock %}
+  
