@@ -2,102 +2,88 @@
 <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }} ">
 <link rel="stylesheet" href="{{ asset('assets/css/normalize.css') }} ">
 <link rel="stylesheet" href="{{ asset('assets/css/inscriptionStyle.css') }} ">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<!-- police-->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"> 
+
 {% endblock %}
 
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello InscriptionController!{% endblock %}
 
- {% block header %}
+{% block header %}
     <header>
-            <nav class="d-flex flex-row justify-content-end">
-                <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-                <a class="button-connexion btn p-2 mr-5 align-self-center m-2" href="{{ path('connexion') }}">Se connecter</a>
-                <a class="ccf p-2 pr-5 align-self-center m-2" href="#">Comment ça fonctionne ?</a>
-            </nav>
-        </header>
-    <hr id="separation">
+        <nav class="header-pc d-flex flex-row justify-content-end">
+            <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+            <a class="button-connexion btn p-2 align-self-center m-2 " href="{{ path('connexion') }}">Se connecter</a>
+            <a class="button-meeting btn p-2 align-self-center nav-link m-2 " href="{{ path('inscription') }}">Voir les meetings<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
+            <a class="ccf p-2 pr-5 align-self-center m-2" href="{{ path('accueil') }}#fonctionnement">Comment ça fonctionne ?</a>
+        </nav>
+        <!-- HEADER MOBILE-->
+        <nav class="header-mobile navbar navbar-inverse navbar-static-top d-none" role="navigation">
+            <div class="navbar-header d-flex justify-content-end w-100">
+                <a class="mr-auto" href="{{ path('accueil') }}"><img class="logo-mobile" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+                <button type="button" class="navbar-toggle collapsed mr-2" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times-circle d-none"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="m-auto">
+                    <a class="button-connexion btn p-2 align-self-center m-2 " href="{{ path('connexion') }}">Se connecter</a>
+                </li>
+                <li class="m-auto">
+                    <a class="button-meeting btn p-2 align-self-center nav-link m-2 " href="{{ path('inscription') }}">Voir les meetings<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
+                </li>
+                <li class="mt-2 mr-auto ml-auto">
+                    <a class="ccf p-2 align-self-center m-2" href="{{ path('accueil') }}#fonctionnement">Comment ça fonctionne ?</a>
+                </li>
+            </ul>
+        </div>
+  {% endblock %}
+
+  {% block body %}
+      <div class="background-inscription">
+          <div id="base_inscription">
+              <h1 class="color-1 text-uppercase text-center display-4 opacity-0">Rejoins-nous !</h1>
+              <div class="formulaire-inscription">
+                  <div class="d-flex flex-row flex-wrap justify-content-center">
+                      <p class="text-white mr-3 display-5 bottom-mobile">Je suis ...</p>
+                      <div class="align-self-center">
+                          <input type="radio" id="sexe" name="drone" value="homme" class="mr-2" checked>
+                          <label for="homme" class="display-6 mr-3 color-2">un homme</label>
+                      </div>
+                      <div class="align-self-center">
+                          <input type="radio" id="sexe" name="drone" value="femme" class=" mr-2">
+                          <label for="femme" class="display-6 color-3">une femme</label>
+                      </div>
+                  </div>
+
+                  <form method="POST" action="#form-create" id="form-create" enctype="multipart/form-data" class="d-flex flex-column mt-4">
+                      <label>
+                          <input type="text" name="pseudo" required placeholder="Pseudo" maxlength="160">
+                      </label>
+                      <label>
+                          <input type="email" name="email" required placeholder="Email" maxlength="160">
+                      </label>
+                      <label>
+                          <input type="number" name="age" required placeholder="Age" min="18" max="100">
+                      </label>
+                      <label>
+                          <input type="password" name="motDePasse" required placeholder="Mot de passe" maxlength="160">
+                      </label>
+                      <button type="submit" class="btn btn-primary mt-4 mr-auto ml-auto w-50">Créer mon compte !</button>
+                      <!-- PARTIE TECHNIQUE -->
+                      <input type="hidden" name="formIdentifiant" value="user">
+                  </form>
+
+                  <div>
+                      <?php require_once "php/controller/traitement-user.php" ?>
+                  </div>
+              </div>
+          </div>
+      </div>
     {% endblock %}
-
-{% block body %}
-
-  <h1 class="color-1 text-uppercase mt-5 text-center display-3 font-weight-bold">Rejoins-nous !</h1>
-  <div id="base">
-
-    <div class="d-flex flex-row">
-      <p class="color-2 mr-5 display-5">Je suis ...</p>
-      <input type="radio" id="sexe" name="drone" value="homme" class="bouttonsexe mr-3 mb-2" checked>
-      <label for="homme" class="display-6 mr-3 color-1 align-self-center">un homme</label>
-      <input type="radio" id="sexe" name="drone" value="femme" class="bouttonsexe mr-3  mb-2">
-      <label for="femme" class="display-6 mr-3 color-3 align-self-center">une femme</label>
-    </div>
-
-    <div class="d-flex flex-row">
-      <p class="color-2 mr-5 display-5">J'aime ...</p>
-      <div class="dropdown mt-2">
-        <button class="btn dropdown-toggle font-weight-bold" type="button" id="dropdownCategorieButton"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Catégories
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <!-- <li><a class="dropdown-item" href="#">Sport</a></li> -->
-          <div class="ml-3">
-          <input type="checkbox" class="bouttonsexe mr-2 " id="sport">
-          <label for="homme" class="mr-3 color-1">Sport</label>
-        </div>
-          <div class="ml-3">
-          <input type="checkbox" class="bouttonsexe mr-2 " id="culture">
-          <label for="homme" class="mr-3 color-1">Culture</label>
-        </div>
-          <div class="ml-3">
-          <input type="checkbox" class="bouttonsexe mr-2 " id="nature">
-          <label for="homme" class="mr-3 color-1">Nature</label>
-        </div>
-          <div class="ml-3">
-          <input type="checkbox" class="bouttonsexe mr-2 " id="sortie">
-          <label for="homme" class="mr-3 color-1">Sortie</label>
-        </div>
-          <div class="ml-3">
-          <input type="checkbox" class="bouttonsexe mr-2 " id="jeux">
-          <label for="homme" class="mr-3 color-1">Jeux</label>
-        </div>
-          <div class="ml-3">
-          <input type="checkbox" class="bouttonsexe mr-2 " id="gastronomie">
-          <label for="homme" class="mr-3 color-1">Gastronomie</label>
-        </div>
-        <button class="btn-success d-block m-auto">Valider</button>
-        <input type="hidden" name="formCategorie" value="categorie">
-        </div>
-      </div>
-    </div>
-
-    <form method="POST" action="#form-create" id="form-create" enctype="multipart/form-data"
-      class="d-flex flex-column mt-3">
-      <label>
-        <input type="text" name="nom" required placeholder="Nom complet" maxlength="160">
-      </label>
-      <label>
-        <input type="email" name="email" required placeholder="Email" maxlength="160">
-      </label>
-      <label>
-        <input type="number" name="age" required placeholder="Age" min="10" max="100">
-      </label>
-      <label>
-        <input type="text" name="pseudo" required placeholder="Pseudo" maxlength="160">
-      </label>
-      <label>
-        <input type="password" name="motDePasse" required placeholder="Mot de passe" maxlength="160">
-      </label>
-      <button type="submit" class="btn btn-primary">Créer mon compte !</button>
-      <!-- PARTIE TECHNIQUE -->
-      <input type="hidden" name="formIdentifiant" value="user">
-      <div>
-        <?php require_once "php/controller/traitement-user.php" ?>
-      </div>
-    </form>
-
-  </div>
-  <img src="assets/img/image-inscription2.png" alt="#" class="mt-2">
-
-{% endblock %}
