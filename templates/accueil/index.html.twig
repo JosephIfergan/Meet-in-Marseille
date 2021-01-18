@@ -30,12 +30,6 @@
     </ul>
   </div>
 </nav>
-          <!--  <nav class="d-flex flex-row justify-content-end">
-                <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-                <a class="button-inscription btn p-4 align-self-center nav-link m-2 " href="{{ path('inscription') }}">S'inscrire !</a>
-                <a class="button-connexion btn p-2 align-self-center m-2 " href="{{ path('connexion') }}">Se connecter</a>
-                <a class="ccf p-2 pr-5 align-self-center m-2" href="#fonctionnement">Comment ça fonctionne ?</a>
-            </nav> -->
         </header>
     {% endblock %}
 
@@ -70,15 +64,15 @@
 			<i class="fas fa-long-arrow-alt-right m-auto fa-10x d-flex justify-content-center flex-fonctionnement"></i>
 			<div class="etape2 flex-fonctionnement">
 				<p class="number">&#9313;</p>
-				<a class="btn" href="#">Je crée un Meeting</a>
+				<a class="btn" href="{{ path('meeting') }}">Je crée un Meeting</a>
 				<p>OU</p>
-				<a class="btn" href="#">Je rejoins un Meeting</a>
+				<a class="btn" href="{{ path('meeting') }}">Je rejoins un Meeting</a>
 				<img src="assets/img/logo4.png" alt="etape2">
 			</div>
 			<i class="fas fa-long-arrow-alt-right m-auto fa-10x d-flex justify-content-center flex-fonctionnement"></i>
 			<div class="etape3 flex-fonctionnement">
 				<p class="number">&#9314;</p>
-				<a class="btn" href="#">Je rencontre les utilisateurs !</a>
+				<a class="btn" href="{{ path('meeting') }}">Je rencontre les utilisateurs !</a>
 				<img src="assets/img/logo3.png" alt="etape3">
 			</div>
 		</div>
