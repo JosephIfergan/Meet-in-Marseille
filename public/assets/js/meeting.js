@@ -2,7 +2,8 @@ var marseille = [43.3, 5.4];
 
 var myMap = L.map('mapid').setView(marseille, 13);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-  maxZoom: 20,
+  maxZoom: 16,
+  minZoom: 13,
 }).addTo(myMap);
 
 var marker = L.marker(marseille).addTo(myMap);
