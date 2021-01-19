@@ -38,7 +38,7 @@
 	<div class="slideshow justify-content-center d-flex"><!-- SLIDERS JS ICI -->
 	<h1 class="bienvenue align-self-lg-center align-self-sm-start"> Partagez vos passions avec les autres.</h1>
     <a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-	<a class="align-self-end button-meeting btn p-2 ml-4" href="{{ path('map') }}">Comment ça marche ?</a>
+	<a class="align-self-end button-meeting btn p-2 ml-4" href="{{ path('accueil') }}#fonctionnement">Comment ça marche ?</a>
     </div>
 
 	<!-- DESCRIPTION RAPIDE ICI -->
@@ -62,7 +62,7 @@
 				<img src="assets/img/logo1.png" alt="etape1">
 			</div>
 			<i class="fas fa-long-arrow-alt-right m-auto fa-10x d-flex justify-content-center flex-fonctionnement"></i>
-			<div class="etape2 flex-fonctionnement">
+			<div class="etape2 data-aos="flip-right" flex-fonctionnement">
 				<p class="number">&#9313;</p>
 				<a class="btn" href="{{ path('map') }}">Je crée un Meeting</a>
 				<p>OU</p>
@@ -70,7 +70,7 @@
 				<img src="assets/img/logo4.png" alt="etape2">
 			</div>
 			<i class="fas fa-long-arrow-alt-right m-auto fa-10x d-flex justify-content-center flex-fonctionnement"></i>
-			<div class="etape3 flex-fonctionnement">
+			<div class="etape3 flex-fonctionnement animated animatedFadeInUp fadeInUp">
 				<p class="number">&#9314;</p>
 				<a class="btn" href="{{ path('map') }}">Je rencontre les utilisateurs !</a>
 				<img src="assets/img/logo3.png" alt="etape3">
