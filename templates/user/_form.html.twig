@@ -1,4 +1,22 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
+    <form method="POST" action="#form-create" id="form-create" enctype="multipart/form-data" class="d-flex flex-column mt-4">
+                      <label>
+                          <input type="text" name="pseudo" required placeholder="Pseudo" maxlength="160">
+                      </label>
+                      <label>
+                          <input type="email" name="email" required placeholder="Email" maxlength="160">
+                      </label>
+                      <label>
+                          <input type="number" name="age" required placeholder="Age" min="18" max="100">
+                      </label>
+                      <label>
+                          <input type="password" name="motDePasse" required placeholder="Mot de passe" maxlength="160">
+                      </label>
+                      <button type="submit" class="btn btn-primary mt-4 mr-auto ml-auto w-50">Créer mon compte !</button>
+                      <!-- PARTIE TECHNIQUE -->
+                      <input type="hidden" name="formIdentifiant" value="user">
+                  </form>
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
