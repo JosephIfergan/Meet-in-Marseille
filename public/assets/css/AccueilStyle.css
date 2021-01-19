@@ -111,13 +111,6 @@ header {
   width: 20%;
 }
 
-.fade {
-  margin: 50px;
-  padding: 50px;
-  background-color: lightgreen;
-  opacity: 1;
-}
-
 p {
   font-size: 18px;
 }
