@@ -31,8 +31,6 @@ $(scrollTop).click(function() {
 });
 
 
-console.log('caca');
-
 // CHANGER LE HEADER POUR MOBILE
 let headerPc= document.querySelector('.header-pc');
 let headerMobile= document.querySelector('.header-mobile');
