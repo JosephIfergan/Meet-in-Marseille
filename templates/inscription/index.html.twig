@@ -9,8 +9,10 @@
 
 {% block title %}Hello InscriptionController!{% endblock %}
 
-{% block header %}
-    <header>
+
+
+  {% block content %}
+     <header>
         <nav class="header-pc d-flex flex-row justify-content-end">
             <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
             <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('connexion') }}">Se connecter</a>
@@ -28,6 +30,7 @@
             </div>
         </nav>
     </header>
+ 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="m-auto">
@@ -41,9 +44,6 @@
                 </li>
             </ul>
         </div>
-  {% endblock %}
-
-  {% block body %}
       <div class="background-inscription">
           <div id="base_inscription">
               <h1 class="color-1 text-uppercase text-center display-4 opacity-0">Rejoins-nous !</h1>
