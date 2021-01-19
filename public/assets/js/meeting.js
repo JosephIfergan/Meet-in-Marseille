@@ -11,9 +11,6 @@ var marker = L.marker(marseille).addTo(myMap);
 marker.bindPopup('<h4>Marseille</h4>');
 
 
-
-
-
 var creerMeeting = $('.creer-meeting');
 var ButtonClose = $('.button-close');
 var lightbox = $('.lightbox');
