@@ -1,33 +1,6 @@
-{% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('assets/css/inscriptionStyle.css') }} ">
-<!-- police-->
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"> 
-
-{% endblock %}
 {{ form_start(form) }}
-    <div class="formulaire-inscription">
-        <div class="d-flex flex-row flex-wrap justify-content-center">
-            <p class="text-white mr-3 display-5 bottom-mobile">Je suis ...</p>
-
-                    {{ form_widget(form.sexe) }}
-        </div>
-<form class="d-flex flex-column mt-4">
-<label>
-{{ form_widget(form.pseudo) }}
-</label>
-<label>
-{{ form_widget(form.email) }}
-</label>
-<label>
-{{ form_widget(form.age) }}
-</label>
-<label>
-{{ form_widget(form.password) }}
-</label>
-
-<button type="submit" class="btn btn-primary font-weight-bold mt-4 mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>
-</form>
-</div>
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 
-
+{{ form_label|default('Save') }}

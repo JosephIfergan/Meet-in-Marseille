@@ -115,6 +115,8 @@ label> input{
     -moz-appearance: textfield; /* MOZILLA ENLEVER FLECHE SUR INPUT TYPE NUMBER*/
     /* -webkit-appearance: none; */ /*CHROME*/
     -o-appearance: none; /*OPERA*/
+    padding: 1px !important;
+    height: auto;
 }
 
 .formulaire-inscription button{
