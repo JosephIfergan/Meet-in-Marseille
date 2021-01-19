@@ -14,17 +14,12 @@ position: absolute;
 }
 
 
-
-.navlogo {
-  margin-left: 10px;
-  margin-right: auto;
-
-}
 .description img {
   width: 150px;
   height: 80px;
   }
 
+  
 .description {
         font-family: 'Baloo Thambi 2', cursive;
         font-weight: bold;
@@ -195,7 +190,7 @@ i {
   font-size: 25px;
   display: flex;
   width: 300px;
-  height: 60px;
+  height: 70px;
   margin-bottom: 20px;
   align-items: center; 
   justify-content: center; 
@@ -211,7 +206,7 @@ i {
   font-size: 25px;
   display: flex;
   width: 300px;
-  height: 60px;
+  height: 70px;
   margin-bottom: 20px;
   align-items: center; 
   justify-content: center; 
