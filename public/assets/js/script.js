@@ -30,6 +30,7 @@ $(scrollTop).click(function() {
   return false;
 });
 
+
 // CHANGER LE HEADER POUR MOBILE
 let headerPc= document.querySelector('.header-pc');
 let headerMobile= document.querySelector('.header-mobile');
@@ -54,8 +55,7 @@ var titreInscription = document.querySelector('.opacity-0');
 
 titreInscription.classList.remove('opacity-0');
 
-
-
+console.log('TEST');
 
 
 
