@@ -76,3 +76,78 @@
     width: 100%;
 }
 
+.container{
+    padding: 0 15px;
+    max-width: 1080px;
+    margin: 0 auto;
+} 
+
+.sidebar {
+    background: #f5f4f4;
+    height: 250px;
+}
+
+.aside {
+    background: #f5f4f4;
+    height: 250px;
+}
+
+.basse {
+    display: flex;
+}
+
+.sidebar {
+    flex: none;
+    width: 300px;
+}
+
+.main {
+    width: 100%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.aside {
+    flex: none;
+    width: 390px;
+}
+
+/* CARD ACTUS */
+
+.text-color {
+    color: rgb(121, 121, 121);
+}
+
+.card {
+    margin-bottom: 15px;
+}
+
+.card-body {
+    padding: 10px 4px 20px 5px;
+    background: #f5f4f4;
+}
+
+.card-body .largetotal {
+    width: calc(100% + 10px);
+    display: block;
+    margin: 10px -6px 10px;
+}
+
+.card-footer {
+    display: flex;
+    padding: 10px;
+}
+
+.card-like::before,
+.card-rejoindre {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.card-rejoindre {
+    margin-left: auto;
+}
