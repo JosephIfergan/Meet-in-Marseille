@@ -46,44 +46,8 @@
         </div>
       <div class="background-inscription">
           <div id="base_inscription">
-              <h1 class="color-1 text-uppercase text-center display-4 opacity-0">Rejoins-nous !</h1>
-                      {{ include('user/_form.html.twig') }}
-
-              <div class="formulaire-inscription">
-                  <div class="d-flex flex-row flex-wrap justify-content-center">
-                      <p class="text-white mr-3 display-5 bottom-mobile">Je suis ...</p>
-                      <div class="align-self-center">
-                          <input type="radio" id="sexe" name="drone" value="homme" class="mr-2" checked>
-                          <label for="homme" class="display-6 mr-3 color-2">un homme</label>
-                      </div>
-                      <div class="align-self-center">
-                          <input type="radio" id="sexe" name="drone" value="femme" class=" mr-2">
-                          <label for="femme" class="display-6 color-3">une femme</label>
-                      </div>
-                  </div>
-
-                  <form method="POST" action="#form-create" id="form-create" enctype="multipart/form-data" class="d-flex flex-column mt-4">
-                      <label>
-                          <input type="text" name="pseudo" required placeholder="Pseudo" maxlength="160">
-                      </label>
-                      <label>
-                          <input type="email" name="email" required placeholder="Email" maxlength="160">
-                      </label>
-                      <label>
-                          <input type="number" name="age" required placeholder="Age" min="18" max="100">
-                      </label>
-                      <label>
-                          <input type="password" name="motDePasse" required placeholder="Mot de passe" maxlength="160">
-                      </label>
-                      <button type="submit" class="btn btn-primary mt-4 mr-auto ml-auto w-50">Créer mon compte !</button>
-                      <!-- PARTIE TECHNIQUE -->
-                      <input type="hidden" name="formIdentifiant" value="user">
-                  </form>
-
-                  <div>
-                      <?php require_once "php/controller/traitement-user.php" ?>
-                  </div>
-              </div>
+                <h1 class="color-1 text-uppercase text-center display-4 opacity-0">Rejoins-nous !</h1>
+                {{ include('user/_form.html.twig') }}
           </div>
       </div>
     {% endblock %}

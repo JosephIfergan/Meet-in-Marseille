@@ -21,7 +21,7 @@ class UserType extends AbstractType
             ->add('pseudo',TextType::class, [
                 // 'label' => 'Votre prénom : ',
                 'attr' => [
-                    'placeholder' => 'choisir un pseudo'
+                    'placeholder' => 'Choisir un pseudo'
                 ]
             ])
             ->add('email',EmailType::class, [
@@ -36,8 +36,8 @@ class UserType extends AbstractType
             ])
             ->add('sexe', ChoiceType::class, [
                 'choices' => [
-                    'homme' => 'homme',
-                    'femme' => 'femme',
+                    'un homme' => 'homme',
+                    'une femme' => 'femme',
                 ],
                 'expanded' => true,
                 'attr' => [
@@ -46,7 +46,7 @@ class UserType extends AbstractType
             ])
             ->add('age',IntegerType::class, [
                 'attr' => [
-                    'placeholder' => 'Age'
+                    'placeholder' => 'Votre age'
                 ]
             ])
         ;

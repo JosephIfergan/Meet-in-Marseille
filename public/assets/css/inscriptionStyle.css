@@ -1,4 +1,4 @@
-* {
+body {
     box-sizing: border-box;
     font-family: 'Baloo Thambi 2', cursive !important;
 }
@@ -81,7 +81,7 @@ h1{
 #base_inscription{
     margin-top: 15vh;
 }
-
+/* FORMULAIRE INSCRIPTION */
 .formulaire-inscription{
     border: 1px solid #5271ff;
     background-color: #5271ff;
@@ -92,18 +92,6 @@ h1{
     margin: 30px auto ;
 }
 
-label> input{
-    width: 70%;
-    border: none;
-    margin: 0 15% 1rem 15%;
-    border-radius: 5px;
-    box-shadow: 0 0.5px 2px black;
-    text-align: center;
-    cursor: pointer;
-    -moz-appearance: textfield; /* MOZILLA ENLEVER FLECHE SUR INPUT TYPE NUMBER*/
-    /* -webkit-appearance: none; */ /*CHROME*/
-    -o-appearance: none; /*OPERA*/
-}
 .form-control{
     width: 70%;
     border: none;
@@ -127,11 +115,11 @@ label> input{
 }
 #user_sexe .form-check:last-of-type label{
 color:#fe66c3;
+margin-right: 0 !important;
 }
 #user_sexe_0,#user_sexe_1 {
     margin-right: 5px;
 }
-
 .form-check-input{
     position: relative;
 }
