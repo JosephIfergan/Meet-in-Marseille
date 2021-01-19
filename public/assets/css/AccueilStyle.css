@@ -126,19 +126,35 @@ i {
   color: white;
 }
 
-
-.ccf {
-  color: #5271FF;
-  font-family: 'Baloo Thambi 2', cursive;
-  font-weight: bold;
-  font-size: 20px;
+.hamburger {
+  color: white;
 }
 
-.ccf:hover {
-  text-decoration: none;
-  color:#13dcfb;
-  animation: pulse1 0.7s infinite;
-  -webkit-animation: pulse1 0.7s infinite;
+.navbar-toggle {
+    color: white;
+    border: 1.5px solid #5abffa;
+    background-color: #5271ff;
+    width: 40px;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 3px 5px;
+}
+
+
+.ccf {
+  font-family: 'Coiny', cursive;
+  background-color: #5abffa;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  display: flex;
+  height: 60px;
+  max-width: 500px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center; 
 }
 
 .button-connexion {
@@ -148,10 +164,10 @@ i {
   font-weight: bold;
   font-size: 20px;
   display: flex;
-  height: 60px;
+  height: 50px;
   max-width: 300px;
   margin-bottom: 20px;
-  align-items: center; /* changer sa*/
+  align-items: center; 
   justify-content: center; 
 
 }
@@ -164,7 +180,7 @@ i {
   font-size: 20px;
   display: flex;
   max-width: 300px;
-  height: 60px;
+  height: 50px;
   margin-bottom: 20px;
   align-items: center; /* changer sa*/
   justify-content: center; 
@@ -176,10 +192,26 @@ i {
   color: white;
   font-family: 'Baloo Thambi 2', cursive;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 25px;
   display: flex;
-  width: 500px;
-  height: 70px;
+  width: 300px;
+  height: 60px;
+  margin-bottom: 20px;
+  align-items: center; 
+  justify-content: center; 
+
+}
+
+.button-meeting {
+
+  background-color:#13dcfb;
+  color: white;
+  font-family: 'Baloo Thambi 2', cursive;
+  font-weight: bold;
+  font-size: 25px;
+  display: flex;
+  width: 300px;
+  height: 60px;
   margin-bottom: 20px;
   align-items: center; 
   justify-content: center; 
