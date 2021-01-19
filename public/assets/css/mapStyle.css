@@ -61,24 +61,14 @@
     background-color: rgb(121, 121, 121);
 }
 
-.card-header{
-    padding: 10px;
-    position: relative;
-}
 
 
 .card-header img {
     height: 70px;
-    width: 40px;
+    width: 70px;
 
 }
 
-
-.card-avatar{
-    top: 50%;
-    transform:translateY(-50%);
-    left: 10px;
-}
 
 .card-pseudo{
     font-weight: bold;
@@ -165,6 +155,7 @@
 .card-footer {
     display: flex;
     padding: 10px;
+    height: 60px;
 }
 
 .card-like::before,
@@ -177,6 +168,3 @@
     height: 20px;
 }
 
-.card-rejoindre {
-    margin-left: auto;
-}
