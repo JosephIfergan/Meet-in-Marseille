@@ -7,10 +7,10 @@ var tabMarkers = [
   [43.26, 5.39], [43.26, 5.40], [43.24, 5.37]
 ];
 
-var myMap = L.map('mapid').setView(marseille, 12);
+var myMap = L.map('mapid').setView(marseille, 13);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-  maxZoom: 16,
-  minZoom: 11,
+  maxZoom: 15,
+  minZoom: 12,
 }).addTo(myMap);
 
 var marker = L.marker(marseille).addTo(myMap);
