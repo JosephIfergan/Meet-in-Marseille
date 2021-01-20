@@ -10,14 +10,14 @@
 {% endblock %}
 
 {% block header %}
-    <header class="container-fluid">
-	<div class="row">
-	<nav class="navbar navbar-expand-sm col navbar-light">
-	<a class="navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-</nav>
-</div>
-        </header>
-    {% endblock %}
+	<header class="container-fluid">
+		<div class="row">
+			<nav class="navbar navbar-expand-sm col navbar-light">
+				<a class="navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+			</nav>
+		</div>
+	</header>
+{% endblock %}
 
 {% block body %}
 
@@ -28,9 +28,8 @@
 	</div>
 
 	{{ include('map/lightbox.html.twig') }}
-    
-    {{ include('map/lightbox2.html.twig') }}
 
+	{{ include('map/lightbox2.html.twig') }}
 
 
 	{% for meeting in meetings %}
@@ -63,7 +62,7 @@
 
 					</div>
 					<footer class="card-footer justify-content-center">
-					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#afficherMeetingModal">AFFICHER LE MEETING</button>
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#afficherMeetingModal">AFFICHER LE MEETING</button>
 					</footer>
 
 				</div>
