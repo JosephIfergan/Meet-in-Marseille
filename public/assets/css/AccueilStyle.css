@@ -219,6 +219,7 @@ i {
 .btn:hover {
   background-color: #13dcfb;
   color: white;
+  animation: pulse1 0.7s infinite;
 }
 
 .hamburger {
