@@ -19,12 +19,18 @@ class RegistrationController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator): Response
     {
+        // ON CREE UN OBJET POUR STOCKER LES INFOS DU FORMULAIRE
         $user = new User();
+        // ON CREE LE FORMULAIRE
         $form = $this->createForm(RegistrationFormType::class, $user);
+        // ON RECUPERE LES INFOS ENVOYEES PAR LE FORMULAIRE
         $form->handleRequest($request);
+
+        
         $messageConfirmation = "Rejoins nous";
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
@@ -32,32 +38,31 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-// MESSAGE DE CONFIRMATION
-$messageConfirmation = "Vous etes bien inscris à notre newsletter.";
             // ON ACTIVE DIRECTEMENT LE COMPTE
            $user->setRoles(["ROLE_MEMBER"]);
-                                    
+            
+           // SI LES INFOS SONT VALIDES                
             // STOCKE DANS LA BDD
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+            $messageConfirmation = "Vous etes bien inscris à notre newsletter.";
             // do anything else you need here, like send an email
-           
-            return $guardHandler->authenticateUserAndHandleSuccess(
-                $user,
-                $request,
-                $authenticator,
-                'main' // firewall name in security.yaml
-            );
+
+            // return $guardHandler->authenticateUserAndHandleSuccess(
+            //     $user,
+            //     $request,
+            //     $authenticator,
+            //     'main' // firewall name in security.yaml
+            // );
 
         }
 
         return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form->createView(),
             'messageConfirmation'   => $messageConfirmation,
+            'registrationForm' => $form->createView(),
         ]);
-            // REDIRECTION APRES INSCRIPTION
-            return $this->redirectToRoute('app_register');
+            
 
 
     }
