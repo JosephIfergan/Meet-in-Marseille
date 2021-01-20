@@ -26,7 +26,7 @@ class RegistrationController extends AbstractController
         // ON RECUPERE LES INFOS ENVOYEES PAR LE FORMULAIRE
         $form->handleRequest($request);
 
-        
+        // MESSAGE DE CONFIRMATION
         $messageConfirmation = "Rejoins nous !";
         $messageConfirmation2 = "";
         $messageConfirmation3 = "";
@@ -49,24 +49,17 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            $messageConfirmation = "FELICITATION !";
-            $messageConfirmation2 = "Vous faites désormais parti de la communauté MeetInMarseille !";
+            $messageConfirmation = "félicitations !";
+            $messageConfirmation2 = "Vous faites désormais partie de la communauté MeetInMarseille,";
             $messageConfirmation3 = "Connectez vous !";
-            // do anything else you need here, like send an email
-
-            // return $guardHandler->authenticateUserAndHandleSuccess(
-            //     $user,
-            //     $request,
-            //     $authenticator,
-            //     'main' // firewall name in security.yaml
-            // );
 
         }
 
         return $this->render('registration/register.html.twig', [
+            // MESSAGE DE CONFIRMATION
             'messageConfirmation'   => $messageConfirmation,
-            'messageConfirmation2'   => $messageConfirmation2,
-            'messageConfirmation3'   => $messageConfirmation3,
+            'messageConfirmation2'  => $messageConfirmation2,
+            'messageConfirmation3'  => $messageConfirmation3,
             'registrationForm' => $form->createView(),
         ]);
             

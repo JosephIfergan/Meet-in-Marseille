@@ -110,18 +110,18 @@ h1{
 .formulaire-inscription button{
     box-shadow: 0 0.5px 2px black;
 }
-#user_sexe{
-    margin-bottom: 5px;
-}
-#user_sexe .form-check:last-of-type label{
+
+.form-check:last-of-type label{
 color:#fe66c3;
 margin-right: 0 !important;
 }
-#user_sexe_0,#user_sexe_1 {
-    margin-right: 5px;
+
+label{
+    display: inline;
 }
 .form-check-input{
     position: relative;
+    margin-right: 3px;
 }
 .form-check-label{
     font-size: 1.3rem;
@@ -129,6 +129,10 @@ margin-right: 0 !important;
     margin-bottom: 8px;
     color: #13dcfb;
 }
+.form-group .form-check label{
+    color:white;
+}
+
 /* COLOR */
 
 .color-1{
@@ -191,10 +195,12 @@ footer{
         padding: 20px 10px;
     }
     .bottom-mobile{
-        margin-bottom: 7px;
+        margin-bottom: 0px;
+    }
+    .form-check:first-of-type{
+    margin-left:10px;
     }
     .formulaire-inscription div div:first-of-type label{
-        margin-right: 6px !important;
         margin-bottom: 5px;
     }
     form label input{
@@ -203,6 +209,9 @@ footer{
     }
     .ccf{
         flex: 1 1 100px;
+    }
+    h4 a{
+        text-decoration: underline !important;
     }
 }
 @media screen and (max-width: 854px) { /*POUR MODIFIER BOUTTON HEADER POUR TABLETTE*/
