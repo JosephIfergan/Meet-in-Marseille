@@ -47,7 +47,7 @@
       <div class="background-inscription">
           <div id="base_inscription">
                 <h1 class="color-1 text-uppercase text-center display-4 opacity-0">{{ messageConfirmation }}</h1>
-                <h4>{{ messageConfirmation2 }}</h4>
+                <h4 class= "text-center color-2">{{ messageConfirmation2 }} <a href ="{{ path('connexion') }}">{{ messageConfirmation3 }}</a></h4>
                 {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
@@ -72,9 +72,10 @@
         <label class="w-100">
             {{ form_widget(registrationForm.plainPassword) }}
         </label>
+            {{ form_end(registrationForm) }} 
         <button type="submit" class="btn btn-primary d-block font-weight-bold mt-4 mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>
     </div>
-{{ form_end(registrationForm) }}
+
 
 
           </div>

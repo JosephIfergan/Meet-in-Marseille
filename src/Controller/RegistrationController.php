@@ -29,6 +29,8 @@ class RegistrationController extends AbstractController
         
         $messageConfirmation = "Rejoins nous !";
         $messageConfirmation2 = "";
+        $messageConfirmation3 = "";
+
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -48,7 +50,8 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
             $messageConfirmation = "FELICITATION !";
-            $messageConfirmation2 = 'Vous pouvez dés maintenant vous connecter et partager vos passions avec la communauté MeetinMarseille !';
+            $messageConfirmation2 = "Vous faites désormais parti de la communauté MeetInMarseille !";
+            $messageConfirmation3 = "Connectez vous !";
             // do anything else you need here, like send an email
 
             // return $guardHandler->authenticateUserAndHandleSuccess(
@@ -63,6 +66,7 @@ class RegistrationController extends AbstractController
         return $this->render('registration/register.html.twig', [
             'messageConfirmation'   => $messageConfirmation,
             'messageConfirmation2'   => $messageConfirmation2,
+            'messageConfirmation3'   => $messageConfirmation3,
             'registrationForm' => $form->createView(),
         ]);
             
