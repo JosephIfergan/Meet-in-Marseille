@@ -22,6 +22,7 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
+        $messageConfirmation = "Rejoins nous";
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
@@ -55,9 +56,10 @@ $messageConfirmation = "Vous etes bien inscris à notre newsletter.";
             'registrationForm' => $form->createView(),
             'messageConfirmation'   => $messageConfirmation,
         ]);
+            // REDIRECTION APRES INSCRIPTION
+            return $this->redirectToRoute('app_register');
 
-        // REDIRECTION APRES INSCRIPTION
-        return $this->redirectToRoute('app_register');
 
     }
+
 }
