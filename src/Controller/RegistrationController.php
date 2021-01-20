@@ -31,22 +31,33 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
+// MESSAGE DE CONFIRMATION
+$messageConfirmation = "Vous etes bien inscris à notre newsletter.";
+            // ON ACTIVE DIRECTEMENT LE COMPTE
+           $user->setRoles(["ROLE_MEMBER"]);
+                                    
+            // STOCKE DANS LA BDD
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
-
+           
             return $guardHandler->authenticateUserAndHandleSuccess(
                 $user,
                 $request,
                 $authenticator,
                 'main' // firewall name in security.yaml
             );
+
         }
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'messageConfirmation'   => $messageConfirmation,
         ]);
+
+        // REDIRECTION APRES INSCRIPTION
+        return $this->redirectToRoute('app_register');
+
     }
 }
