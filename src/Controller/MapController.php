@@ -19,4 +19,5 @@ class MapController extends AbstractController
             'meetings' => $meetingRepository->findAll(),
         ]);
     }
+
 }
