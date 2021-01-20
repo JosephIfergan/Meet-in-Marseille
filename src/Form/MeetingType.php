@@ -6,6 +6,8 @@ use App\Entity\Meeting;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Validator\Constraints\IsTrue;
 
 class MeetingType extends AbstractType
 {
@@ -20,6 +22,14 @@ class MeetingType extends AbstractType
             ->add('heure')
             ->add('adresse')
             ->add('description')
+            // ->add('agreeTerms', CheckboxType::class, [
+            //     'mapped' => false,
+            //     'constraints' => [
+            //         new IsTrue([
+            //             'message' => 'You should agree to our terms.',
+            //         ]),
+            //     ],
+            // ])
         ;
     }
 
