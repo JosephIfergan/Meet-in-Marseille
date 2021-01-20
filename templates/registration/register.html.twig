@@ -46,12 +46,13 @@
         </div>
       <div class="background-inscription">
           <div id="base_inscription">
-                <h1 class="color-1 text-uppercase text-center display-4 opacity-0">Rejoins-nous !</h1>
+                <h1 class="color-1 text-uppercase text-center display-4 opacity-0">{{ messageConfirmation }}</h1>
+                <h4>{{ messageConfirmation2 }}</h4>
                 {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-<h4>{{ messageConfirmation }}</h4>
+
 
     {{ form_start(registrationForm) }}
     <div class="formulaire-inscription">
