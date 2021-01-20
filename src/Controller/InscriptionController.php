@@ -30,8 +30,9 @@ class InscriptionController extends AbstractController
             // ON ACTIVE DIRECTEMENT LE COMPTE
             // $user->setRoles(["ROLE_MEMBER"]);    
 
-            return $this->redirectToRoute('user_index');
         }
+        return $this->redirectToRoute('app_register');
+
         // LA METHODE render VIENT DE LA CLASSE PARENTE AbstractController
         // ON VA CHARGER LE CODE DU TEMPLATE : templates/inscription/index.html.twig
         return $this->render('inscription/index.html.twig', [
