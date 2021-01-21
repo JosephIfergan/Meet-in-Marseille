@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>publié par</th>
                 <th>Categorie</th>
                 <th>SousCategorie</th>
                 <th>UserMax</th>
@@ -23,6 +24,7 @@
         {% for meeting in meetings %}
             <tr>
                 <td>{{ meeting.id }}</td>
+                <td>{{ meeting.user.pseudo ?? 'vide'  }}</td>
                 <td>{{ meeting.categorie }}</td>
                 <td>{{ meeting.sousCategorie }}</td>
                 <td>{{ meeting.userMax }}</td>
