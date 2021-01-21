@@ -29,6 +29,9 @@ header {
   color: white;
   width: 100%;
   min-height: 20vh;
+  padding: 5px 15px !important;
+  align-items: center !important;
+  line-height: 1 !important;
 }
 .bienvenue {
   color: white;
@@ -172,18 +175,6 @@ p {
   width: 150px;
   height: 80px;
   margin-bottom: 40px;
-}
-
-.description {
-  font-family: "Baloo Thambi 2", cursive;
-  font-weight: bold;
-  background-color: #5271ff;
-  color: white;
-  width: 100%;
-  min-height: 20vh;
-  padding: 5px 15px !important;
-  align-items: center !important;
-  line-height: 1 !important;
 }
 
 .flex-fonctionnement {
