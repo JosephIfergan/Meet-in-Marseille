@@ -74,14 +74,18 @@ h1{
     background-size: cover;
     background-position: center;
     width: 100%;
-    min-height: 80vh;
+    min-height: 70vh;
     margin-bottom: 10vh;
 }
 
-#base_inscription{
+#base_inscription, #base_login{
     margin-top: 15vh;
 }
-/* FORMULAIRE INSCRIPTION */
+
+#base_login p{
+    animation: pulse2 1.5s infinite;
+}
+/* FORMULAIRE INSCRIPTION ET LOGIN*/
 .formulaire-inscription{
     border: 1px solid #5271ff;
     background-color: #5271ff;
@@ -144,6 +148,9 @@ label{
 .color-3{
     color: #fe66c3;
 }
+.color-4{
+    color: orange;
+}
 
 /* STYLE */
 
@@ -173,15 +180,39 @@ label{
     }
 }
 
+@keyframes pulse2 { /* POUR PULSER COMMENT CA FONCTIONNE HOVER */
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.075, 1.075);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
 /* FOOTER */
 
 footer{
     height: 10vh !important; /*mettre dans style.css*/
 }
 
+.boutton-connexion, .boutton-meeting{
+    min-width: 200px;
+}
 
 /* MEDIA QUERIES */
-
+@media screen and (max-width:654px) { /*POUR BOUTTON MENU HAMBURGER MOBILE*/
+    .boutton-connexion, .boutton-meeting{
+        min-width: 200px !important;
+    }
+    #base_login{
+        margin-top: 10vh;
+    }
+}
 @media screen and (max-width: 768px) { /*POUR MODIFIER FORMULAIRE INSCRIPTION MOBILE*/
     h1{
         font-size: 40px !important;
@@ -209,12 +240,30 @@ footer{
     }
     .ccf{
         flex: 1 1 100px;
+        font-size: 18px;
+        padding-right: 5px !important;
     }
     h4 a{
         text-decoration: underline !important;
     }
+    .boutton-connexion, .boutton-meeting{
+        font-size: 18px;
+        padding: 5px !important;
+        min-width: 115px;
+    }
+    .ccf {
+        font-size: 18px;
+        padding-right: 5px !important;
+    }
+    #base_login h1{
+        font-size: 32px !important;
+    }
+    #base_login p{
+        font-size: 16px;
+        padding: 0 15px;
+    }
 }
-@media screen and (max-width: 854px) { /*POUR MODIFIER BOUTTON HEADER POUR TABLETTE*/
+@media screen and (min-width: 768px) and (max-width: 906px) { /*POUR MODIFIER BOUTTON HEADER POUR TABLETTE*/
     .boutton-connexion, .boutton-meeting{
         font-size: 18px;
         padding: 5px !important;
@@ -223,11 +272,24 @@ footer{
     .ccf {
         font-size: 18px;
         padding-right: 5px !important;
-      }
+        flex: 1 1 100px;
+    }
 }
 @media screen and (min-width : 769px) and (max-width: 1262px) { /* A VOIR SI ON GARDE*/
     .formulaire-inscription{                                    /*POUR QUE HOMME ET FEMME NE SE CHEVAUCHENT PAS*/
         width: 40%;
     }
 }
+@media screen and (min-width : 1300px) {
+    #base_login, #base_inscription{
+        margin-top: 20vh !important;
+    }
+    #base_login p{
+        margin: 30px 0;
+    }
+    .background-inscription{
+        margin-bottom: 0 !important;
+    }
+}
+
 

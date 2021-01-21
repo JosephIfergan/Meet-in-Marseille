@@ -1,19 +1,23 @@
 {% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('assets/css/inscriptionStyle.css') }} ">
+<link rel="stylesheet" href="{{ asset('assets/css/RegisterStyle.css') }} ">
 <!-- police-->
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"> 
-
 {% endblock %}
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion MeetInMarseille!{% endblock %}
 
 {% block body %}
 
     <header>
         <nav class="header-pc d-flex flex-row justify-content-end">
             <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-            <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('connexion') }}">Se connecter</a>
+            {% if app.user %}
+                <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('app_logout') }}">Se déconnecter</a>
+            {% else %}
+                <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('app_register') }}">S'inscrire</a>
+            {% endif %}            
             <a class="btn btn-primary boutton-meeting align-self-center m-2" href="{{ path('map') }}">Voir les meetings<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
             <a class="ccf p-2 pr-3 align-self-center m-2" href="{{ path('accueil') }}#fonctionnement">Comment ça fonctionne ?</a>
         </nav>
@@ -32,7 +36,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li class="m-auto">
-                <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('connexion') }}">Se connecter</a>
+            {% if app.user %}
+                <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('app_logout') }}">Se déconnecter</a>
+            {% else %}
+                <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('app_register') }}">S'inscrire</a>
+            {% endif %}
             </li>
             <li class="m-auto">
                 <a class="btn btn-primary boutton-meeting align-self-center m-2" href="{{ path('map') }}">Voir les meetings<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
@@ -45,55 +53,44 @@
 
 
     <div class="background-inscription">
-        <div id="base_inscription">
+        <div id="base_login" class="pb-5">
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                
+                {% if app.user %}
+                	{# POUR REDIRIGER VERS LA PAGE MEETING APRES 5 SECONDES #}
+                    <meta  http-equiv = "refresh"  content = "5;{{ path('map') }}" >
+                {% endif %}
+                
+                {% if app.user %}
+                    <h1 class="color-1 text-uppercase text-center display-4 opacity-0 ">bienvenue {{ app.user.pseudo }} !</h1>
+                    <p class="text-center display-5 text-warning">Patienter on vous redirige vers la section Meeting ...</p>
+                {% else %}
+                    <h1 class="color-1 text-uppercase text-center display-4 opacity-0 mb-5">connectez-vous</h1>
+                {% endif %}
 
+                <div class="formulaire-inscription">
+                    <input type="email" value="{{ last_username }}" name="email" placeholder="Votre email" id="inputEmail" class="form-control mt-4 mb-4" required autofocus>
+                    <input type="password" name="password" placeholder="Votre mot de passe" id="inputPassword" class="form-control mb-4" required>
 
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+                    {#
+                        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                        See https://symfony.com/doc/current/security/remember_me.html
 
-    {% if app.user %}
-    			{# {% block header %} #}
-            <meta  http-equiv = "refresh"  content = "5;{{ path('map') }}" >
-            {# {% endblock %} #}
-        <div class="mb-3">
-            Bienvenue {{ app.user.pseudo }} !, <a href="{{ path('app_logout') }}">Logout</a>
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" name="_remember_me"> Remember me
+                            </label>
+                        </div>
+                    #}
+
+                    <button class="btn btn-primary d-block font-weight-bold mr-auto ml-auto mb-4 w-50" type="submit">Sign in</button>
+                </div>
+            </form>
         </div>
-    {% endif %}
-
-            
-        <h1 class="color-1 text-uppercase text-center display-4 opacity-0">connectez-vous</h1>
-
-   <div class="formulaire-inscription">
-
-    <input type="email" value="{{ last_username }}" name="email" placeholder="Votre email" id="inputEmail" class="form-control" required autofocus>
-
-    <input type="password" name="password" placeholder="Votre mot de passe" id="inputPassword" class="form-control" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-primary d-block font-weight-bold mr-auto ml-auto w-50" type="submit">Sign in</button>
-
     </div>
-</form>
-
-
-
-    </div>
-</div>
 {% endblock %}
