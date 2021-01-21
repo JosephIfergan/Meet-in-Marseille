@@ -1,0 +1,64 @@
+
+img.profil-avatar {
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.bar-profil .ita {
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    font-family: "baloo thambi 2";
+}
+
+.bar-profil .pseudo {
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.bar-profil,
+.navp {
+    background-color: #5271FF;
+}
+
+div .navp a {
+    padding: 0 10% 0 0;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navp a:hover,
+.navp a.active {
+    color: white;
+    transition: .5s;
+}
+
+div .navp .meet {
+    padding-left: 19%;
+}
+
+.navp {
+    padding-bottom: 10px;
+
+}
+
+.profil {
+    padding: 20px 0 20px 19%;
+    position: relative;
+}
+
+.profil-avatar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-45%);
+    left: 10%;
+}
+
+.cache {
+    display: none;
+}
