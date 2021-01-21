@@ -3,9 +3,9 @@
 
 var marseille = [43.3, 5.4];
 
-var tabMarkers = [
+/*var tabMarkers = [
   [43.26, 5.39], [43.26, 5.40], [43.24, 5.37]
-];
+]; */
 
 var myMap = L.map('mapid').setView(marseille, 13);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -19,6 +19,7 @@ marker.bindPopup('<h4>Marseille</h4>');
 for (let m = 0 ; m < tabMarkers.length ; m++) {
 
   let marker = L.marker(tabMarkers[m]).addTo(myMap);
+  marker.bindPopup('popup' + m);
   console.log(marker);
 }
 
