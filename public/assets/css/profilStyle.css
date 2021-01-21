@@ -29,8 +29,6 @@ nav.bg {
     text-align: center;
 }
 
-
-
 img.profil-avatar {
     width: 95px;
     height: 95px;
@@ -51,31 +49,10 @@ img.profil-avatar {
     font-size: 20px;
 }
 
-.bar-profil,
-.navp {
+.bar-profil {
     background-color: #5271FF;
 }
 
-/* div .navp a {
-    padding: 0 10% 0 0;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    font-size: 18px;
-} */
-
-.navp a:hover,
-.navp a.active {
-    color: white;
-    transition: .5s;
-}
-
-
-
-.navp {
-    padding-bottom: 10px;
-
-}
 
 .profil {
     padding: 20px 0 20px 19%;
