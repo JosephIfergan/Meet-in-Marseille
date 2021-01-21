@@ -12,8 +12,8 @@
                 <td>{{ meeting.id }}</td>
             </tr>
             <tr>
-                <th>Id</th>
-                <td>{{ meeting.user_id }}</td>
+                <th>Crée par</th>
+                <td>{{ meeting.user.pseudo ?? 'vide'  }}</td>
             </tr>
             <tr>
                 <th>Categorie</th>
