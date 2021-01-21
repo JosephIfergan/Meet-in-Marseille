@@ -29,7 +29,7 @@
 
 	{{ include('map/lightbox.html.twig') }}
 
-	{{ include('map/lightbox2.html.twig') }}
+
 
 
 	{% for meeting in meetings %}
@@ -45,33 +45,22 @@
 							{{ meeting.description }}
 						</p>
 						<hr>
-						<div class="pl-3">
-							<div class="row category">Catégorie :
-								{{ meeting.categorie }}</div>
-							<div class="row category">Sous-catégorie :
-								{{ meeting.sousCategorie }}</div>
-							<div class="row category">Sous-catégorie :
-								{{ meeting.userMax }}</div>
-							<div class="row datetime">Date et heure :
-								{{ meeting.heure }}
-							</div>
-							<div class="row location">Localisation :
-								{{ meeting.adresse }}</div>
-						</div>
-
+						
 
 					</div>
 					<footer class="card-footer justify-content-center">
 						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#afficherMeetingModal">AFFICHER LE MEETING</button>
 					</footer>
-
 				</div>
 			</div>
 		</section>
+		
+			{{ include('map/lightbox2.html.twig') }}
 	{% else %}
 		<tr>
 			<td colspan="10">No records found</td>
 		</tr>
+		
 	{% endfor %}
 
 
