@@ -9,7 +9,6 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Id_user</th>
                 <th>Categorie</th>
                 <th>SousCategorie</th>
                 <th>UserMax</th>
@@ -24,12 +23,10 @@
         {% for meeting in meetings %}
             <tr>
                 <td>{{ meeting.id }}</td>
-                <td>{{ meeting.idUser }}</td>
                 <td>{{ meeting.categorie }}</td>
                 <td>{{ meeting.sousCategorie }}</td>
                 <td>{{ meeting.userMax }}</td>
                 <td>{{ meeting.date ? meeting.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ meeting.heure }}</td>
                 <td>{{ meeting.adresse }}</td>
                 <td>{{ meeting.description }}</td>
                 <td>

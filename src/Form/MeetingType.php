@@ -14,12 +14,10 @@ class MeetingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('id_user')
             ->add('categorie')
             ->add('sousCategorie')
             ->add('userMax')
             ->add('date')
-            ->add('heure')
             ->add('adresse')
             ->add('description')
             // ->add('agreeTerms', CheckboxType::class, [
