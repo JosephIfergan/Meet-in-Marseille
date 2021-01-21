@@ -1,16 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+{% block title %}Profil{% endblock %}
 
 {% block stylesheets %}
 	<!-- MON CSS -->
 	<link rel="stylesheet" href="{{ asset('assets/css/profilStyle.css') }} ">
-
 {% endblock %}
 
 {% block body %}
 
-<div class="meeting">
+<div id="modif_class1" class="information">
 
     <div class="profil bar-profil">
         <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
@@ -18,25 +17,35 @@
         <div class="ita">Nom Prenom</div>
         <div class="ita">Marseille 13013</div>
     </div>
-    <div class="navp">
+    <div class="navp cache">
         <a href="" class="meet active">Mes Meetings</a>
         <a href="" class="info">Mes informations</a>
     </div>
-</div>
+    <nav class="bg" >
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active pad" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Mes Meetings</a>
+            <a class="nav-item nav-link pad2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Mes Informations</a>
+        </div>
+    </nav><hr>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
-<div class="information cache">
+            <div>
+                OPKLJ
+            </div> 
+        </div>
 
-    <div class="profil bar-profil">
-        <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
-        <div class="pseudo">Pseudo</div>
-        <div class="ita">Nom Prenom</div>
-        <div class="ita">Marseille 13013</div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        
+            <div>
+                OPKLJ
+            </div>
+        </div>
+
     </div>
-    <div class="navp">
-        <a href="" class="meet active">Mes Meetings</a>
-        <a href="" class="info">Mes informations</a>
-    </div>
+
 </div>
 <hr>
+
 
 {% endblock %}
