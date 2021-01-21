@@ -47,6 +47,11 @@ class Meeting
      */
     private $description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="meetings")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -133,6 +138,18 @@ class Meeting
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
