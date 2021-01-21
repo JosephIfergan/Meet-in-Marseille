@@ -91,8 +91,8 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
-    {
-        $routeRedirect = "app_register";
+    {   //REDIRIGER VERS LA PAGE VOIR LES MEETINGS APRES CONNEXION
+        $routeRedirect = "map";
 
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
@@ -100,6 +100,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        //REDIRIGER VERS LA PAGE SOUHAITE APRES CONNEXION
         return new RedirectResponse($this->urlGenerator->generate($routeRedirect));
 
     }
