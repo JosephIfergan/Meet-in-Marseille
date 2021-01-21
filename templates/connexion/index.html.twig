@@ -1,50 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
-
-{% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('assets/css/connexionStyle.css') }} ">
+{% block title %}Connexion
 {% endblock %}
 
-{% block header %} 
- <header>
-            <nav class="d-flex flex-row justify-content-center">
-                <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-                <a class="button-inscription btn p-4 align-self-center nav-link m-2 mr-5 " href="{{ path('inscription') }}">S'inscrire !</a>
-                <a class="button-connexion btn p-2 align-self-center m-2 mr-5" href="{{ path('map') }}">Meeting en cours</a>
-            </nav>
-</header>
- {% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/connexionStyle.css') }} ">
+{% endblock %}
+
+{% block header %}
+	<header>
+		<nav class="d-flex flex-row justify-content-center">
+			<a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+			<a class="button-inscription btn p-4 align-self-center nav-link m-2 mr-5 " href="{{ path('inscription') }}">S'inscrire !</a>
+			<a class="button-connexion btn p-2 align-self-center m-2 mr-5" href="{{ path('map') }}">Meeting en cours</a>
+		</nav>
+	</header>
+{% endblock %}
 
 {% block body %}
-<section id="base" >
+	<section id="base">
 
-    <div class="m-auto">
+		<div class="m-auto">
 
-        <form class="p-4 m-auto w--d bgc-form shadow" action="#form-create" method="POST">
-    
-            <h3 class="text-center">Connexion</h3>
+			<form class="p-4 m-auto w--d bgc-form shadow" action="#form-create" method="POST">
 
-            <div class="form-group">
-                <label for="email"></label>
-                <input type="email" class="form-control" id="" name="email" required placeholder="mon@mail.me">
-            </div>
+				<h3 class="text-center">Connexion</h3>
 
-            <div class="form-group">
-                <label for="exampleInputPassword1"></label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="mot de passe">
-            </div><br>
-    
-            <button type="submit" class="btn btn-color shadow btn-lg btn-block">Se connecter</button>
-            <input type="hidden" name="formIdentifiant" value="">
-    
-        </form><br>
-        <div class="container-fluid">
-            <img src="assets/img/image-inscription2.png" class="jc" alt="illustration">
-        </div>
-    </div>
-    
-</section>
+				<div class="form-group">
+					<label for="email"></label>
+					<input type="email" class="form-control" id="" name="email" required placeholder="mon@mail.me">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputPassword1"></label>
+					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="mot de passe">
+				</div><br>
+
+				<button type="submit" class="btn btn-color shadow btn-lg btn-block">Se connecter</button>
+				<input type="hidden" name="formIdentifiant" value="">
+
+			</form><br>
+			<div class="container-fluid">
+				<img src="assets/img/image-inscription2.png" class="jc" alt="illustration">
+			</div>
+		</div>
+
+	</section>
 
 
 {% endblock %}

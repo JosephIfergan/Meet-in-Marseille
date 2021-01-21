@@ -28,7 +28,7 @@ class InscriptionController extends AbstractController
 
             
             // ON ACTIVE DIRECTEMENT LE COMPTE
-            // $user->setRoles(["ROLE_MEMBER"]);
+            // $user->setRoles(["ROLE_MEMBER"]);    
 
         }
         return $this->redirectToRoute('app_register');
