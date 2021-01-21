@@ -1,4 +1,5 @@
 
+
 /* NAV TABS */
 
 a.nav-item {
@@ -68,4 +69,53 @@ img.profil-avatar {
 
 .cache {
     display: none;
+}
+
+/* HEARDER PROFIL */
+
+.button-deconnexion {
+    background-color: #5271FF;
+    color: white;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    width: 222px;
+    height: 50px;
+    margin-bottom: 20px;
+    align-items: center; /* changer sa*/
+    justify-content: center; 
+  }
+
+.button-deconnexion:hover {
+    background-color: #13dcfb;
+    color: white;
+}
+
+.ccf {
+    color: #5271FF;
+    font-family: 'Baloo Thambi 2', cursive;
+    font-weight: bold;
+    font-size: 20px;
+}
+    
+.ccf:hover {
+    text-decoration: none;
+    color:#13dcfb;
+}
+
+.navlogo {
+    margin-left: 10px;
+    margin-right: auto;
+
+}
+
+i {
+    padding-left: 10px;
+}
+
+div .marge-body {
+    padding-left: 20px;
+    padding-right: 20px;
+     margin: 0 auto;
 }
