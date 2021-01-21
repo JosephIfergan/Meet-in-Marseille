@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -50,6 +52,16 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $age;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Meeting::class, mappedBy="user")
+     */
+    private $meetings;
+
+    public function __construct()
+    {
+        $this->meetings = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -161,6 +173,36 @@ class User implements UserInterface
     public function setAge(int $age): self
     {
         $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Meeting[]
+     */
+    public function getMeetings(): Collection
+    {
+        return $this->meetings;
+    }
+
+    public function addMeeting(Meeting $meeting): self
+    {
+        if (!$this->meetings->contains($meeting)) {
+            $this->meetings[] = $meeting;
+            $meeting->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMeeting(Meeting $meeting): self
+    {
+        if ($this->meetings->removeElement($meeting)) {
+            // set the owning side to null (unless already changed)
+            if ($meeting->getUser() === $this) {
+                $meeting->setUser(null);
+            }
+        }
 
         return $this;
     }

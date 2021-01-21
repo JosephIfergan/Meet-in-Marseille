@@ -12,8 +12,8 @@
                 <td>{{ meeting.id }}</td>
             </tr>
             <tr>
-                <th>Id_user</th>
-                <td>{{ meeting.idUser }}</td>
+                <th>Crée par</th>
+                <td>{{ meeting.user.pseudo ?? 'vide'  }}</td>
             </tr>
             <tr>
                 <th>Categorie</th>
@@ -26,10 +26,6 @@
             <tr>
                 <th>UserMax</th>
                 <td>{{ meeting.userMax }}</td>
-            </tr>
-            <tr>
-                <th>Heure</th>
-                <td>{{ meeting.heure }}</td>
             </tr>
             <tr>
                 <th>Adresse</th>

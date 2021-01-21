@@ -1,6 +1,6 @@
 {% block body %}
 
-	<div class="modal fade" id="afficherMeetingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="afficherMeetingModal{{loop.index0}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -11,6 +11,8 @@
 				</div>
 				<div class="modal-body">
 					<div class="pl-3">
+							<div class="row category">Meeting crée par :
+								{{ meeting.user.pseudo ?? 'vide' }}</div>
 							<div class="row category">Catégorie :
 								{{ meeting.categorie }}</div>
 							<div class="row category">Sous-catégorie :
@@ -18,7 +20,7 @@
 							<div class="row category">Sous-catégorie :
 								{{ meeting.userMax }}</div>
 							<div class="row datetime">Date et heure :
-								{{ meeting.heure }}
+               {{ meeting.date ? meeting.date|date('Y-m-d H:i:s') : '' }}
 							</div>
 							<div class="row location">Localisation :
 								{{ meeting.adresse }}</div>
