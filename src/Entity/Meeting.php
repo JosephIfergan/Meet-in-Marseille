@@ -18,11 +18,6 @@ class Meeting
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_user;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $categorie;
@@ -43,11 +38,6 @@ class Meeting
     private $date;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $heure;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $adresse;
@@ -60,18 +50,6 @@ class Meeting
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdUser(): ?int
-    {
-        return $this->id_user;
-    }
-
-    public function setIdUser(int $id_user): self
-    {
-        $this->id_user = $id_user;
-
-        return $this;
     }
 
     public function getCategorie(): ?string
@@ -131,18 +109,6 @@ class Meeting
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
-
-        return $this;
-    }
-
-    public function getHeure(): ?int
-    {
-        return $this->heure;
-    }
-
-    public function setHeure(int $heure): self
-    {
-        $this->heure = $heure;
 
         return $this;
     }
