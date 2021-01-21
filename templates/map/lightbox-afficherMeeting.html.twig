@@ -10,7 +10,20 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					...
+					<div class="pl-3">
+							<div class="row category">Catégorie :
+								{{ meeting.categorie }}</div>
+							<div class="row category">Sous-catégorie :
+								{{ meeting.sousCategorie }}</div>
+							<div class="row category">Sous-catégorie :
+								{{ meeting.userMax }}</div>
+							<div class="row datetime">Date et heure :
+								{{ meeting.heure }}
+							</div>
+							<div class="row location">Localisation :
+								{{ meeting.adresse }}</div>
+						</div>
+
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-success">Rejoindre !</button>
