@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilController!{% endblock %}
+
+{% block stylesheets %}
+	<!-- MON CSS -->
+	<link rel="stylesheet" href="{{ asset('assets/css/profilStyle.css') }} ">
+
+{% endblock %}
+
+{% block body %}
+
+<div class="meeting">
+
+    <div class="profil bar-profil">
+        <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
+        <div class="pseudo">Pseudo</div>
+        <div class="ita">Nom Prenom</div>
+        <div class="ita">Marseille 13013</div>
+    </div>
+    <div class="navp">
+        <a href="" class="meet active">Mes Meetings</a>
+        <a href="" class="info">Mes informations</a>
+    </div>
+</div>
+
+<div class="information cache">
+
+    <div class="profil bar-profil">
+        <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
+        <div class="pseudo">Pseudo</div>
+        <div class="ita">Nom Prenom</div>
+        <div class="ita">Marseille 13013</div>
+    </div>
+    <div class="navp">
+        <a href="" class="meet active">Mes Meetings</a>
+        <a href="" class="info">Mes informations</a>
+    </div>
+</div>
+<hr>
+
+{% endblock %}
