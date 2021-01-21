@@ -110,12 +110,25 @@ class Meeting
         return $this;
     }
 
-    public function getDate(): ?string
+    /* public function getDate(): ?string
     {
         return $this->date;
     }
 
     public function setDate(string $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+    */
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
 
