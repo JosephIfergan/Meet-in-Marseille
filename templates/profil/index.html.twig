@@ -7,14 +7,25 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/profilStyle.css') }} ">
 {% endblock %}
 
+{% block header %}
+	<header>
+		<nav class="d-flex flex-row justify-content-center">
+			<a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+			<a class="button-deconnexion btn p-4 align-self-center nav-link m-2 mr-5 " href="{{ path('app_logout') }}"> 
+            Se déconnecter <i class="fas fa-sign-out-alt"></i></a>
+		</nav>
+	</header>
+{% endblock %}
+
 {% block body %}
 
 <div id="modif_class1" class="information">
 
     <div class="profil bar-profil">
         <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
-        <div class="pseudo">Pseudo</div>
+        <div class="pseudo">$pseudo</div>
         <div class="ita">Nom Prenom</div>
+        <div class="ita">$age</div>
         <div class="ita">Marseille 13013</div>
     </div>
     <nav class="bg" >
@@ -24,18 +35,18 @@
         </div>
     </nav>
     <hr>
-    <div class="tab-content" id="nav-tabContent">
+    <div class="tab-content marge-body" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
             <div>
-                OPKLJ
+                <h2>Notre code meet</h2>
             </div> 
         </div>
 
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
         
             <div>
-                OPKLJ
+                <h2>Notre code info</h2>
             </div>
         </div>
 

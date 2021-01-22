@@ -30,8 +30,6 @@
 	{{ include('map/lightbox-creerMeeting.html.twig') }}
 
 
-
-
 	{% for meeting in meetings %}
 		<section>
 			<div class="container fil-actu">
@@ -46,8 +44,8 @@
 							{{ meeting.description }}
 						</p>
 						<hr>
-						
 
+					
 					</div>
 					<footer class="card-footer justify-content-center">
 						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}">AFFICHER LE MEETING</button>
@@ -68,6 +66,19 @@
 {% endblock %}
 
 {% block javascripts %}
+<script>
+var tabMarkers = [
+ // [43.26, 5.39], [43.26, 5.40], [43.24, 5.37]
+
+{% for meeting in meetings %}
+
+[{{meeting.latitude??'43.26'}}, {{meeting.longitude??'5.39'}}],
+
+	{% endfor %}
+
+];
+	
+</script>
 	<!-- LEAFLET -->
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 	<script src="{{ asset('assets/js/meeting.js') }}"></script>
