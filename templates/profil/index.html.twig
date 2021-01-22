@@ -23,9 +23,10 @@
 
     <div class="profil bar-profil sticky-top">
         <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
-        <div class="pseudo">pseudo</div>
-        <div class="ita">Nom Prenom</div>
-        <div class="ita">$age</div>
+        <div class="pseudo">{{ app.user.pseudo }} </div>
+        <div class="ita">Nom Prenom </div>
+        <div class="ita">{{ app.user.age }} ans</div>
+        <div class="ita">{{ app.user.email }}</div>
         <div class="ita padd">Marseille 13013</div>
 
         <nav class="">
@@ -57,9 +58,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for meeting in meetings %}
+                        {% for meeting in app.user.meetings %}
                             <tr>
-                                <td>{{ meeting.user.pseudo ?? 'user.pseudo'  }}</td>
+                                <td>{{ meeting.user.pseudo ?? 'vide' }}</td>
                                 <td>{{ meeting.categorie }}</td>
                                 <td>{{ meeting.sousCategorie }}</td>
                                 <td>{{ meeting.userMax }}</td>
