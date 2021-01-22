@@ -11,24 +11,29 @@
 				</div>
 				<div class="modal-body">
 					<div class="pl-3">
-							<div class="row category">Meeting crée par :
-								{{ meeting.user.pseudo ?? 'vide' }}</div>
-							<div class="row category">Catégorie :
-								{{ meeting.categorie }}</div>
-							<div class="row category">Sous-catégorie :
-								{{ meeting.sousCategorie }}</div>
-							<div class="row category">Sous-catégorie :
-								{{ meeting.userMax }}</div>
-							<div class="row datetime">Date et heure :
-                                {{ meeting.date ? meeting.date|date('Y-m-d H:i:s') : '' }}
-							</div>
-							<div class="row location">Localisation :
-								{{ meeting.adresse }}</div>
+						<div class="row category">Meeting crée par :
+							{{ meeting.user.pseudo ?? 'vide' }}</div>
+						<div class="row category">Catégorie :
+							{{ meeting.categorie }}</div>
+						<div class="row category">Sous-catégorie :
+							{{ meeting.sousCategorie }}</div>
+						<div class="row category">Sous-catégorie :
+							{{ meeting.userMax }}</div>
+						<div class="row datetime">Date et heure :
+							{{ meeting.date ? meeting.date|date('Y-m-d H:i:s') : '' }}
 						</div>
+						<div class="row location">Localisation :
+							{{ meeting.adresse }}</div>
+					</div>
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success">Rejoindre !</button>
+					{% if app.user %}
+						<button type="button" class="btn btn-success">Rejoindre !</button>
+					{% else %}
+						<a href="{{path ('app_register')}}" class="btn btn-primary">Rejoindre !</a>
+					{% endif %}
+
 				</div>
 			</div>
 		</div>
