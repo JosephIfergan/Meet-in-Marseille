@@ -24,10 +24,9 @@
     <div class="profil bar-profil sticky-top">
         <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
         <div class="pseudo">{{ app.user.pseudo }} </div>
-        <div class="ita">Nom Prenom </div>
         <div class="ita">{{ app.user.age }} ans</div>
         <div class="ita">{{ app.user.email }}</div>
-        <div class="ita padd">Marseille 13013</div>
+        <div class="ita padd">Marseille 13000</div>
 
         <nav class="">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -104,21 +103,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                    {% for user in users %}
+
                         <tr>
-                            <td>{{ user.email }}</td>
-                            <td>{{ user.pseudo }}</td>
-                            <td>{{ user.age }}</td>
+                            <td>{{ app.user.email }}</td>
+                            <td>{{ app.user.pseudo }}</td>
+                            <td>{{ app.user.age }}</td>
                             <td>
 
-                                <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                                {# <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a> #}
                             </td>
                         </tr>
-                    {% else %}
-                        <tr>
-                            <td colspan="8">no records found</td>
-                        </tr>
-                    {% endfor %}
+
                     </tbody>
                 </table>
             </div>
