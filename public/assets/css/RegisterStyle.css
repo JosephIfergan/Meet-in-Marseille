@@ -79,6 +79,16 @@ h1{
     margin-bottom: 10vh;
 }
 
+.background-login{
+    background-image: url("../img/bg-smoke1.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 70vh;
+    margin-bottom: 10vh;
+}
+
+
 #base_inscription, #base_login{
     margin-top: 15vh;
 }
