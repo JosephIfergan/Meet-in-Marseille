@@ -14,21 +14,28 @@ a.nav-item {
 
 a.pad {
     padding-left: 2%;
-    margin-left: 17%;
 }
 a.pad2 {
     padding-left: 3%;
     padding-right: 3%;
+}
+.nav-tabs {
+    border-bottom:0 solid white;
 }
 a.nav-item:hover {
     color: whitesmoke;
     transition: .5s;
 }
 
+.padd {
+    padding-bottom: 35px;
+}
+
 nav.bg {
     background-color: #5271FF;
     text-align: center;
 }
+
 
 img.profil-avatar {
     width: 95px;
@@ -52,18 +59,19 @@ img.profil-avatar {
 
 .bar-profil {
     background-color: #5271FF;
+    border-bottom: 20px solid white;
 }
 
 
 .profil {
-    padding: 20px 0 20px 19%;
-    position: relative;
+    padding: 20px 0 0 19%;
+    /* position: relative; */
 }
 
 .profil-avatar {
     position: absolute;
     top: 50%;
-    transform: translateY(-45%);
+    transform: translateY(-75%);
     left: 10%;
 }
 
