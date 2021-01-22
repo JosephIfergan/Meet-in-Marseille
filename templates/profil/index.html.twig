@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block header %}
-	<header>
+	<header class="fixed border-warning" >
 		<nav class="d-flex flex-row justify-content-center">
 			<a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
 			<a class="button-deconnexion btn p-4 align-self-center nav-link m-2 mr-5 " href="{{ path('app_logout') }}"> 
@@ -19,27 +19,56 @@
 
 {% block body %}
 
-<div id="modif_class1" class="information">
+<div id="modif_class1" class="information ">
 
-    <div class="profil bar-profil">
+    <div class="profil bar-profil sticky-top">
         <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
         <div class="pseudo">$pseudo</div>
         <div class="ita">Nom Prenom</div>
         <div class="ita">$age</div>
-        <div class="ita">Marseille 13013</div>
+        <div class="ita padd">Marseille 13013</div>
+
+        <nav class="">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active pad" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Mes Meetings</a>
+                <a class="nav-item nav-link pad2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Mes Informations</a>
+            </div>
+        </nav>
+
+
     </div>
-    <nav class="bg" >
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active pad" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Mes Meetings</a>
-            <a class="nav-item nav-link pad2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Mes Informations</a>
-        </div>
-    </nav>
-    <hr>
+    
     <div class="tab-content marge-body" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
             <div>
                 <h2>Notre code meet</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit nisi, repudiandae consequuntur commodi necessitatibus dicta perspiciatis. Alias doloremque fugit, dolorum consectetur deleniti distinctio cum incidunt quaerat delectus ipsam quos recusandae!</p>
             </div> 
         </div>
 
@@ -47,6 +76,42 @@
         
             <div>
                 <h2>Notre code info</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
             </div>
         </div>
 
