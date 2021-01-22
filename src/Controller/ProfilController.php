@@ -46,14 +46,20 @@ class ProfilController extends AbstractController
             'form' => $form->createView(),
         ]);
 
+    }
+    
+    /**
+     * @Route("/{id}", name="profil_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Meeting $meeting): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$meeting->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($meeting);
+            $entityManager->flush();
+        }
 
-        // return $this->render('profil/index.html.twig', [
-        //     'controller_name' => 'ProfilController',
-        // ]);
-
-        // return $this->render('user/index.html.twig', [
-        //     'users' => $userRepository->findAll(),
-        // ]);
+        return $this->redirectToRoute('profil');
     }
 
 }
