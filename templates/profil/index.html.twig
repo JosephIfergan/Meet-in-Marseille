@@ -47,6 +47,7 @@
                     <thead>
                         <tr>
                             <th>publié par</th>
+                            <th>titre meeting</th>
                             <th>Categorie</th>
                             <th>Sous Categorie</th>
                             <th>Participant Max</th>
@@ -60,6 +61,7 @@
                         {% for meeting in app.user.meetings %}
                             <tr>
                                 <td>{{ meeting.user.pseudo ?? 'vide' }}</td>
+                                <td>{{ meeting.titre }}</td>
                                 <td>{{ meeting.categorie }}</td>
                                 <td>{{ meeting.sousCategorie }}</td>
                                 <td>{{ meeting.userMax }}</td>

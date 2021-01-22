@@ -14,6 +14,7 @@ class MeetingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('titre')
             ->add('categorie')
             ->add('sousCategorie')
             ->add('userMax')

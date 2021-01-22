@@ -40,14 +40,12 @@
 			<div class="container fil-actu">
 				<div class="card bg-primary mb-4">
 					<header>
-						<p class="titre-meeting">Match de foot 5 vs 5 sur Marseille 10</p>
+						<p class="titre-meeting">{{ meeting.titre }}</p>
 					</header>
 
 					<div id="details" class="card-body bg-primary mt-3">
-						<p class="description-meeting">
-						<p>Meeting crée par {{ meeting.user.pseudo ?? 'vide'}}</p>
-							{{ meeting.description }}
-						</p>
+						<p class="description-meeting">Meeting crée par {{ meeting.user.pseudo ?? 'vide'}}</p>
+						<p>{{ meeting.description }}</p>
 						<hr>
 
 					

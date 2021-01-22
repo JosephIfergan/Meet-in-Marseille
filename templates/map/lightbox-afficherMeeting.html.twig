@@ -11,6 +11,8 @@
 				</div>
 				<div class="modal-body">
 					<div class="pl-3">
+						<div class="row category">titre:
+							{{ meeting.titre }}</div>
 						<div class="row category">Meeting crée par :
 							{{ meeting.user.pseudo ?? 'vide' }}</div>
 						<div class="row category">Catégorie :
@@ -23,8 +25,14 @@
 							{{ meeting.date ? meeting.date|date('Y-m-d H:i:s') : '' }}
 						</div>
 						<div class="row location">Localisation :
-							{{ meeting.adresse }}</div>
+							{{ meeting.adresse }}
+						</div>
+						<div class="row category">Description :
+							{{ meeting.description }}
+						</div>
 					</div>
+					</div>
+
 
 				</div>
 				<div class="modal-footer">

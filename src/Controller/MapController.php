@@ -24,6 +24,11 @@ class MapController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE
+            $user = $this->getUser();
+            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE A LA TABLE MEETING
+            $meeting -> setUser($user);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($meeting);
             $entityManager->flush();
