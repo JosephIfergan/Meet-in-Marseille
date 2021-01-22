@@ -231,11 +231,11 @@ footer{
     #base_inscription{
         margin-top: 5vh;
     }
-    .formulaire-inscription{
+    /* .formulaire-inscription{
         width: 60%;
         margin: 10px auto;
         padding: 20px 10px;
-    }
+    } */
     .bottom-mobile{
         margin-bottom: 0px;
     }
@@ -287,9 +287,9 @@ footer{
     }
 }
 @media screen and (min-width : 769px) and (max-width: 1262px) { /* A VOIR SI ON GARDE*/
-    .formulaire-inscription{                                    /*POUR QUE HOMME ET FEMME NE SE CHEVAUCHENT PAS*/
-        width: 40%;
-    }
+     /* .formulaire-inscription{                                    POUR QUE HOMME ET FEMME NE SE CHEVAUCHENT PAS */
+        /* width: 40%; */
+    /* }  */
 }
 @media screen and (min-width : 1300px) {
     #base_login, #base_inscription{
