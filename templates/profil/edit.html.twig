@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Meeting{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Modifier mon meeting</h1>
+
+    {{ include('meeting/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-danger m-3" href="{{ path('profil') }}">Revenir à mon profil</a>
+{% endblock %}

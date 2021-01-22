@@ -62,4 +62,24 @@ class ProfilController extends AbstractController
         return $this->redirectToRoute('profil');
     }
 
+    /**
+     * @Route("/{id}/edit", name="profil_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Meeting $meeting): Response
+    {
+        $form = $this->createForm(MeetingType::class, $meeting);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('profil');
+        }
+
+        return $this->render('profil/edit.html.twig', [
+            'meeting' => $meeting,
+            'form' => $form->createView(),
+        ]);
+    }
+
 }
