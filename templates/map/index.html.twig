@@ -23,8 +23,13 @@
 
 	<div id="mapid"></div>
 	<div class="w-100 d-flex m-3 justify-content-center">
-		<a class="btn btn-info mr-2" href="{{ path('accueil') }}">Retour à l'accueil</a>
+		<a class="btn btn-info mr-2" href="{{ path('accueil') }}">Retour à l'accueil</a>				
+		{% if app.user %}
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo">Creer mon Meeting !</button>
+	    {% else %}
+		<a href="{{path ('app_register')}}" class="btn btn-primary">Creer mon Meeting !</a>
+		{% endif %}
+	    
 	</div>
 
 	{{ include('map/lightbox-creerMeeting.html.twig') }}
