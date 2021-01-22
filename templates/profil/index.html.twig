@@ -23,7 +23,7 @@
 
     <div class="profil bar-profil sticky-top">
         <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
-        <div class="pseudo">$pseudo</div>
+        <div class="pseudo">pseudo</div>
         <div class="ita">Nom Prenom</div>
         <div class="ita">$age</div>
         <div class="ita padd">Marseille 13013</div>
@@ -59,7 +59,7 @@
                     <tbody>
                         {% for meeting in meetings %}
                             <tr>
-                                <td>{{ meeting.user.pseudo ?? 'vide'  }}</td>
+                                <td>{{ meeting.user.pseudo ?? 'user.pseudo'  }}</td>
                                 <td>{{ meeting.categorie }}</td>
                                 <td>{{ meeting.sousCategorie }}</td>
                                 <td>{{ meeting.userMax }}</td>
@@ -73,7 +73,7 @@
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ meeting.id) }}">
                                         <button class="btn btn-danger">Delete</button>
-</form>
+                                    </form>
 
                                     {# <a href="{{ path('meeting_delete', {'id': meeting.id}) }}">Supprimer</a> #}
                                 </td>
@@ -91,74 +91,35 @@
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
         
             <div>
-                <h2>Notre code info</h2>
+                <h2>Notre code information</h2>
                 <table class="table">
-        <thead>
-            <tr>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Pseudo</th>
+                            <th>Age</th>
+                            <th>Action</th>
 
-                <th>Email</th>
-                <th>Password</th>
-                <th>Pseudo</th>
-                <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.pseudo }}</td>
+                            <td>{{ user.age }}</td>
+                            <td>
 
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-
-                <td>{{ user.email }}</td>
-                <td>{{ user.pseudo }}</td>
-
-                <td>{{ user.age }}</td>
-                <td>
-
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae repellat ex laudantium at ipsa, accusantium atque, nostrum eveniet accusamus assumenda inventore molestiae officia nobis provident sunt? Nobis, ab sint.</p>
+                                <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
 
