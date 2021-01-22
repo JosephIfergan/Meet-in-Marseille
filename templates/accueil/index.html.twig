@@ -24,22 +24,22 @@
 				<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
-						{% if app.user %}
-							<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="">
-								<i class="fas fa-user-circle logo-user pr-2"></i>Mon profil</a>
-						{% else %}
-							<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('app_register') }}">
-							<i class="fas fa-users logo-user pr-2"></i>S'inscrire !</a>
-						{% endif %}
+							{% if app.user %}
+								<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="">
+									<i class="fas fa-user-circle logo-user pr-2"></i>Mon profil</a>
+							{% else %}
+								<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('app_register') }}">
+									<i class="fas fa-users logo-user pr-2"></i>S'inscrire !</a>
+							{% endif %}
 						</li>
 						<li class="nav-item">
-						{% if app.user %}
-							<a class="button-connexion btn p-2 align-self-end mr-4" href="{{ path('app_logout') }}">
-								<i class="fas fa-sign-in-alt logo-user pr-2"></i>Se deconnecter</a>
-						{% else %}
-							<a class="button-connexion btn p-2 align-self-end mr-4" href="{{ path('app_login') }}">
-								<i class="fas fa-sign-in-alt logo-user pr-2"></i>Se connecter</a>
-						{% endif %}
+							{% if app.user %}
+								<a class="button-connexion btn p-2 align-self-end mr-4" href="{{ path('app_logout') }}">
+									<i class="fas fa-sign-in-alt logo-user pr-2"></i>Se deconnecter</a>
+							{% else %}
+								<a class="button-connexion btn p-2 align-self-end mr-4" href="{{ path('app_login') }}">
+									<i class="fas fa-sign-in-alt logo-user pr-2"></i>Se connecter</a>
+							{% endif %}
 						</li>
 					</ul>
 				</div>
@@ -56,8 +56,13 @@
 		<!-- SLIDERS JS ICI -->
 		<h1 class="bienvenue align-self-lg-center align-self-sm-start">
 			Partagez vos passions avec les autres.</h1>
-		<a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-		<a class="align-self-end button-meeting btn p-2 ml-4" href="{{ path('accueil') }}#fonctionnement">Comment ça marche ?</a>
+		{% if app.user %}
+			<a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
+			<a class="align-self-end button-meeting btn p-2 ml-4" href="{{path ('app_register')}}"><i class="far fa-plus-square fa-2x logo-add mr-3"></i>Creer un Meeting !</a>
+		{% else %}
+			<a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
+			<a class="align-self-end button-meeting btn p-2 ml-4" href="{{ path('map') }}#fonctionnement">Comment ça marche ?</a>
+		{% endif %}
 	</div>
 
 	<!-- DESCRIPTION RAPIDE ICI -->
