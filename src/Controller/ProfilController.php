@@ -5,9 +5,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\UserRepository;
 use App\Entity\User;
-use App\Form\User1Type;
+use App\Form\UserType;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 
 use App\Entity\Meeting;
@@ -22,28 +22,8 @@ class ProfilController extends AbstractController
      */
     public function index(UserRepository $userRepository, MeetingRepository $meetingRepository, Request $request ): Response
     {
-        $user= new User();
-        $form = $this->createForm(User1Type::class, $user);
-        $form->handleRequest($request);
-
-        $meeting = new Meeting();
-        $form = $this->createForm(MeetingType::class, $meeting);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($meeting);
-            $entityManager->flush();
-
-        }
-
         return $this->render('profil/index.html.twig', [
             'users' => $userRepository->findAll(),
-            'user' => $user,
-            'form' => $form->createView(),
-            'meetings' => $meetingRepository->findAll(),
-            'meeting' => $meeting,
-            'form' => $form->createView(),
         ]);
 
     }
@@ -63,9 +43,9 @@ class ProfilController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="profil_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="profil_meeting_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Meeting $meeting): Response
+    public function editMeeting(Request $request, Meeting $meeting): Response
     {
         $form = $this->createForm(MeetingType::class, $meeting);
         $form->handleRequest($request);
@@ -76,8 +56,28 @@ class ProfilController extends AbstractController
             return $this->redirectToRoute('profil');
         }
 
-        return $this->render('profil/edit.html.twig', [
+        return $this->render('profil/edit.meeting.html.twig', [
             'meeting' => $meeting,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/editUser", name="profil_user_edit", methods={"GET","POST"})
+     */
+    public function editUser(Request $request, User $user): Response
+    {
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('profil');
+        }
+
+        return $this->render('profil/edit.user.html.twig', [
+            'user' => $user,
             'form' => $form->createView(),
         ]);
     }
