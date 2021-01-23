@@ -23,6 +23,7 @@ h1{
     font-weight: bold;
     height: 50px;
     padding: 10px 12px;
+    min-width: 200px;
 }
 
 .boutton-meeting{ /*mettre dans style.css*/
@@ -32,19 +33,6 @@ h1{
 .boutton-connexion:hover, .boutton-meeting:hover{ /*mettre dans style.css*/
     background-color: #13dcfb;
     transition: 1.5s;
-    animation: pulse1 0.7s infinite;
-}
-
-.ccf { /*mettre dans style.css*/
-    color: #5271FF;
-    font-family: 'Baloo Thambi 2', cursive;
-    font-weight: bold;
-    font-size: 20px;
-}
-  
-.ccf:hover { /*mettre dans style.css*/
-    text-decoration: none;
-    color:#5abffa;
     animation: pulse1 0.7s infinite;
 }
 
@@ -84,13 +72,14 @@ h1{
     background-size: cover;
     background-position: center;
     width: 100%;
-    min-height: 70vh;
+    min-height: 60vh;
     margin-bottom: 10vh;
 }
 
 
 #base_inscription, #base_login{
     margin-top: 15vh;
+    padding: 0 60px;
 }
 
 #base_login p{
@@ -98,13 +87,12 @@ h1{
 }
 /* FORMULAIRE INSCRIPTION ET LOGIN*/
 .formulaire-inscription{
-    border: 1px solid #5271ff;
     background-color: #5271ff;
     opacity: 0.85;
     padding:20px 10px;
     border-radius: 10px;
-    width: 31%;
-    margin: 30px auto ;
+    max-width: 500px;
+    margin: 30px auto;
 }
 
 .form-control{
@@ -177,20 +165,6 @@ label{
 
 /* KEYFRAMES */
 
-@keyframes pulse1 { /* POUR PULSER COMMENT CA FONCTIONNE HOVER */
-    0% {
-        transform: scale(1, 1);
-    }
-
-    50% {
-        transform: scale(1.05, 1.05);
-    }
-
-    100% {
-        transform: scale(1, 1);
-    }
-}
-
 @keyframes pulse2 { /* POUR PULSER COMMENT CA FONCTIONNE HOVER */
     0% {
         transform: scale(1, 1);
@@ -208,34 +182,31 @@ label{
 /* FOOTER */
 
 footer{
-    height: 10vh !important; /*mettre dans style.css*/
+    height: 8vh !important; /*mettre dans style.css*/
 }
 
-.boutton-connexion, .boutton-meeting{
-    min-width: 200px;
-}
+
 
 /* MEDIA QUERIES */
 @media screen and (max-width:654px) { /*POUR BOUTTON MENU HAMBURGER MOBILE*/
     .boutton-connexion, .boutton-meeting{
-        min-width: 200px !important;
+        font-size: 18px;
+    }
+    .formulaire-inscription{
+        margin: 30px 60px;
+    }
+    #base_inscription{
+        margin-top: 40px;
+        padding: 0 0;
     }
     #base_login{
-        margin-top: 10vh;
+        padding: 0 0;
     }
 }
-@media screen and (max-width: 768px) { /*POUR MODIFIER FORMULAIRE INSCRIPTION MOBILE*/
+@media screen and (max-width: 768px) { /*POUR INSCRIPTION MOBILE*/
     h1{
         font-size: 40px !important;
     }
-    #base_inscription{
-        margin-top: 5vh;
-    }
-    /* .formulaire-inscription{
-        width: 60%;
-        margin: 10px auto;
-        padding: 20px 10px;
-    } */
     .bottom-mobile{
         margin-bottom: 0px;
     }
@@ -249,52 +220,24 @@ footer{
         width: 90%;
         margin: 0 5% 1rem 5%;
     }
-    .ccf{
-        flex: 1 1 100px;
-        font-size: 18px;
-        padding-right: 5px !important;
-    }
     h4 a{
         text-decoration: underline !important;
     }
-    .boutton-connexion, .boutton-meeting{
-        font-size: 18px;
-        padding: 10px 5px !important;
-        min-width: 115px;
-    }
-    .ccf {
-        font-size: 18px;
-        padding-right: 5px !important;
-    }
     #base_login h1{
-        font-size: 32px !important;
+        font-size: 36px !important;
     }
     #base_login p{
         font-size: 16px;
         padding: 0 15px;
     }
 }
-@media screen and (min-width: 768px) and (max-width: 906px) { /*POUR MODIFIER BOUTTON HEADER POUR TABLETTE*/
-    .boutton-connexion, .boutton-meeting{
-        font-size: 18px;
-        padding: 10px 5px !important;
-    }
 
-    .ccf {
-        font-size: 18px;
-        padding-right: 5px !important;
-        flex: 1 1 100px;
+@media screen and (min-width: 655px) and (max-width: 1262px) {
+    .formulaire-inscription{
+        max-width: 400px;
     }
-}
-@media screen and (min-width : 769px) and (max-width: 1262px) { /* A VOIR SI ON GARDE*/
-     /* .formulaire-inscription{                                    POUR QUE HOMME ET FEMME NE SE CHEVAUCHENT PAS */
-        /* width: 40%; */
-    /* }  */
 }
 @media screen and (min-width : 1300px) {
-    #base_login, #base_inscription{
-        margin-top: 20vh !important;
-    }
     #base_login p{
         margin: 30px 0;
     }

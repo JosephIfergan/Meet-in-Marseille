@@ -15,13 +15,12 @@
     <header>
         <nav class="header-pc d-flex flex-row justify-content-end">
             <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+            <a class="btn btn-primary boutton-meeting align-self-center m-2" href="{{ path('map') }}">Voir les meetings<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
             {% if app.user %}
                 <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('app_logout') }}">Se déconnecter</a>
             {% else %}
                 <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('app_login') }}">Se connecter</a>
             {% endif %}    
-            <a class="btn btn-primary boutton-meeting align-self-center m-2" href="{{ path('map') }}">Voir les meetings<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-            <a class="ccf p-2 pr-3 align-self-center m-2" href="{{ path('accueil') }}#fonctionnement">Comment ça fonctionne ?</a>
         </nav>
         <!-- HEADER MOBILE-->
         <nav class="header-mobile navbar navbar-inverse navbar-static-top d-none" role="navigation">
@@ -45,9 +44,6 @@
             {% endif %}             </li>
             <li class="m-auto">
                 <a class="btn btn-primary boutton-meeting align-self-center m-2" href="{{ path('map') }}">Voir les meetings<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-            </li>
-            <li class="mt-2 mr-auto ml-auto">
-                <a class="ccf p-2 align-self-center m-2" href="{{ path('accueil') }}#fonctionnement">Comment ça fonctionne ?</a>
             </li>
         </ul>
     </div>
