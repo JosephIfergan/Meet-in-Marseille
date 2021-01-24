@@ -25,11 +25,25 @@
 					<ul class="navbar-nav">
 						<li class="nav-item active">
 							{% if app.user %}
-								<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('profil') }}">
-									<i class="fas fa-user-circle logo-user pr-2"></i>Mon profil</a>
+								{%if ( app.user.photo == null ) %}
+        							{%if ( app.user.sexe == 'homme' ) %}
+										<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('profil') }}">
+											<img src="assets/img/avatar.png" class="profil-avatar-accueil mr-2" alt="avatar">Mon profil
+										</a>
+        							{%else %}
+										<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('profil') }}">
+											<img src="assets/img/avatar-femme.png" class="profil-avatar-accueil mr-2" alt="avatar">Mon profil
+										</a>
+        							{%endif %}
+    							{%else %}
+										<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('profil') }}">
+											<img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="profil-avatar-accueil mr-2" alt="avatar">Mon profil
+										</a>    							
+								{%endif %}	
 							{% else %}
 								<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('app_register') }}">
-									<i class="fas fa-users logo-user pr-2"></i>S'inscrire !</a>
+									<i class="fas fa-users logo-user pr-2"></i>S'inscrire !
+								</a>
 							{% endif %}
 						</li>
 						<li class="nav-item">

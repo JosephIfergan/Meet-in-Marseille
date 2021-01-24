@@ -38,6 +38,13 @@ footer{
     background-color: #38B6FF;
 }
 
+img.profil-avatar-accueil {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 img.profil-avatar-map {
     width: 40px;
     height: 40px;

@@ -22,7 +22,18 @@
 <div id="modif_class1" class="information ">
 
     <div class="profil bar-profil sticky-top">
+    {%if ( app.user.photo == null ) %}
+        {%if ( app.user.sexe == 'homme' ) %}
+            <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
+        {%else %}
+            <img src="assets/img/avatar-femme.png" class="profil-avatar" alt="avatar">
+        {%endif %}
+    {%else %}
         <img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="profil-avatar" alt="avatar">
+    {%endif %}
+
+
+
 
 
         <div class="pseudo">{{ app.user.pseudo }} </div>
