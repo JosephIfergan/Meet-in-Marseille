@@ -38,6 +38,14 @@ footer{
     background-color: #38B6FF;
 }
 
+img.profil-avatar-map {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 5px;
+  }
+
 @keyframes pulse1 { /* POUR PULSER COMMENT CA FONCTIONNE HOVER */
     0% {
         transform: scale(1, 1);

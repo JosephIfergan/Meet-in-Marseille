@@ -1,11 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}Edit Userss{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
+    <h1>Edit Usersss</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+    {# {{ include('user/_form.html.twig', {'button_label': 'Update'}) }} #}
+                {{ form_start(formuser) }}
+
+<div class="d-flex flex-column">
+                    <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                        {{ form_widget(formuser.pseudo) }}
+                    </label>
+                    <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                        <!-- AVEC form_widget on a pas le label juste le input-->
+                        {{ form_widget(formuser.age) }}
+                    </label>
+                    <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                        <!-- AVEC form_widget on a pas le label juste le input-->
+                        {{ form_widget(formuser.email) }}
+                    </label>
+                    <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                        <!-- AVEC form_widget on a pas le label juste le input-->
+                        {{ form_widget(formuser.photo) }}
+                    </label>
+                        {{ form_widget(formuser._token) }}
+                <button type="submit" class="btn btn-primary d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Modifier') }}</button>
+
+
+
+
+
+            {{ form_end(formuser) }} 
+</div>
+
+
+
 
     <a href="{{ path('profil') }}">Revenir au profil</a>
 

@@ -22,7 +22,9 @@
 <div id="modif_class1" class="information ">
 
     <div class="profil bar-profil sticky-top">
-        <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
+        <img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="profil-avatar" alt="avatar">
+
+
         <div class="pseudo">{{ app.user.pseudo }} </div>
         <div class="ita">{{ app.user.age }} ans</div>
         <div class="ita">{{ app.user.email }}</div>
@@ -80,7 +82,7 @@
                             </tr>
                         {% else %}
                             <tr>
-                                <td colspan="10">no records found</td>
+                                <td colspan="10">Vous n'avez pas créer de meeting(s)</td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -98,6 +100,7 @@
                             <th>Email</th>
                             <th>Pseudo</th>
                             <th>Age</th>
+                            <th>photo</th>
                             <th>Action</th>
 
                         </tr>
@@ -108,6 +111,7 @@
                             <td>{{ app.user.email }}</td>
                             <td>{{ app.user.pseudo }}</td>
                             <td>{{ app.user.age }}</td>
+                            <td>{{ app.user.photo }}</td>
                             <td><a  class="btn btn-success" href="{{ path('profil_user_edit', {'id': app.user.id}) }}">Modifier</a></td>
                         </tr>
 
@@ -120,6 +124,4 @@
 
 </div>
 <hr>
-
-
 {% endblock %}

@@ -13,6 +13,9 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Meeting;
 use App\Form\MeetingType;
 use App\Repository\MeetingRepository;
+// POUR L'UPLOAD
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 
 class ProfilController extends AbstractController
@@ -22,6 +25,7 @@ class ProfilController extends AbstractController
      */
     public function index(UserRepository $userRepository, MeetingRepository $meetingRepository, Request $request ): Response
     {
+        
         return $this->render('profil/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
@@ -65,18 +69,71 @@ class ProfilController extends AbstractController
     /**
      * @Route("/{id}/editUser", name="profil_user_edit", methods={"GET","POST"})
      */
-    public function editUser(Request $request, User $user): Response
+    public function editUser(Request $request, User $user, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // UPLOAD DE PHOTO
+                $photoFile = $form->get('photo')->getData();
+                // this condition is needed because the 'brochure' field is not required
+                // so the PDF file must be processed only when a file is uploaded
+                if ($photoFile) {
+                    $originalFilename = pathinfo($photoFile->getClientOriginalName(), PATHINFO_FILENAME);
+                    // this is needed to safely include the file name as part of the URL
+                    $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $photoFile->guessExtension();
+
+                    // Move the file to the directory where brochures are stored
+                    try {
+                        $photoFile->move(
+                            $this->getParameter('photos_directory'),        // NE PAS OUBLIER DE CREER LE DOSSIER
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                        // ... handle exception if something happens during file upload
+                    }
+
+                    // updates the 'brochureFilename' property to store the PDF file name
+                    // instead of its contents
+                    $user->setPhoto($newFilename);       // ON ENREGISTRE LE NOM DU FICHIER
+
+                }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('profil');
         }
 
         return $this->render('profil/edit.user.html.twig', [
+            'user' => $user,
+            'formuser' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/new", name="profil_user_new", methods={"GET","POST"})
+     */
+    public function new(Request $request): Response
+    {
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE
+            $user = $this->getUser();
+            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE A LA TABLE MEETING
+            $user -> setUser($user);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('user_index');
+        }
+
+        return $this->render('user/new.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);

@@ -44,7 +44,9 @@
 					</header>
 
 					<div id="details" class="card-body bg-primary mt-3">
-						<p class="description-meeting">Meeting crée par {{ meeting.user.pseudo ?? 'vide'}}</p>
+						<p class="description-meeting">Meeting crée par {{ meeting.user.pseudo ?? 'vide'}}
+						<img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="profil-avatar-map" alt="avatar">
+						</p>
 						<p>{{ meeting.description }}</p>
 						<hr>
 
