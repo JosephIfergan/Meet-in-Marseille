@@ -36,7 +36,7 @@ class MapController extends AbstractController
         }
 
         return $this->render('map/index.html.twig', [
-            'meetings' => $meetingRepository->findAll(),
+            'meetings' => $meetingRepository->findBy(array(), array('id'=>'desc')), // AFFICHAGE PAR ORDRE DECCROISSANT
             'meeting' => $meeting,
             'form' => $form->createView(),
         ]);
