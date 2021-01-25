@@ -70,8 +70,13 @@
                             <th>actions</th>
                         </tr>
                     </thead>
-                    <tbody>
                         {% for meeting in app.user.meetings %}
+                            {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
+                                <tbody>
+                            {% else %}
+                                <tbody class="bg-secondary">
+                            {% endif %}
+
                             <tr>
                                 <td>{{ meeting.user.pseudo ?? 'vide' }}</td>
                                 <td>{{ meeting.titre }}</td>
@@ -82,7 +87,9 @@
                                 <td>{{ meeting.adresse }}</td>
                                 <td>{{ meeting.description }}</td>
                                 <td>
-                                    <a  class="btn btn-success" href="{{ path('profil_meeting_edit', {'id': meeting.id}) }}">Modifier</a>
+                                {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
+                                    <a class="btn btn-success" href="{{ path('profil_meeting_edit', {'id': meeting.id}) }}">Modifier</a>
+                                {% endif %}
 
                                     <form method="post" action="{{ path('profil_delete', {'id': meeting.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                         <input type="hidden" name="_method" value="DELETE">

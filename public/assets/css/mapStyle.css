@@ -1,7 +1,7 @@
 #mapid { 
     z-index: 0;
     height: 80vh;
-    width: 100vw;
+    width: 100%;
 
 }
 
@@ -74,6 +74,10 @@ header img {
     font-weight: bold;
 }
 
+.btn-map{
+  min-width: 200px;
+  font-size: 20px;
+}
 h3{
   font-size: 45px !important;
   font-family: "Baloo Thambi 2", cursive;
@@ -147,7 +151,6 @@ h5 {
     padding: 0 15px !important;
     max-width: 420px;
     margin: 0 auto;
-    /* max-height: 200px !important; */
 } 
 
 .card-body p{
@@ -165,9 +168,7 @@ h5 {
   font-size: 20px;
   font-family: "Baloo Thambi 2", cursive;
 }
-/* .card-footer a, .card-footer button{
-  min-width: 175px;
-} */
+
 /* CARD ACTUS */
 
 
@@ -177,17 +178,13 @@ h5 {
     height: 60px;
 }
 
-@media screen and (max-width : 550px) {
-  .modal-dialog{
-    margin: 80px auto !important;
-    max-width: 350px;
-  }
-}
+
 
 @media screen and (max-width : 765px) {
   .card-footer a, .card-footer button{
     min-width: 100px;
-    font-size: 14px !important;
+    font-size: 13px !important;
+    padding: 10px;
   }
   .titre-meeting{
     font-size: 28px;
@@ -198,9 +195,13 @@ h5 {
   .card > hr{
     margin: 0!important;
   }
-
-}
-
-.gg{
-  /* background-color: red; */
+  h3{
+    font-size: 38px !important;
+    margin-left: 5px ;
+    margin-right: 5px ;
+  }
+  .btn-map{
+    min-width: auto;
+    font-size: 16px;
+  }
 }
