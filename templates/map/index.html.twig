@@ -39,20 +39,23 @@
 		<section>
 			<div class="container fil-actu">
 				<div class="card bg-primary mb-4">
-					<header>
-						<p class="titre-meeting">{{ meeting.titre }}</p>
+					<header class="w-100 position-static">
+						<h5 class="titre-meeting text-center text-uppercase mt-3 ">{{ meeting.titre }}</h5>
 					</header>
-
-					<div id="details" class="card-body bg-primary mt-3">
+<hr>
+					<div id="details" class="card-body bg-primary text-white text-center p-3">
 						<p class="description-meeting">Meeting crée par {{ meeting.user.pseudo ?? 'vide'}}
 						<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map" alt="avatar">
 						</p>
-						<p>{{ meeting.description }}</p>
-						<hr>
-
+						<p>Meeting prévu le {{ meeting.date ? meeting.date|date('d-m-Y') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }}</p>
+						<p>Le nombre de participant maximum est {{ meeting.userMax }}</p>
+						<p>Ce meeting se situe {{ meeting.adresse }}</p>
 					
 					</div>
 					<footer class="card-footer justify-content-center">
+					{% if app.user %}
+						<a class="btn btn-success mr-3" href="{{ path('join_meeting', {'id': meeting.id}) }}">REJOINDRE !</a>
+					{% endif %}
 						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}">AFFICHER LE MEETING</button>
 					</footer>
 				</div>

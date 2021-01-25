@@ -75,6 +75,9 @@ class UserType extends AbstractType
                         'mimeTypesMessage' => 'Seulement un fichier image...',
                     ])
                 ],
+                'attr' => [
+                    'placeholder' => 'Ajouter une photo de profil'
+                ]
             ])
         ;
     }

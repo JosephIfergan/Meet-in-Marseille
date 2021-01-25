@@ -125,31 +125,40 @@ h5 {
 }
 
 .titre-meeting {
-    display: inline-block;
+    width: 100%;
     font-family: "Coiny", cursive;
-    font-size: 25px;
+    font-size: 35px;
     color: white;
     
 }
 
+.modal-dialog{
+  margin: 60px auto !important;
+}
 
 .container{
     padding: 0 15px;
-    max-width: 1080px;
+    max-width: 980px;
     margin: 0 auto;
 } 
 
-.description-meeting, .category, .datetime, .location {
-
+.card-body p{
+  font-size: 24px;
   font-family: "Baloo Thambi 2", cursive;
   font-weight: normal;
-  color: white;
+  color: rgb(235, 235, 235);
   width: 100%;
-
 }
-
-
-
+.modal-title{
+  font-size: 25px;
+}
+.modal-body{
+  font-size: 20px;
+  font-family: "Baloo Thambi 2", cursive;
+}
+.card-footer a, .card-footer button{
+  min-width: 175px;
+}
 /* CARD ACTUS */
 
 
@@ -159,4 +168,27 @@ h5 {
     height: 60px;
 }
 
+@media screen and (max-width : 550px) {
+  .modal-dialog{
+    margin: 80px auto !important;
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width : 765px) {
+  .card-footer a, .card-footer button{
+    min-width: 100px;
+    font-size: 14px !important;
+  }
+  .titre-meeting{
+    font-size: 28px;
+  }
+  .card-body p{
+    font-size: 20px;
+  }
+  .card > hr{
+    margin: 0!important;
+  }
+
+}
 
