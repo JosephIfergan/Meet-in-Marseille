@@ -183,6 +183,7 @@ h5 {
   color: #13dcfb !important;
 }
 
+
 @media screen and (max-width : 765px) {
   .card-footer a, .card-footer button{
     min-width: 100px;
