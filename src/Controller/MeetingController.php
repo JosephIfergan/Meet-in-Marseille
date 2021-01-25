@@ -100,33 +100,5 @@ class MeetingController extends AbstractController
         return $this->redirectToRoute('meeting_index');
     }
         
-    /**
-     * @Route("/join/meeting/{id}", name="join_meeting", methods={"GET","POST"})
-     */
-    public function joinMeeting( Meeting $meeting, Request $request): Response
-    {
 
-            // $meeting = new Meeting();
-            $form = $this->createForm(MeetingType::class, $meeting);
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE
-            $user = $this->getUser();
-
-            $meeting->addParticipant($user);
-            
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($meeting);
-            $entityManager->flush();
-
-
-            return $this->redirectToRoute('meeting_index');
-        }
-
-        return $this->render('meeting/aa.html.twig', [
-            'meeting' => $meeting,
-            'formi' => $form->createView(),
-        ]);
-    }
 }
