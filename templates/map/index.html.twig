@@ -34,41 +34,45 @@
 
 	{{ include('map/lightbox-creerMeeting.html.twig') }}
 
+	<h3 class="text-uppercase text-center m-5 text-primary">Liste des meetings à venir</h3>
+	
+<main class="d-flex flex-row flex-wrap justify-content-around gg">
 
 	{% for meeting in meetings %}
-		<section>
-			<div class="container fil-actu">
-				<div class="card bg-primary mb-4">
-					<header class="w-100 position-static">
-						<h5 class="titre-meeting text-center text-uppercase mt-3 ">{{ meeting.titre }}</h5>
-					</header>
-<hr>
-					<div id="details" class="card-body bg-primary text-white text-center p-3">
-						<p class="description-meeting">Meeting crée par {{ meeting.user.pseudo ?? 'vide'}}
-						<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map" alt="avatar">
-						</p>
-						<p>Meeting prévu le {{ meeting.date ? meeting.date|date('d-m-Y') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }}</p>
-						<p>Le nombre de participant maximum est {{ meeting.userMax }}</p>
-						<p>Ce meeting se situe {{ meeting.adresse }}</p>
-					
-					</div>
-					<footer class="card-footer justify-content-center">
-					{% if app.user %}
-						<a class="btn btn-success mr-3" href="{{ path('join_meeting', {'id': meeting.id}) }}">REJOINDRE !</a>
-					{% endif %}
-						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}">AFFICHER LE MEETING</button>
-					</footer>
-				</div>
-			</div>
-		</section>
 
-			{{ include('map/lightbox-afficherMeeting.html.twig') }}
-	{% else %}
+		{% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
+			<section>
+				<div class="container fil-actu">
+					<div class="card bg-primary mb-4">
+						<header class="w-100 position-relative h-auto">
+							<h5 class="titre-meeting text-center text-uppercase m-auto">{{ meeting.categorie }}</h5>
+						</header>
+						<hr class="m-0">
+						<div id="details" class="card-body bg-primary text-white text-center p-3">
+							<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map" alt="avatar">
+							<p class="description-meeting">{{ meeting.user.pseudo ?? 'vide'}}</p>
+							<p class="font-weight-bold">{{ meeting.titre }}</p>
+							<p><i class="far fa-calendar-alt mr-2"></i>{{ meeting.date ? meeting.date|date('d-m-Y') : '' }}</p>
+							<p><i class="fas fa-map-marker-alt mr-2"></i>{{ meeting.adresse }}</p>
+						</div>
+						<footer class="card-footer d-flex justify-content-center">
+						{% if app.user %}
+							<a class="btn btn-success mr-3" href="{{ path('join_meeting', {'id': meeting.id}) }}">REJOINDRE !</a>
+						{% endif %}
+							<button type="button" class="btn btn-success" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}">AFFICHER DETAIL MEETING</button>
+						</footer>
+					</div>
+				</div>
+			</section>
+		{% endif %}
+		{{ include('map/lightbox-afficherMeeting.html.twig') }}
+		{% else %}
 		<tr>
-			<td colspan="10">No records found</td>
+			<td colspan="10">Pas de meetings prévus pour l'instant</td>
 		</tr>
-		
 	{% endfor %}
+
+</main>
 
 
 {% endblock %}

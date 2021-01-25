@@ -74,11 +74,16 @@ header img {
     font-weight: bold;
 }
 
+h3{
+  font-size: 45px !important;
+  font-family: "Baloo Thambi 2", cursive;
+}
 
 h5 {
     font-family: "Baloo Thambi 2", cursive;
     font-weight: bold;
-    color: white; 
+    color: white;
+    line-height: 1.5 !important;
 
 }
 
@@ -127,7 +132,7 @@ h5 {
 .titre-meeting {
     width: 100%;
     font-family: "Coiny", cursive;
-    font-size: 35px;
+    font-size: 25px;
     color: white;
     
 }
@@ -135,17 +140,21 @@ h5 {
 .modal-dialog{
   margin: 60px auto !important;
 }
-
+.card{
+  display: block !important;
+}
 .container{
-    padding: 0 15px;
-    max-width: 980px;
+    padding: 0 15px !important;
+    max-width: 420px;
     margin: 0 auto;
+    /* max-height: 200px !important; */
 } 
 
 .card-body p{
-  font-size: 24px;
+  font-size: 20px;
   font-family: "Baloo Thambi 2", cursive;
   font-weight: normal;
+  margin-bottom: 0 !important;
   color: rgb(235, 235, 235);
   width: 100%;
 }
@@ -156,14 +165,14 @@ h5 {
   font-size: 20px;
   font-family: "Baloo Thambi 2", cursive;
 }
-.card-footer a, .card-footer button{
+/* .card-footer a, .card-footer button{
   min-width: 175px;
-}
+} */
 /* CARD ACTUS */
 
 
 .card-footer {
-    display: flex;
+    /* display: flex; */
     padding: 10px;
     height: 60px;
 }
@@ -192,3 +201,6 @@ h5 {
 
 }
 
+.gg{
+  /* background-color: red; */
+}
