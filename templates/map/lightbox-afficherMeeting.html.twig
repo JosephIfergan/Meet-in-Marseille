@@ -3,15 +3,15 @@
 	<div class="modal fade" id="afficherMeetingModal{{loop.index0}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<div class="modal-header justify-content-center">
+					<h5 class="modal-title w-100 text-center" id="exampleModalLabel">{{ meeting.titre }}</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 					<div class="pl-3">
-						<div class="row category">titre:
+						<div class="row category">titre : 
 							{{ meeting.titre }}</div>
 						<div class="row category">Meeting crée par :
 							{{ meeting.user.pseudo ?? 'vide' }}</div>
@@ -19,10 +19,10 @@
 							{{ meeting.categorie }}</div>
 						<div class="row category">Sous-catégorie :
 							{{ meeting.sousCategorie }}</div>
-						<div class="row category">Sous-catégorie :
+						<div class="row category">Nombre de participant maximum : 
 							{{ meeting.userMax }}</div>
-						<div class="row datetime">Date et heure :
-							{{ meeting.date ? meeting.date|date('Y-m-d H:i:s') : '' }}
+						<div class="row category">Date et heure :
+							{{ meeting.date ? meeting.date|date('d-m-Y H:i') : '' }}
 						</div>
 						<div class="row location">Localisation :
 							{{ meeting.adresse }}

@@ -22,7 +22,20 @@
 <div id="modif_class1" class="information ">
 
     <div class="profil bar-profil sticky-top">
-        <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
+    {%if ( app.user.photo == null ) %}
+        {%if ( app.user.sexe == 'homme' ) %}
+            <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
+        {%else %}
+            <img src="assets/img/avatar-femme.png" class="profil-avatar" alt="avatar">
+        {%endif %}
+    {%else %}
+        <img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="profil-avatar" alt="avatar">
+    {%endif %}
+
+
+
+
+
         <div class="pseudo">{{ app.user.pseudo }} </div>
         <div class="ita">{{ app.user.age }} ans</div>
         <div class="ita">{{ app.user.email }}</div>
@@ -69,7 +82,7 @@
                                 <td>{{ meeting.adresse }}</td>
                                 <td>{{ meeting.description }}</td>
                                 <td>
-                                    <a  class="btn btn-success" href="{{ path('profil_edit', {'id': meeting.id}) }}">Modifier</a>
+                                    <a  class="btn btn-success" href="{{ path('profil_meeting_edit', {'id': meeting.id}) }}">Modifier</a>
 
                                     <form method="post" action="{{ path('profil_delete', {'id': meeting.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                         <input type="hidden" name="_method" value="DELETE">
@@ -80,7 +93,7 @@
                             </tr>
                         {% else %}
                             <tr>
-                                <td colspan="10">no records found</td>
+                                <td colspan="10">Vous n'avez pas créer de meeting(s)</td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -98,6 +111,7 @@
                             <th>Email</th>
                             <th>Pseudo</th>
                             <th>Age</th>
+                            <th>photo</th>
                             <th>Action</th>
 
                         </tr>
@@ -108,11 +122,8 @@
                             <td>{{ app.user.email }}</td>
                             <td>{{ app.user.pseudo }}</td>
                             <td>{{ app.user.age }}</td>
-                            <td>
-
-                                {# <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a> #}
-
-                            </td>
+                            <td>{{ app.user.photo }}</td>
+                            <td><a  class="btn btn-success" href="{{ path('profil_user_edit', {'id': app.user.id}) }}">Modifier</a></td>
                         </tr>
 
                     </tbody>
@@ -124,6 +135,4 @@
 
 </div>
 <hr>
-
-
 {% endblock %}
