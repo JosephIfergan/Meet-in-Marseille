@@ -149,6 +149,7 @@ h5 {
 }
 .container{
     padding: 0 15px !important;
+    min-width: 300px;
     max-width: 420px;
     margin: 0 auto;
 } 
@@ -178,7 +179,9 @@ h5 {
     height: 60px;
 }
 
-
+.color2{
+  color: #13dcfb !important;
+}
 
 @media screen and (max-width : 765px) {
   .card-footer a, .card-footer button{
