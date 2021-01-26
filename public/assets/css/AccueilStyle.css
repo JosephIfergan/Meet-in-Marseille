@@ -280,20 +280,6 @@ i {
   color: white;
   font-family: "Baloo Thambi 2", cursive;
   font-weight: bold;
-  font-size: 25px;
-  display: flex;
-  width: 300px;
-  height: 70px;
-  margin-bottom: 20px;
-  align-items: center;
-  justify-content: center;
-}
-
-.button-meeting {
-  background-color: #13dcfb;
-  color: white;
-  font-family: "Baloo Thambi 2", cursive;
-  font-weight: bold;
   font-size: 20px;
   display: flex;
   width: 300px;
@@ -302,6 +288,7 @@ i {
   align-items: center;
   justify-content: center;
 }
+
 
 .button-meeting:hover {
   background-color: #5271ff;

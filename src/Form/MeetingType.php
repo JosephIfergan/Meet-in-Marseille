@@ -25,12 +25,12 @@ class MeetingType extends AbstractType
             ->add('categorie', ChoiceType::class, [
                 'placeholder' => 'Choisir une categorie',
                 'choices' => array(
-                    'nature' => 'nature',
-                    'sport' => 'sport',
-                    'culture' => 'culture',
-                    'sortie (soirées)' => 'sortie',
-                    'jeux et divertissements' => 'jeux',
-                    'autre' => 'autre',
+                    'Nature' => 'Nature',
+                    'Sport' => 'Sport',
+                    'Culture' => 'Culture',
+                    'Sortie (soirées)' => 'Sortie',
+                    'Jeux & divertissements' => 'Jeux',
+                    'Autre' => 'Autre',
 
                 ),
             ])
