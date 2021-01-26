@@ -1,0 +1,11 @@
+{% block body %}
+	{% if app.user %}
+		<section id="valider-inscription" class="">
+    		<i class="fas fa-times-circle mr-2 ml-auto mt-2 text-white btn p-0"></i>
+			<p class="text-white text-center mt-3">Merci {{app.user.pseudo}} de valider pour vous inscrire à ce meeting</p>
+			{{ form_start(formInscrits) }}
+    			<button class="btn btn-success">{{ button_label|default('Valider insciption') }}</button>
+			{{ form_end(formInscrits) }}
+		</section>
+	{% endif %}
+{% endblock %}
