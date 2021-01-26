@@ -5,18 +5,46 @@ background-image: url("../img/background-bleu.jpg");
     background-size: cover;
     background-position: center;
 }
-.container {
-  width: 70%;
+
+
+#container {
+  width: 100%;
   height: 100%;
   margin-top: 50px;
 }
+.formulaire{
+  max-width: 400px ;
+}
+.formulaire button{
+  background-color: #5271ff;
+  color: white;
+  font-family: "Baloo Thambi 2", cursive;
+  font-weight: bold;
+  font-size: 18px;
+  height: 50px;
+  max-width: 300px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+}
 
+.aside {
+  max-width: 400px;
+
+  /* margin-left: 60px; */
+}
 .form-control {
     background-color: transparent !important;
     border: 0;
     border-bottom: 1px solid white;
 }
-
+.formulaire p{
+  font-size:
+ }
+.form-check{
+  padding-left: 2rem;
+  color: white;
+}
 .form-control::placeholder {
 color: white;
 }
@@ -89,28 +117,11 @@ height: 350px;
 margin-left: 50px;
   }
 
-  .aside {
-    margin-left: 60px;
-  }
 
-  .btn {
-      background-color: #5271ff;
-      color: white;
-      font-family: "Baloo Thambi 2", cursive;
-      font-weight: bold;
-      font-size: 20px;
-      height: 50px;
-      max-width: 300px;
-      margin-bottom: 20px;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    
+      
     .btn:hover {
       background-color: #13dcfb;
       color: white;
       animation: pulse1 0.7s infinite;
     }
 
-  
