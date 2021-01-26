@@ -26,20 +26,20 @@
 						<li class="nav-item active">
 							{% if app.user %}
 								{%if ( app.user.photo == null ) %}
-        							{%if ( app.user.sexe == 'homme' ) %}
+									{%if ( app.user.sexe == 'homme' ) %}
 										<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('profil') }}">
 											<img src="assets/img/avatar.png" class="profil-avatar-accueil mr-2" alt="avatar">Mon profil
 										</a>
-        							{%else %}
+									{%else %}
 										<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('profil') }}">
 											<img src="assets/img/avatar-femme.png" class="profil-avatar-accueil mr-2" alt="avatar">Mon profil
 										</a>
-        							{%endif %}
-    							{%else %}
-										<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('profil') }}">
-											<img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="profil-avatar-accueil mr-2" alt="avatar">Mon profil
-										</a>    							
-								{%endif %}	
+									{%endif %}
+								{%else %}
+									<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('profil') }}">
+										<img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="profil-avatar-accueil mr-2" alt="avatar">Mon profil
+									</a>
+								{%endif %}
 							{% else %}
 								<a class="button-inscription btn p-4 align-self-end nav-link mr-4" href="{{ path('app_register') }}">
 									<i class="fas fa-users logo-user pr-2"></i>S'inscrire !
@@ -65,28 +65,22 @@
 
 {% block body %}
 
-	<div
-		class="slideshow justify-content-center d-flex">
+	<div class="slideshow justify-content-center d-flex">
 		<!-- SLIDERS JS ICI -->
 		<h1 class="bienvenue align-self-lg-center align-self-sm-start">
 			Partagez vos passions avec les autres.</h1>
+	
 		{% if app.user %}
-			<a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-			<a class="align-self-end button-meeting btn p-2 ml-4" href="{{path ('map')}}"><i class="far fa-plus-square fa-2x logo-add mr-3"></i>Creer un Meeting !</a>
+			<a class="align-self-center button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
+			<a class="align-self-center button-meeting btn p-2 ml-4" href="{{path ('map')}}">
+				<i class="far fa-plus-square fa-2x logo-add mr-3"></i>Creer un Meeting !</a>
 		{% else %}
-			<a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-			<a class="align-self-end button-meeting btn p-2 ml-4" href="{{ path('accueil') }}#fonctionnement">Comment ça marche ?</a>
+			<a class="align-self-center button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
+			<a class="align-self-center button-meeting btn p-2 ml-4" href="{{ path('accueil') }}#fonctionnement">Comment ça marche ?</a>
 		{% endif %}
+
 	</div>
 
-	<!-- DESCRIPTION RAPIDE ICI -->
-	<div class="description d-flex flex-row container-fluid justify-content-center">
-		<img src="assets/img/logo-white.png" alt="MeetInMarseille">
-		<div class="mt-5">
-			<p class="ml-2">est la première plateforme en ligne vous permettant de partager votre temps, vos passions, hobbies et sorties avec les autres.</p>
-			<p class="text-center">C'est simple, rapide et gratuit.</p>
-		</div>
-	</div>
 
 	<!-- COMMENT ÇA MARCHE ? -->
 
@@ -105,7 +99,7 @@
 				<a class="btn" href="{{ path('map') }}">Je crée un Meeting</a>
 				<p>OU</p>
 				<a class="btn" href="{{ path('map') }}">Je rejoins un Meeting</a>
-				<img src="assets/img/logo4.png" alt="etape2">
+				<img src="assets/img/logo2.png" alt="etape2">
 			</div>
 			<i class="fas fa-long-arrow-alt-right m-auto fa-10x d-flex justify-content-center flex-fonctionnement"></i>
 			<div class="etape3 flex-fonctionnement" data-aos="fade-left">
@@ -120,4 +114,6 @@
 	<div class="background-scrolltop">
 		<img class="scrollTop" src="assets/img/iconescrolltop.png" alt="etape3">
 	</div>
+	</div>
+
 {% endblock %}
