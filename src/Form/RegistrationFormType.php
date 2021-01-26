@@ -25,7 +25,8 @@ class RegistrationFormType extends AbstractType
             ->add('email',EmailType::class, [
                 'label' => false, // je cache le label dans le formulaire
                 'attr' => [
-                    'placeholder' => 'Saisis ton email'
+                    'placeholder' => 'Saisis ton email',
+                    'class' => 'text-white !important'
                 ],
 
             ])
@@ -39,7 +40,8 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('pseudo',TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Choisis un pseudo'
+                    'placeholder' => 'Choisis un pseudo',
+                    'class' => 'text-white !important'
                 ]
             ])
             ->add('sexe', ChoiceType::class, [

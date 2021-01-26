@@ -5,11 +5,20 @@ background-image: url("../img/background-bleu.jpg");
     background-size: cover;
     background-position: center;
 }
+.container {
+  width: 70%;
+  height: 100%;
+  margin-top: 50px;
+}
 
 .form-control {
     background-color: transparent !important;
     border: 0;
     border-bottom: 1px solid white;
+}
+
+.form-control::placeholder {
+color: white;
 }
 
 h1{
@@ -38,7 +47,7 @@ h2 {
     font-size: 20px;
     height: 50px;
     max-width: 300px;
-    margin-bottom: 20px;
+    margin-left: 70px;
     align-items: center;
     justify-content: center;
   }
@@ -72,7 +81,36 @@ h2 {
     color: white;
     animation: pulse1 0.7s infinite;
   }
+
+
+  .aside img {
+width: 350px;
+height: 350px;
+margin-left: 50px;
+  }
+
+  .aside {
+    margin-left: 60px;
+  }
+
+  .btn {
+      background-color: #5271ff;
+      color: white;
+      font-family: "Baloo Thambi 2", cursive;
+      font-weight: bold;
+      font-size: 20px;
+      height: 50px;
+      max-width: 300px;
+      margin-bottom: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    
+    .btn:hover {
+      background-color: #13dcfb;
+      color: white;
+      animation: pulse1 0.7s infinite;
+    }
+
   
-.card {
-    opacity: 0.3;
-}
