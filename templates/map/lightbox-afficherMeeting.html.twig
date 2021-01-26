@@ -11,41 +11,34 @@
 				</div>
 				<div class="modal-body">
 					<div class="pl-3">
-						<div class="row category">titre : 
-							{{ meeting.titre }}</div>
-						<div class="row category">Meeting crée par :
-							{{ meeting.user.pseudo ?? 'vide' }}</div>
-						<div class="row category">Catégorie :
-							{{ meeting.categorie }}</div>
-						<div class="row category">Sous-catégorie :
-							{{ meeting.sousCategorie }}</div>
+						<div class="row category">Meeting crée par : <span class="font-weight-bold ml-2 text-light"> {{ meeting.user.pseudo ?? 'vide' }} ({{ meeting.user.age }} ans)</span></div>
+						<div class="row category">Catégorie : 
+							<span class="font-weight-bold ml-2 text-light">{{ meeting.categorie }}</span></div>
+						<div class="row category">Sous-catégorie : 
+							<span class="font-weight-bold ml-2 text-light">{{ meeting.sousCategorie }}</span></div>
 						<div class="row category">Nombre de participant maximum : 
-							{{ meeting.userMax }}</div>
-						<div class="row category">Date et heure :
-							{{ meeting.date ? meeting.date|date('d-m-Y H:i') : '' }}
+							<span class="font-weight-bold ml-2 text-light">{{ meeting.userMax ?? 'illimités'}}</span></div>
+						<div class="row category">Date et heure : 
+							<span class="font-weight-bold ml-2 text-light">{{ meeting.date ? meeting.date|date('d-m-Y') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }}</span>
 						</div>
-						<div class="row location">Localisation :
-							{{ meeting.adresse }}
+						<div class="row location">Localisation : 
+							<span class="font-weight-bold ml-2 text-light">{{ meeting.adresse }}</span>
 						</div>
-						<div class="row category">Description :
-							{{ meeting.description }}
+						<div class="row category">Description : 
+							<span class="font-weight-bold ml-2 text-light">{{ meeting.description }}</span>
 						</div>
 					</div>
-					</div>
-
-
-				</div>
-				<div class="modal-footer">
-					{% if app.user %}
-						<button type="button" class="btn btn-success">Rejoindre !</button>
-					{% else %}
-						<a href="{{path ('app_register')}}" class="btn btn-primary">Rejoindre !</a>
-					{% endif %}
-
 				</div>
 			</div>
+			<div class="modal-footer">
+				{% if app.user %}
+					<button type="button" class="btn btn-success">Rejoindre !</button>
+				{% else %}
+					<a href="{{path ('app_register')}}" class="btn btn-primary">Rejoindre !</a>
+				{% endif %}
+			</div>
+		</div>
 		</div>
 	</div>
-
 
 {% endblock %}

@@ -30,7 +30,7 @@ class Meeting
     private $sousCategorie;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $userMax;
 
@@ -58,16 +58,6 @@ class Meeting
      * @ORM\Column(type="string", length=255)
      */
     private $titre;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="participant")
-     */
-    private $participants;
-
-    public function __construct()
-    {
-        $this->participants = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -183,27 +173,4 @@ class Meeting
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getParticipants(): Collection
-    {
-        return $this->participants;
-    }
-
-    public function addParticipant(User $participant): self
-    {
-        if (!$this->participants->contains($participant)) {
-            $this->participants[] = $participant;
-        }
-
-        return $this;
-    }
-
-    public function removeParticipant(User $participant): self
-    {
-        $this->participants->removeElement($participant);
-
-        return $this;
-    }
 }

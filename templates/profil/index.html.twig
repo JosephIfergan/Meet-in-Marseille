@@ -11,9 +11,10 @@
 	<header" >
 		<nav class="d-flex flex-row fixed justify-content-center">
 			<a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+            <a class="align-self-end button-meeting btn p-2 ml-4" href="{{path ('map')}}"><i class="far fa-plus-square fa-2x logo-add mr-2"></i>Creer un Meeting !</a>
 			<a class="button-deconnexion btn p-4 align-self-center nav-link m-2 mr-5 " href="{{ path('app_logout') }}"> 
             Se déconnecter <i class="fas fa-sign-out-alt"></i></a>
-		</nav>
+            </nav>
 	</header>
 {% endblock %}
 
@@ -60,19 +61,24 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>publié par</th>
-                            <th>titre meeting</th>
+                            <th>Publié par</th>
+                            <th>Titre meeting</th>
                             <th>Categorie</th>
                             <th>Sous Categorie</th>
                             <th>Participant Max</th>
                             <th>Date</th>
                             <th>Adresse</th>
                             <th>Description</th>
-                            <th>actions</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
                         {% for meeting in app.user.meetings %}
+                            {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
+                                <tbody>
+                            {% else %}
+                                <tbody class="bg-secondary">
+                            {% endif %}
+
                             <tr>
                                 <td>{{ meeting.user.pseudo ?? 'vide' }}</td>
                                 <td>{{ meeting.titre }}</td>
@@ -83,7 +89,9 @@
                                 <td>{{ meeting.adresse }}</td>
                                 <td>{{ meeting.description }}</td>
                                 <td>
-                                    <a  class="btn btn-success" href="{{ path('profil_meeting_edit', {'id': meeting.id}) }}">Modifier</a>
+                                {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
+                                    <a class="btn btn-success" href="{{ path('profil_meeting_edit', {'id': meeting.id}) }}">Modifier</a>
+                                {% endif %}
 
                                     <form method="post" action="{{ path('profil_delete', {'id': meeting.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                         <input type="hidden" name="_method" value="DELETE">
@@ -94,7 +102,7 @@
                             </tr>
                         {% else %}
                             <tr>
-                                <td colspan="10">Vous n'avez pas créer de meeting(s)</td>
+                                <td colspan="10">Vous n'avez pas créé de meeting(s)</td>
                             </tr>
                         {% endfor %}
                     </tbody>
