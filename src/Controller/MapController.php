@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Meeting;
 use App\Form\MeetingType;
+use App\Form\InscritsType;
 
 class MapController extends AbstractController
 {
@@ -23,6 +24,9 @@ class MapController extends AbstractController
         $form = $this->createForm(MeetingType::class, $meeting);
         $form->handleRequest($request);
 
+        $formInscrits = $this->createForm(InscritsType::class, $meeting);
+        $formInscrits->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE
             $user = $this->getUser();
@@ -35,10 +39,28 @@ class MapController extends AbstractController
 
         }
 
+        if ($formInscrits->isSubmitted() && $formInscrits->isValid()) {
+            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE
+            $user = $this->getUser();
+
+            $id_meeting = $formInscrits->get('id_meeting')->getData();
+            $meeting = $meetingRepository-> find($id_meeting);
+            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE A LA TABLE MEETING
+            $meeting -> addInscrit($user);
+
+            
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($meeting);
+            $entityManager->flush();
+
+        }
+
         return $this->render('map/index.html.twig', [
             'meetings' => $meetingRepository->findBy(array(), array('id'=>'desc')), // AFFICHAGE PAR ORDRE DECCROISSANT
             'meeting' => $meeting,
             'form' => $form->createView(),
+            'formInscrits' => $formInscrits->createView(),
         ]);
 
     }

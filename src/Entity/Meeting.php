@@ -59,6 +59,22 @@ class Meeting
      */
     private $titre;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Participant::class, mappedBy="meeting")
+     */
+    private $participants;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="billets")
+     */
+    private $inscrits;
+
+    public function __construct()
+    {
+        $this->participants = new ArrayCollection();
+        $this->inscrits = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -169,6 +185,60 @@ class Meeting
     public function setTitre(string $titre): self
     {
         $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Participant[]
+     */
+    public function getParticipants(): Collection
+    {
+        return $this->participants;
+    }
+
+    public function addParticipant(Participant $participant): self
+    {
+        if (!$this->participants->contains($participant)) {
+            $this->participants[] = $participant;
+            $participant->setMeeting($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(Participant $participant): self
+    {
+        if ($this->participants->removeElement($participant)) {
+            // set the owning side to null (unless already changed)
+            if ($participant->getMeeting() === $this) {
+                $participant->setMeeting(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getInscrits(): Collection
+    {
+        return $this->inscrits;
+    }
+
+    public function addInscrit(User $inscrit): self
+    {
+        if (!$this->inscrits->contains($inscrit)) {
+            $this->inscrits[] = $inscrit;
+        }
+
+        return $this;
+    }
+
+    public function removeInscrit(User $inscrit): self
+    {
+        $this->inscrits->removeElement($inscrit);
 
         return $this;
     }

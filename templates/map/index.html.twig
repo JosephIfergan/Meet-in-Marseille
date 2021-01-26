@@ -38,6 +38,12 @@
 	
 <main class="d-flex flex-row flex-wrap justify-content-around gg">
 
+
+{{ form_start(formInscrits) }}
+    {{ form_widget(formInscrits) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(formInscrits) }}
+
 	{% for meeting in meetings %}
 
 		{% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}

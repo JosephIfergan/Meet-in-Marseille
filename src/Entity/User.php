@@ -63,9 +63,21 @@ class User implements UserInterface
      */
     private $photo;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Participant::class, mappedBy="user")
+     */
+    private $participants;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Meeting::class, mappedBy="inscrits")
+     */
+    private $billets;
+
     public function __construct()
     {
         $this->meetings = new ArrayCollection();
+        $this->participants = new ArrayCollection();
+        $this->billets = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -220,6 +232,63 @@ class User implements UserInterface
     public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Participant[]
+     */
+    public function getParticipants(): Collection
+    {
+        return $this->participants;
+    }
+
+    public function addParticipant(Participant $participant): self
+    {
+        if (!$this->participants->contains($participant)) {
+            $this->participants[] = $participant;
+            $participant->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(Participant $participant): self
+    {
+        if ($this->participants->removeElement($participant)) {
+            // set the owning side to null (unless already changed)
+            if ($participant->getUser() === $this) {
+                $participant->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Meeting[]
+     */
+    public function getBillets(): Collection
+    {
+        return $this->billets;
+    }
+
+    public function addBillet(Meeting $billet): self
+    {
+        if (!$this->billets->contains($billet)) {
+            $this->billets[] = $billet;
+            $billet->addInscrit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBillet(Meeting $billet): self
+    {
+        if ($this->billets->removeElement($billet)) {
+            $billet->removeInscrit($this);
+        }
 
         return $this;
     }
