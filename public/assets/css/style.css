@@ -66,9 +66,18 @@ img.profil-avatar-map {
         transform: scale(1, 1);
     }
   }
-
+#btn-inscription_meeting{
+    opacity: 0.85 !important;
+    cursor: pointer;
+}
 .color-1{
     color:  #5271ff;
+}
+.color-2{
+    color:  #5abffa;
+}
+.bg-1{
+    background-color:  #5271ff !important;
 }
 .color-2{
     color:  #5abffa;

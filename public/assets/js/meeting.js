@@ -24,11 +24,12 @@ for (let m = 0 ; m < tabMarkers.length ; m++) {
 }
 
 
-// INSCRIPTION A UN MEETING
+// INSCRIPTION A UN MEETING ET OUVRIR LIGHTBOX VALIDER INSCRIPTION MEETING
+var lightboxValiderInscription = $('#valider-inscription');
+
 function InscriptionMeeting(event) 
 {   
     let id = event.target.getAttribute('data-id');
-    let lightboxValiderInscription = $('#valider-inscription');
     lightboxValiderInscription.addClass('active');
 
     let champId = document.querySelector('#inscrits_id_meeting');
@@ -39,6 +40,14 @@ function InscriptionMeeting(event)
     let boutonSubmit = document.querySelector('form[name=inscrits]');
     boutonSubmit.click();
 }   
+// FERMER LIGHTBOX INSCRIPTION A UN MEETING
+var fermerLightboxInscription = document.querySelector('.fa-times-circle');
+console.log(fermerLightboxInscription);
+
+fermerLightboxInscription.addEventListener('click', function () {
+  lightboxValiderInscription.removeClass('active');
+  console.log(fermerLightboxInscription);
+});
 
 
 

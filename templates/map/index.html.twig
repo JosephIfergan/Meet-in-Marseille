@@ -25,16 +25,16 @@
 	<div class="d-flex m-3 justify-content-center">
 		<a class="btn btn-info btn-map mr-2" href="{{ path('accueil') }}">Retour à l'accueil</a>				
 		{% if app.user %}
-		<button type="button" class="btn btn-primary btn-map" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo">Creer mon Meeting !</button>
+		<button type="button" class="btn bg-1 text-white btn-map" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo">Creer mon Meeting !</button>
 	    {% else %}
-		<a href="{{path ('app_register')}}" class="btn btn-primary btn-map">Creer mon Meeting !</a>
+		<a href="{{path ('app_register')}}" class="btn bg-1 btn-map">Creer mon Meeting !</a>
 		{% endif %}
 	    
 	</div>
 
 	{{ include('map/lightbox-creerMeeting.html.twig') }}
 
-	<h3 class="text-uppercase text-center mt-4 mb-5 color-1">Liste des meetings à venir</h3>
+	<h3 class="text-uppercase text-center mt-4 mb-4 color-1">Liste des meetings à venir</h3>
 	
 <main class="d-flex flex-row flex-wrap justify-content-around">
 	{% for meeting in meetings %}
@@ -54,21 +54,30 @@
 							</div>
 							<div>
 								<div class="mb-3">
-									<p class="mb-3"><img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">{{ meeting.user.pseudo ?? 'vide'}}</p>
+   										<p class="mb-3">
+										   	{%if ( meeting.user.photo == null ) %}
+        										{%if ( meeting.user.sexe == 'homme' ) %}
+													<img src="assets/img/avatar.png" class="profil-avatar-map mr-2" alt="avatar">
+        										{%else %}
+													<img src="assets/img/avatar-femme.png" class="profil-avatar-map mr-2" alt="avatar">
+        										{%endif %}
+    										{%else %}
+											<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
+											{%endif %}
+											{{ meeting.user.pseudo ?? 'vide'}}
+										</p>
 								</div>
-								<p class="font-weight-bold">{{ meeting.id }}</p>
+								{# <p class="font-weight-bold">{{ meeting.id }}</p> #}
 								<p class="font-weight-bold">{{ meeting.titre }}</p>
 								<p><i class="far fa-calendar-alt mr-2 "></i>{{ meeting.date ? meeting.date|date('d-m-Y') : '' }}</p>
 								<p><i class="fas fa-map-marker-alt mr-2 "></i>{{ meeting.adresse }}</p>
 							</div>
 						</div>
- 
 						<footer class="card-footer d-flex justify-content-center">
-
 						{% if app.user %}
-						        <button data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-success mr-3">REJOINDRE !</button>
+						        <button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-success mr-3">REJOINDRE !</button>
 						{% endif %}
-							<button type="button" class="btn btn-primary text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-plus-square mr-2"></i>DETAIL MEETING</button>
+							<button type="button" class="btn bg-1 text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-plus-square mr-2"></i>DETAIL MEETING</button>
 						</footer>
 					</div>
 				</div>
@@ -82,13 +91,19 @@
 	{% endfor %}
 
 </main>
+
+{# LIGHTBOX VALIDER INSCRIPTION #}
+		{% if app.user %}
+
 <section id="valider-inscription" class="">
-	<p class="text-white text-center  display-5">Valider pour vous inscrire à ce meeting</p>
+    <i class="fas fa-times-circle mr-2 ml-auto mt-2 text-white btn p-0"></i>
+
+	<p class="text-white text-center mt-3">Merci {{app.user.pseudo}} de valider pour vous inscrire à ce meeting</p>
 		{{ form_start(formInscrits) }}
     		<button class="btn btn-success">{{ button_label|default('Valider insciption') }}</button>
 		{{ form_end(formInscrits) }}
 </section>
-
+{% endif %}
 {% endblock %}
 
 {% block javascripts %}
