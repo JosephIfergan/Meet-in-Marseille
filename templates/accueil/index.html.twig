@@ -15,7 +15,7 @@
 	<header class="container-fluid">
 		<div class="row">
 			<nav class="navbar navbar-expand-sm col navbar-light">
-				<a class="navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+				<a href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
 				<button class="navbar-toggler hidden-lg-up float-xs-sm-right bg-primary" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span>
 						<i class="hamburger fas fa-bars"></i>
@@ -75,7 +75,7 @@
 			<a class="align-self-end button-meeting btn p-2 ml-4" href="{{path ('map')}}"><i class="far fa-plus-square fa-2x logo-add mr-3"></i>Creer un Meeting !</a>
 		{% else %}
 			<a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-			<a class="align-self-end button-meeting btn p-2 ml-4" href="{{ path('map') }}#fonctionnement">Comment ça marche ?</a>
+			<a class="align-self-end button-meeting btn p-2 ml-4" href="{{ path('accueil') }}#fonctionnement">Comment ça marche ?</a>
 		{% endif %}
 	</div>
 
