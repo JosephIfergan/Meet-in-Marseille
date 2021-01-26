@@ -30,7 +30,6 @@ header {
   padding: 5px 15px !important;
   align-items: center !important;
   line-height: 1 !important;
-  opacity: 0.4;
 }
 .bienvenue {
   color: white;
@@ -362,4 +361,9 @@ i {
   .fa-long-arrow-alt-right {
     font-size: 6em;
   }
+}
+
+.bloc1 {
+  width: 400px;
+  height: 100px;
 }
