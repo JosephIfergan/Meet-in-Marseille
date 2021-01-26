@@ -1,5 +1,8 @@
 body {
     width: 100% !important;
+    background-image: url("../img/background-bleu.jpg");
+    background-size: cover;
+  background-position: center;
 }
 
 h1{
