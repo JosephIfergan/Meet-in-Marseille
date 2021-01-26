@@ -64,11 +64,6 @@ class User implements UserInterface
     private $photo;
 
     /**
-     * @ORM\OneToMany(targetEntity=Participant::class, mappedBy="user")
-     */
-    private $participants;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Meeting::class, mappedBy="inscrits")
      */
     private $billets;
@@ -236,35 +231,6 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Participant[]
-     */
-    public function getParticipants(): Collection
-    {
-        return $this->participants;
-    }
-
-    public function addParticipant(Participant $participant): self
-    {
-        if (!$this->participants->contains($participant)) {
-            $this->participants[] = $participant;
-            $participant->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParticipant(Participant $participant): self
-    {
-        if ($this->participants->removeElement($participant)) {
-            // set the owning side to null (unless already changed)
-            if ($participant->getUser() === $this) {
-                $participant->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Meeting[]

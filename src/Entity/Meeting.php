@@ -59,15 +59,16 @@ class Meeting
      */
     private $titre;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Participant::class, mappedBy="meeting")
-     */
-    private $participants;
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, inversedBy="billets")
      */
     private $inscrits;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photoMeeting;
 
     public function __construct()
     {
@@ -189,35 +190,6 @@ class Meeting
         return $this;
     }
 
-    /**
-     * @return Collection|Participant[]
-     */
-    public function getParticipants(): Collection
-    {
-        return $this->participants;
-    }
-
-    public function addParticipant(Participant $participant): self
-    {
-        if (!$this->participants->contains($participant)) {
-            $this->participants[] = $participant;
-            $participant->setMeeting($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParticipant(Participant $participant): self
-    {
-        if ($this->participants->removeElement($participant)) {
-            // set the owning side to null (unless already changed)
-            if ($participant->getMeeting() === $this) {
-                $participant->setMeeting(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|User[]
@@ -239,6 +211,18 @@ class Meeting
     public function removeInscrit(User $inscrit): self
     {
         $this->inscrits->removeElement($inscrit);
+
+        return $this;
+    }
+
+    public function getPhotoMeeting(): ?string
+    {
+        return $this->photoMeeting;
+    }
+
+    public function setPhotoMeeting(?string $photoMeeting): self
+    {
+        $this->photoMeeting = $photoMeeting;
 
         return $this;
     }

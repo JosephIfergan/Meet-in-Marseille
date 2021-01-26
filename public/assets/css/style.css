@@ -66,3 +66,10 @@ img.profil-avatar-map {
         transform: scale(1, 1);
     }
   }
+
+.color-1{
+    color:  #5271ff;
+}
+.color-2{
+    color:  #5abffa;
+}

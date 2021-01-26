@@ -14,8 +14,15 @@ class InscritsType extends AbstractType
     {
         $builder
             ->add('id_meeting', TextType::class, [
+                'label' => false, // je cache le label dans le formulaire
                 'mapped' => false,
-                    ],
+                // 'required' => false
+                // 'empty_data' =>
+                'attr' => [
+                    'class' => 'd-none'
+                ]
+
+            ]
             )
         ;
     }

@@ -24,6 +24,22 @@ for (let m = 0 ; m < tabMarkers.length ; m++) {
 }
 
 
+// INSCRIPTION A UN MEETING
+function InscriptionMeeting(event) 
+{   
+    let id = event.target.getAttribute('data-id');
+    let lightboxValiderInscription = $('#valider-inscription');
+    lightboxValiderInscription.addClass('active');
+
+    let champId = document.querySelector('#inscrits_id_meeting');
+
+    console.log(champId);
+    champId.value = id;
+
+    let boutonSubmit = document.querySelector('form[name=inscrits]');
+    boutonSubmit.click();
+}   
+
 
 
 
