@@ -14,48 +14,50 @@ h1{
     width: 30px;
 }
 
-.boutton-connexion, .boutton-meeting{ /*mettre dans style.css*/
-    box-shadow: 0 0.5px 2px black;
-    border: none;
-    background-color: #5abffa;
-    font-family: 'Baloo Thambi 2', cursive;
-    font-size: 20px;
-    font-weight: bold;
-    height: 50px;
-    padding: 10px 12px;
-    min-width: 200px;
-}
 
-.boutton-meeting{ /*mettre dans style.css*/
+.button-connexion {
     background-color: #5271ff;
-}
-
-.boutton-connexion:hover, .boutton-meeting:hover{ /*mettre dans style.css*/
-    background-color: #13dcfb;
-    transition: 1.5s;
-    animation: pulse1 0.7s infinite;
-}
-
-/* HEADER MOBILE */
-.navbar-toggle{
     color: white;
-    border: 1.5px solid #5abffa;
+    font-family: "Baloo Thambi 2", cursive;
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+    max-width: 300px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hamburger {
+    color: white;
+  }
+  
+  .button-meeting {
+    background-color: #13dcfb;
+    color: white;
+    font-family: "Baloo Thambi 2", cursive;
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+    max-width: 300px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .button-meeting:hover {
     background-color: #5271ff;
-    width: 40px;
-    height: 30px;
-    border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
-    padding: 3px 5px;
-}
-
-.logo-mobile{
-    width: 120px;
-}
-
-.fa-bars, .fa-times-circle{
-    font-family: "Font Awesome 5 Free" !important;
-}
+    color: white;
+    animation: pulse1 0.7s infinite;
+  }
+  
+  .button-connexion:hover {
+    background-color: #13dcfb;
+    color: white;
+    animation: pulse1 0.7s infinite;
+  }
+  
 
 /* BODY */
 .background-inscription{
