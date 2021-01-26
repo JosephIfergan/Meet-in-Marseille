@@ -137,7 +137,8 @@ h5 {
     width: 100%;
     font-family: "Coiny", cursive;
     font-size: 25px;
-    color: white;
+    color: #5271ff;
+    margin-left: 80px;
     
 }
 
@@ -146,22 +147,46 @@ h5 {
 }
 .card{
   display: block !important;
+  /* min-height: 300px; */
+  min-width: 500px;
 }
 .container{
     padding: 0 15px !important;
-    min-width: 300px;
-    max-width: 420px;
+    min-width: 600px;
+    /* max-width: 420px; */
     margin: 0 auto;
 } 
 
+.photo-meeting{
+  width: 200px;
+  min-height: 180px;
+  height: auto;
+}
+.card header{
+  background-color: #5272ff70;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid #5271ff;
+}
+.card-body{
+  background-color: rgb(252, 252, 252);
+}
+.card{
+  border: 1.5px solid #5271ff;
+  border-radius: 8px;
+}
+.card-footer{
+  background-color: #5272ff70;
+  border-radius: 0 0 8px 8px !important;
+}
 .card-body p{
   font-size: 20px;
   font-family: "Baloo Thambi 2", cursive;
   font-weight: normal;
   margin-bottom: 0 !important;
-  color: rgb(235, 235, 235);
+  color: #5271ff;
   width: 100%;
 }
+
 .modal-title{
   font-size: 25px;
 }
@@ -181,6 +206,33 @@ h5 {
 
 .color2{
   color: #13dcfb !important;
+}
+
+/* SECTION VALIDER INSCRIPTION */
+
+#valider-inscription{
+  position: fixed;
+  top:  39%;
+  left: 40%;
+  z-index: 20;
+  width: 20%;
+  height: 22%;
+  padding: 1rem;
+  background-color: #5271ff;
+  opacity: 0;
+  transition: all 0.3s ease-in;
+  border-radius: 3px;
+}
+#valider-inscription.active {
+  /* top: 39%; */
+  opacity: 1;
+}
+#valider-inscription button{
+  top:20%;
+  text-align: center;
+}
+form[name="inscrits"] {
+text-align: center;
 }
 
 

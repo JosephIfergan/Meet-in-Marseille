@@ -63,9 +63,16 @@ class User implements UserInterface
      */
     private $photo;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Meeting::class, mappedBy="inscrits")
+     */
+    private $billets;
+
     public function __construct()
     {
         $this->meetings = new ArrayCollection();
+        $this->participants = new ArrayCollection();
+        $this->billets = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -220,6 +227,34 @@ class User implements UserInterface
     public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+
+    /**
+     * @return Collection|Meeting[]
+     */
+    public function getBillets(): Collection
+    {
+        return $this->billets;
+    }
+
+    public function addBillet(Meeting $billet): self
+    {
+        if (!$this->billets->contains($billet)) {
+            $this->billets[] = $billet;
+            $billet->addInscrit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBillet(Meeting $billet): self
+    {
+        if ($this->billets->removeElement($billet)) {
+            $billet->removeInscrit($this);
+        }
 
         return $this;
     }

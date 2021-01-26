@@ -100,5 +100,4 @@ class MeetingController extends AbstractController
         return $this->redirectToRoute('meeting_index');
     }
         
-
 }
