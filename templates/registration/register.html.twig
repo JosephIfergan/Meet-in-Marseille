@@ -15,7 +15,7 @@
 	<header class="container-fluid">
 		<div class="row">
 			<nav class="navbar navbar-expand-sm col navbar-light">
-				<a class="navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
+				<a class="navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
 				<button class="navbar-toggler hidden-lg-up float-xs-sm-right bg-primary" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span>
 						<i class="hamburger fas fa-bars"></i>
@@ -26,7 +26,6 @@
 						<li class="nav-item active">
 							<a class="button-connexion btn p-2 align-self-end mr-3" href="{{ path('app_login') }}">Déjà inscrit ? Se connecter !</a>
 							<a class="align-self-end button-meeting btn p-2 mr-3" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-
 						</li>
 					</ul>
 				</div>
@@ -47,8 +46,11 @@
 				<div class="alert alert-danger" role="alert">{{ flashError }}</div>
 			{% endfor %}
 
+<div class="container">
 			{{ form_start(registrationForm) }}
-			<div class="formulaire-inscription">
+            <h2>Inscris-toi et rejoins les meeting en cours !</h2>
+
+			<div class="container">
 				<div class="d-flex flex-row flex-wrap justify-content-center">
 					<p class="text-white mr-3 display-5 bottom-mobile">Je suis ...</p>
 					{{ form_widget(registrationForm.sexe) }}
@@ -61,17 +63,21 @@
 				<label
 					class="w-100">
 					<!-- AVEC form_row on a le label et le input-->
-					{{ form_row(registrationForm.email) }}
+					{{ form_widget(registrationForm.email) }}
 				</label>
 				<label class="w-100">
-					{{ form_row(registrationForm.age) }}
+					{{ form_widget(registrationForm.age) }}
 				</label>
 				<label class="w-100">
-					{{ form_row(registrationForm.plainPassword) }}
+					{{ form_widget(registrationForm.plainPassword) }}
 				</label>
 				{{ form_end(registrationForm) }}
 				<button type="submit" class="btn btn-primary d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>
 			</div>
 		</div>
 	</div>
+
+</div>
+
+
 {% endblock %}

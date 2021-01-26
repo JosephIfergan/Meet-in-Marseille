@@ -1,11 +1,26 @@
 body {
     box-sizing: border-box;
     font-family: 'Baloo Thambi 2', cursive !important;
+background-image: url("../img/background-bleu.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.form-control {
+    background-color: transparent !important;
+    border: 0;
+    border-bottom: 1px solid white;
 }
 
 h1{
     font-family: 'Nunito', sans-serif !important;
     transition: 3s; /* TEMPS POUR PASSER DE 0 A 1 EN OPACITE*/
+}
+
+h2 {
+    font-family: 'coiny';
+    text-align: center;
+    color:white;
 }
 
 /* HEADER */
@@ -16,7 +31,7 @@ h1{
 
 
 .button-connexion {
-    background-color: #5271ff;
+    background-color: #5abffa;
     color: white;
     font-family: "Baloo Thambi 2", cursive;
     font-weight: bold;
@@ -33,7 +48,7 @@ h1{
   }
   
   .button-meeting {
-    background-color: #13dcfb;
+    background-color: #5abffa;
     color: white;
     font-family: "Baloo Thambi 2", cursive;
     font-weight: bold;
@@ -47,7 +62,7 @@ h1{
   
   
   .button-meeting:hover {
-    background-color: #5271ff;
+    background-color: #13dcfb;
     color: white;
     animation: pulse1 0.7s infinite;
   }
@@ -58,194 +73,6 @@ h1{
     animation: pulse1 0.7s infinite;
   }
   
-
-/* BODY */
-.background-inscription{
-    background-image: url("../img/bg-smoke.png");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    min-height: 70vh;
-    margin-bottom: 10vh;
+.card {
+    opacity: 0.3;
 }
-
-.background-login{
-    background-image: url("../img/bg-smoke1.png");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    min-height: 60vh;
-    margin-bottom: 10vh;
-}
-
-
-#base_inscription, #base_login{
-    margin-top: 15vh;
-    padding: 0 60px;
-}
-
-#base_login p{
-    animation: pulse2 1.5s infinite;
-}
-/* FORMULAIRE INSCRIPTION ET LOGIN*/
-.formulaire-inscription{
-    background-color: #5271ff;
-    opacity: 0.85;
-    padding:20px 10px;
-    border-radius: 10px;
-    max-width: 500px;
-    margin: 30px auto;
-}
-
-.form-control{
-    width: 70%;
-    border: none;
-    margin: 0 15% 1rem 15%;
-    border-radius: 5px;
-    box-shadow: 0 0.5px 2px black;
-    text-align: center;
-    cursor: pointer;
-    -moz-appearance: textfield; /* MOZILLA ENLEVER FLECHE SUR INPUT TYPE NUMBER*/
-    /* -webkit-appearance: none; */ /*CHROME*/
-    -o-appearance: none; /*OPERA*/
-    padding: 1px !important;
-    height: auto;
-}
-
-.formulaire-inscription button{
-    box-shadow: 0 0.5px 2px black;
-}
-
-.form-check:last-of-type label{
-color:#fe66c3;
-margin-right: 0 !important;
-}
-
-label{
-    display: inline;
-}
-.form-check-input{
-    position: relative;
-    margin-right: 3px;
-}
-.form-check-label{
-    font-size: 1.3rem;
-    margin-right: 1rem;
-    margin-bottom: 8px;
-    color: #13dcfb;
-}
-.form-group .form-check label{
-    color:white;
-}
-
-/* COLOR */
-
-.color-1{
-    color:  #5271ff;
-}
-.color-2{
-    color:  #5abffa;
-}
-.color-3{
-    color: #fe66c3;
-}
-.color-4{
-    color: orange;
-}
-
-/* STYLE */
-
-.display-5{
-    font-size: 1.6rem;
-}
-.display-6{
-    font-size: 1.3rem;
-}
-.opacity-0{
-    opacity: 0 !important;
-}
-
-/* KEYFRAMES */
-
-@keyframes pulse2 { /* POUR PULSER COMMENT CA FONCTIONNE HOVER */
-    0% {
-        transform: scale(1, 1);
-    }
-
-    50% {
-        transform: scale(1.075, 1.075);
-    }
-
-    100% {
-        transform: scale(1, 1);
-    }
-}
-
-/* FOOTER */
-
-footer{
-    height: 8vh !important; /*mettre dans style.css*/
-}
-
-
-
-/* MEDIA QUERIES */
-@media screen and (max-width:654px) { /*POUR BOUTTON MENU HAMBURGER MOBILE*/
-    .boutton-connexion, .boutton-meeting{
-        font-size: 18px;
-    }
-    .formulaire-inscription{
-        margin: 30px 60px;
-    }
-    #base_inscription{
-        margin-top: 40px;
-        padding: 0 0;
-    }
-    #base_login{
-        padding: 0 0;
-    }
-}
-@media screen and (max-width: 768px) { /*POUR INSCRIPTION MOBILE*/
-    h1{
-        font-size: 40px !important;
-    }
-    .bottom-mobile{
-        margin-bottom: 0px;
-    }
-    .form-check:first-of-type{
-    margin-left:10px;
-    }
-    .formulaire-inscription div div:first-of-type label{
-        margin-bottom: 5px;
-    }
-    form label input{
-        width: 90%;
-        margin: 0 5% 1rem 5%;
-    }
-    h4 a{
-        text-decoration: underline !important;
-    }
-    #base_login h1{
-        font-size: 36px !important;
-    }
-    #base_login p{
-        font-size: 16px;
-        padding: 0 15px;
-    }
-}
-
-@media screen and (min-width: 655px) and (max-width: 1262px) {
-    .formulaire-inscription{
-        max-width: 400px;
-    }
-}
-@media screen and (min-width : 1300px) {
-    #base_login p{
-        margin: 30px 0;
-    }
-    .background-inscription{
-        margin-bottom: 0 !important;
-    }
-}
-
-
