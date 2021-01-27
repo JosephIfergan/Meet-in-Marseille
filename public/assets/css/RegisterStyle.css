@@ -8,51 +8,11 @@ background-image: url("../img/background-bleu.jpg");
     height: 100vh;
 }
 
-<<<<<<< HEAD
-.logo-connexion {
-  width: 300px;
-  height: 180px;
-  margin-bottom: 50px;
-  margin-left: 50px;
-=======
-#base_inscription{
-  min-height: 80vh;
->>>>>>> cbfaf045a2e89d20be200166e798bc9bf52839f9
-}
-
-#container {
-  width: 100%;
-  max-width: none;
-  height: 100%;
-  padding-right: 50px;
-  padding-left: 100px;
-  margin: 50px 0;
-}
 .formulaire{
-  max-width: 400px ;
-}
-.formulaire button{
-  background-color: #5271ff;
   color: white;
-  font-family: "Baloo Thambi 2", cursive;
-  font-weight: bold;
-  font-size: 18px;
-  height: 50px;
   max-width: 300px;
-  margin-bottom: 10px;
-  align-items: center;
-  justify-content: center;
-}
 
-.aside {
-  max-width: 500px;
-}
-.aside img {
   width: 80%;
-  margin-left: 10%;
-}
-.form-control {
-    background-color: transparent !important;
     border: 0;
     border-bottom: 1px solid white;
 }
