@@ -10,7 +10,7 @@ h1{
     font-family: 'Coiny', cursive !important;
 }
 header{
-    /* height: 15vh; */
+    height: 10vh;
 }
 footer{
     height: 10vh;
@@ -68,9 +68,6 @@ img.profil-avatar-map {
 .color-2{
     color:  #5abffa;
 }
-.color-3{
-    color:  #ee57fc;
-}
 .bg-1{
     background-color:  #5271ff !important;
 }
@@ -78,6 +75,10 @@ img.profil-avatar-map {
     color:  #5abffa;
 }
 
-.display-5{
-    font-size: 20px;
-  }
+#faq img {
+    width: 100px;
+    height: 100px;
+}
+
+
+
