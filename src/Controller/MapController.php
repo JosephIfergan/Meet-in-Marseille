@@ -76,9 +76,7 @@ class MapController extends AbstractController
             $id_meeting = $formInscrits->get('id_meeting')->getData();
             $meeting = $meetingRepository-> find($id_meeting);
             // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE A LA TABLE MEETING
-            $meeting -> addInscrit($user);
-
-            
+            $meeting -> addInscrit($user);            
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($meeting);

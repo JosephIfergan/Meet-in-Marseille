@@ -1,3 +1,7 @@
+body {
+  background-image: none;
+}
+
 #mapid { 
     z-index: 0;
     height: 80vh;
@@ -73,7 +77,7 @@ header img {
     font-family: 'Baloo Thambi 2', cursive;
     font-weight: bold;
 }
-.fa-calendar-alt, .fa-map-marker-alt{
+.fa-calendar-alt, .fa-map-marker-alt, .fa-users{
   color: #3356f0;
 }
 .btn-map{
@@ -112,10 +116,13 @@ h5 {
     font-size: 20px;
     height: 50px;
     width: 200px;
-    margin-left: 140px;
+    /* margin-left: 140px; */
 
 }
-
+form[name="inscrits"]{
+  align-self: center;
+  align-items: flex-end;
+}
 #valider:hover {
   background-color: #13dcfb;
   color: white;
@@ -299,4 +306,23 @@ form[name="inscrits"] {
   .category{
     font-size: 18px;
   }
+}
+@media screen and (min-width : 1550px) {
+  #valider-inscription p{
+    font-size: 30px;
+  }
+}
+@media screen and (min-width : 1200px) {
+  #valider-inscription{
+    top:  35%;
+    height: 30%;
+    background-color: #5271ff;
+  }
+#valider-inscription p{
+  margin-bottom:10px;
+}
+#valider-inscription button{
+  font-size: 20px;
+  min-width: 200px;
+}
 }

@@ -6,11 +6,17 @@ background-image: url("../img/background-bleu.jpg");
     background-position: center;
 }
 
+#base_inscription{
+  min-height: 80vh;
+}
 
 #container {
   width: 100%;
+  max-width: none;
   height: 100%;
-  margin-top: 50px;
+  padding-right: 50px;
+  padding-left: 100px;
+  margin: 50px 0;
 }
 .formulaire{
   max-width: 400px ;
@@ -29,9 +35,11 @@ background-image: url("../img/background-bleu.jpg");
 }
 
 .aside {
-  max-width: 400px;
-
-  /* margin-left: 60px; */
+  max-width: 500px;
+}
+.aside img {
+  width: 80%;
+  margin-left: 10%;
 }
 .form-control {
     background-color: transparent !important;
@@ -111,11 +119,7 @@ h2 {
   }
 
 
-  .aside img {
-width: 350px;
-height: 350px;
-margin-left: 50px;
-  }
+
 
 
       
@@ -125,3 +129,15 @@ margin-left: 50px;
       animation: pulse1 0.7s infinite;
     }
 
+@media screen and (max-width: 700px){
+
+}
+
+@media screen and (min-width: 1400px){
+  .aside {
+    max-width: 700px;
+  }
+  .formulaire{
+    margin-left:100px;
+  }
+}

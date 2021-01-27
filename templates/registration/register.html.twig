@@ -23,8 +23,7 @@
 {% endblock %}
 {% block body %}
 
-	<div class="background-inscription">
-		<div id="base_inscription">
+		<div id="base_inscription" class="d-flex">
 			{# <h1 class="color-1 text-uppercase text-center display-4 opacity-0">{{ messageConfirmation }}</h1> #}
 			<h4 class="text-center color-2">{{ messageConfirmation2 }}
 				<a href="{{ path('app_login') }}">{{ messageConfirmation3 }}</a>
@@ -33,7 +32,7 @@
 				<div class="alert alert-danger" role="alert">{{ flashError }}</div>
 			{% endfor %}
 
-			<div id="container" class="container d-flex flex-row flex-wrap justify-content-around">
+			<div id="container" class="container d-flex flex-row flex-wrap justify-content-around align-self-center">
 
 
 				<div class="formulaire align-self-center">
@@ -58,9 +57,9 @@
 					<label class="w-100">
 						{{ form_widget(registrationForm.plainPassword) }}
 					</label>
+					<button type="submit" class="btn btn-primary d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>
 
 					{{ form_end(registrationForm) }}
-					<button type="submit" class="btn btn-primary d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>
 
 					<a class="p-2 text-white text-decoration" href="{{ path('app_login') }}">Déjà inscrit ? Se connecter !</a>
 				</div>
@@ -72,7 +71,6 @@
 			</div>
 		</div>
 
-	</div>
 
 
 {% endblock %}
