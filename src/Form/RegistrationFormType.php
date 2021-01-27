@@ -51,7 +51,7 @@ class RegistrationFormType extends AbstractType
                 ],
                 'expanded' => true,
                 'attr' => [
-                    'class' => 'd-flex flex-row flex-wrap justify-content-center mt-1 mb-3'
+                    'class' => 'd-flex flex-row flex-wrap align-self-center mb-3'
                 ]
             ])
             ->add('age',IntegerType::class, [

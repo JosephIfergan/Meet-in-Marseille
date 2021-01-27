@@ -6,6 +6,22 @@ background-image: url("../img/background-bleu.jpg");
     background-position: center;
 }
 
+h1{
+  font-family: 'Nunito', sans-serif !important;
+  transition: 3s; /* TEMPS POUR PASSER DE 0 A 1 EN OPACITE*/
+}
+
+h2 {
+  font-family: 'coiny';
+  text-align: center;
+  color:white;
+}
+h3{
+  margin-top : 60px !important;
+}
+a{
+  text-decoration:underline;
+}
 #base_inscription{
   min-height: 80vh;
 }
@@ -18,8 +34,24 @@ background-image: url("../img/background-bleu.jpg");
   padding-left: 100px;
   margin: 50px 0;
 }
+
 .formulaire{
   max-width: 400px ;
+}
+
+.aside {
+  max-width: 500px;
+}
+.aside img {
+  width: 80%;
+  margin-left: 10%;
+}
+/* FORMULAIRE INSCRIPTION */
+.form-control {
+  background-color: transparent !important;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid white;
 }
 .formulaire button{
   background-color: #5271ff;
@@ -33,106 +65,67 @@ background-image: url("../img/background-bleu.jpg");
   align-items: center;
   justify-content: center;
 }
-
-.aside {
-  max-width: 500px;
-}
-.aside img {
-  width: 80%;
-  margin-left: 10%;
-}
-.form-control {
-    background-color: transparent !important;
-    border: 0;
-    border-bottom: 1px solid white;
+.btn:hover {
+  background-color: #13dcfb;
+  color: white;
+  animation: pulse1 0.7s infinite;
 }
 
+#registration_form_sexe{
+  margin-top: 0 !important;
+}
 
 .form-check{
   padding-left: 2rem;
   color: white;
 }
+
 .form-control::placeholder {
 color: white;
 }
 
-h1{
-    font-family: 'Nunito', sans-serif !important;
-    transition: 3s; /* TEMPS POUR PASSER DE 0 A 1 EN OPACITE*/
+.formulaire p{
+  font-size: 20px;
 }
 
-h2 {
-    font-family: 'coiny';
-    text-align: center;
-    color:white;
-}
-
-/* HEADER */
-
-.icone-fire{
-    width: 30px;
-}
-
-
-.button-connexion {
-    background-color: #5abffa;
-    color: white;
-    font-family: "Baloo Thambi 2", cursive;
-    font-weight: bold;
+/* MEDIA QUERIES */
+@media screen and (max-width: 590px){
+  #container{
+    margin: 100px 0 50px 0 !important;
+  }
+  .formulaire p{
+    margin-bottom: 10px;
+  }
+  h3{
     font-size: 20px;
-    height: 50px;
-    max-width: 300px;
-    margin-left: 70px;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 0 !important;    
   }
-  
-  .hamburger {
-    color: white;
-  }
-  
-  .button-meeting {
-    background-color: #5abffa;
-    color: white;
-    font-family: "Baloo Thambi 2", cursive;
-    font-weight: bold;
-    font-size: 20px;
-    height: 50px;
-    max-width: 300px;
-    margin-bottom: 20px;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  
-  .button-meeting:hover {
-    background-color: #13dcfb;
-    color: white;
-    animation: pulse1 0.7s infinite;
-  }
-  
-  .button-connexion:hover {
-    background-color: #13dcfb;
-    color: white;
-    animation: pulse1 0.7s infinite;
-  }
+}
 
-
+@media screen and  (max-width: 1050px){
+  .aside {
+    max-width: 300px;
+  }
   .aside img {
-width: 350px;
-height: 350px;
-margin-left: 20px;
+    width: 80%;
+    margin-left: 10%;
   }
-
-
- .btn:hover {
-      background-color: #13dcfb;
-      color: white;
-      animation: pulse1 0.7s infinite;
-    }
-
-@media screen and (max-width: 700px){
-
+  #container {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin: 50px 0;
+  }
+  .formulaire{
+    max-width: 250px ;
+  }
+  .formulaire button{
+    font-size: 16px;
+    height: auto;
+    margin-top:10px;
+  }
 }
 
 @media screen and (min-width: 1400px){
@@ -141,5 +134,5 @@ margin-left: 20px;
   }
   .formulaire{
     margin-left:100px;
-  }
+  } 
 }
