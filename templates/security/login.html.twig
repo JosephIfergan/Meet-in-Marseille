@@ -8,25 +8,14 @@
 
 {% block title %}Connexion MeetInMarseille!{% endblock %}
 
+{% block header %}
+	<header>
+		<nav class="navbar navbar-expand-sm col navbar-light d-flex justify-content-center">
+			<a href="{{ path('accueil') }}"><img class="logo-inscription" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
+		</nav>
+	</header>
+{% endblock %}
 {% block body %}
-
-    <header>
-        <nav class="header-pc d-flex flex-row justify-content-end">
-            <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
-            <a class="btn btn-primary boutton-meeting align-self-center m-2" href="{{ path('map') }}">Voir les meetings<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-         
-        </nav>
-        <!-- HEADER MOBILE-->
-        <nav class="header-mobile navbar navbar-inverse navbar-static-top d-none" role="navigation">
-            <div class="navbar-header d-flex justify-content-end w-100">
-                <a class="mr-auto" href="{{ path('accueil') }}"><img class="logo-mobile" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-                <button type="button" class="navbar-toggle collapsed mr-2" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <i class="fas fa-bars"></i>
-                    <i class="fas fa-times-circle d-none"></i>
-                </button>
-            </div>
-        </nav>
-    </header>
  
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
@@ -60,18 +49,15 @@
                     <h1 class="color-1 text-uppercase text-center display-4 opacity-0 ">Bienvenue {{ app.user.pseudo }} !</h1>
                     <p class="text-center display-5 text-warning">On te redirige vers les Meetings ...</p>
                 {% else %}
-                    <h1 class="color-1 text-uppercase text-center display-4 opacity-0 mb-4">Connectez-vous</h1>
+
                 {% endif %}
 
 
 
                 
-	      <div id="container" class="container d-flex flex-row flex-wrap justify-content-around">
-          <div class="formulaire align-self-center" data-aos="fade-up">
-          <div class="aside mt-4 data-aos="fade-left"">
-					<h2 data-aos="fade-down">Ah, te revoilà ! <br> On t'attendait !</h2>
-					<img src="assets/img/friends.png" alt="welcome">
-				</div>
+	      <div id="container" class="container d-flex flex-row flex-wrap justify-content-around align-self-center">
+          <div class="formulaire align-self-center" data-aos="fade-right">
+          
 
                     <input type="email" value="{{ last_username }}" name="email" placeholder="Votre email" id="inputEmail" class="form-control mt-4 mb-4" required autofocus>
                     <input type="password" name="password" placeholder="Votre mot de passe" id="inputPassword" class="form-control mb-4" required>
@@ -90,11 +76,16 @@
                     #}
 
                     <button class="btn btn-primary d-block font-weight-bold mr-auto ml-auto mb-4 w-50" type="submit">Se connecter</button>
-                    <a id="new" class="p-2 text-white text-decoration" href="{{ path('app_login') }}">Nouveau ? S'inscrire !</a>
-				
+                    <a id="new" class="p-2 text-white text-decoration" href="{{ path('app_register') }}">Nouveau ? S'inscrire !</a>
+				 <div class="aside mt-4 data-aos="fade-left"">
+					<h2 data-aos="fade-down">Ah, te revoilà ! <br> On t'attendait !</h2>
+					<img src="assets/img/friends.png" class="friends" alt="welcome">
+				</div>
                 </div>
                 </div>
+               
             </form>
+            
         </div>
     </div>
 {% endblock %}
