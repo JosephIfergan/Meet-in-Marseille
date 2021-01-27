@@ -30,14 +30,14 @@ class RegistrationFormType extends AbstractType
                 ],
 
             ])
-            ->add('agreeTerms', CheckboxType::class, [
+           /* ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Vous devez accepter nos termes pour pouvoir profiter de MeetInMarseille.',
                     ]),
                 ],
-            ])
+            ]) */
             ->add('pseudo',TextType::class, [
                 'attr' => [
                     'placeholder' => 'Choisis un pseudo',
@@ -58,6 +58,7 @@ class RegistrationFormType extends AbstractType
                 'label' => false, // je cache le label dans le formulaire
                 'attr' => [
                     'placeholder' => 'Ton âge',
+                    'class' => 'text-white !important'
                 ],
                 'constraints' => [
                     new NotBlank([
@@ -71,7 +72,8 @@ class RegistrationFormType extends AbstractType
                 'label' => false, // je cache le label dans le formulaire
                 'mapped' => false,
                 'attr' => [
-                    'placeholder' => 'Mot de passe'
+                    'placeholder' => 'Mot de passe',
+                    'class' => 'text-white !important'
                 ],
                 'constraints' => [
                     new NotBlank([

@@ -58,10 +58,10 @@
 					<label class="w-100">
 						{{ form_widget(registrationForm.plainPassword) }}
 					</label>
+<button type="submit" class="btn d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>
 
 					{{ form_end(registrationForm) }}
-					<button type="submit" class="btn d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>
-
+					
 					<a id="new" class="p-2 text-white text-decoration" href="{{ path('app_login') }}">Déjà inscrit ? Se connecter !</a>
 				</div>
 				<div class="aside mt-4">

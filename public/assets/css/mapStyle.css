@@ -300,3 +300,22 @@ form[name="inscrits"] {
     font-size: 18px;
   }
 }
+
+.btn {
+  font-size: 30px;
+  font-family: "Baloo Thambi 2", cursive;
+}
+
+.btn:hover {
+  background-color: #13dcfb;
+  color: white;
+  animation: pulse1 0.7s infinite;
+}
+
+
+h3 {
+  font-size: 10px;
+  font-family: "Baloo Thambi 2", cursive;
+  color: white;
+  margin: 50px;
+}
