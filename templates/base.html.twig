@@ -45,15 +45,47 @@
 			{% block body %}
 			{% endblock %}
      {% block footer %}
-			<footer>
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-<!-- Footer -->
-			</footer>
+			<footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>À propos de l'équipe</h6>
+            <p class="text-justify">Meet in Marseille a été créé par Joseph, Maxime, Moussa et Marc (AKA les 3M) dans le cadre d'une soutenance de fin de formation chez WebForce3 &copy;. 
+			Ce site est exclusivement notre propriété.Donc n'essayez pas de voler notre code ou notre visuel, sous peine de poursuites judiciaires. Bon je sais pas si on a les moyens de payer un avocats mais bon. Soyez gentils, on a bossé dessus. Et puis voler, c'est mal. Merci.</p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Liens utiles</h6>
+            <ul class="footer-links">
+              <li><a href="{{ path('map') }}">Meetings</a></li>
+              <li><a href="{{ path('app_login') }}">Connexion</a></li>
+              <li><a href="{{ path('app_register') }}">Inscription</a></li>
+			  <li><a href="#">Support/Réclamations</a></li>
+              <li><a href="#">Recrutement</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by 
+         <a href="{{ path('accueil') }}">Meet in Marseille</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>   
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>
       {% endblock %}
 
 			<!-- JQUERY -->

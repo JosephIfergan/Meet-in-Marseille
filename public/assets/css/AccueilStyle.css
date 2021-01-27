@@ -377,6 +377,12 @@ i {
 
 }
 
+#faq img {
+  width: 100px;
+  height: 100px;
+}
+
+
 h4 {
   font-size: 30px;
   font-weight: bold;
