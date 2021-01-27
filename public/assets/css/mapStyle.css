@@ -219,19 +219,19 @@ form[name="inscrits"]{
   position: fixed;
   display: flex;
   flex-direction: column;
-  top:  33%;
+  top:  100%;
   left: 35%;
   z-index: 20;
   width: 30%;
   height: 34%;
   padding-bottom: 1rem;
   background-color: #5271ff;
-  opacity: 0;
+  opacity: 0.93;
   transition: all 0.3s ease-in;
   border-radius: 3px;
 }
 #valider-inscription.active {
-  opacity: 0.93;
+  top:  33%;
 }
 
 form[name="inscrits"] {
@@ -283,7 +283,7 @@ form[name="inscrits"] {
     position: fixed;
     display: flex;
     flex-direction: column;
-    top:  35%;
+    top:  100%;
     left: 20%;
     z-index: 20;
     width: 60%;
@@ -293,6 +293,9 @@ form[name="inscrits"] {
     opacity: 0;
     transition: all 0.3s ease-in;
     border-radius: 3px;
+  }
+  #valider-inscription.active {
+    top:  35%;
   }
   #valider-inscription p{
     padding: 8px;
@@ -314,10 +317,14 @@ form[name="inscrits"] {
 }
 @media screen and (min-width : 1200px) {
   #valider-inscription{
-    top:  35%;
+    top:  100%;
     height: 30%;
     background-color: #5271ff;
   }
+  #valider-inscription.active {
+    top:  35%;
+  }
+  
 #valider-inscription p{
   margin-bottom:10px;
 }

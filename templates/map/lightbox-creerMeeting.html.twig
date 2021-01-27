@@ -12,8 +12,12 @@
 					<div class="modal-body">
 					{{ form_start(form) }}
     {{ form_widget(form) }}
+	    <div class="card-block d-none" id="formatted-address"></div>
+    <div class="card-block d-none" id="address-components"></div>
+    <div class="card-block d-none" id="geometry"></div>
     <button class="btn" id="valider">{{ button_label|default('Valider') }}</button>
 {{ form_end(form) }}
+
 					</div>
 				</div>
 			</div>
