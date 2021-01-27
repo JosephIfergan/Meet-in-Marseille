@@ -31,11 +31,12 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				{% if app.user %}
-					<button type="button" class="btn btn-success">Rejoindre !</button>
+				<p class="text-white m-auto">Il y a <span class="font-weight-bold  text-success">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s) encore disponible</p>
+				{# {% if app.user %}
+					<button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting2(event)" type="button" class="btn btn-success">Rejoindre !</button>
 				{% else %}
 					<a href="{{path ('app_register')}}" class="btn btn-primary">Rejoindre !</a>
-				{% endif %}
+				{% endif %} #}
 			</div>
 		</div>
 		</div>

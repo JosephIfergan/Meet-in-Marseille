@@ -57,18 +57,18 @@
 							</div>
 							<div>
 								<div class="mb-3">
-   										<p class="mb-3">
-										   	{%if ( meeting.user.photo == null ) %}
-        										{%if ( meeting.user.sexe == 'homme' ) %}
-													<img src="assets/img/avatar.png" class="profil-avatar-map mr-2" alt="avatar">
-        										{%else %}
-													<img src="assets/img/avatar-femme.png" class="profil-avatar-map mr-2" alt="avatar">
-        										{%endif %}
-    										{%else %}
-											<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
-											{%endif %}
-											{{ meeting.user.pseudo ?? 'vide'}}
-										</p>
+   									<p class="mb-3">
+									   	{%if ( meeting.user.photo == null ) %}
+        									{%if ( meeting.user.sexe == 'homme' ) %}
+												<img src="assets/img/avatar.png" class="profil-avatar-map mr-2" alt="avatar">
+        									{%else %}
+												<img src="assets/img/avatar-femme.png" class="profil-avatar-map mr-2" alt="avatar">
+        									{%endif %}
+    									{%else %}
+										<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
+										{%endif %}
+										{{ meeting.user.pseudo ?? 'vide'}}
+									</p>
 								</div>
 								<p class="font-weight-bold">{{ meeting.titre }}</p>
 								<p><i class="far fa-calendar-alt mr-2 "></i>{{ meeting.date ? meeting.date|date('d-m-Y') : '' }}</p>
@@ -77,19 +77,18 @@
 								
 								{%if ( meeting.userMax != null ) %}
 
-								<p>Il reste <span class="text-danger">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s)</p>
+								<p>Il reste <span class="text-success">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s)</p>
 								{% else %}
-									<p>Inscription illimitées</p>
+									<p>Inscription illimitée</p>
 								{%endif %}
 
 							</div>
 						</div>
 						<footer class="card-footer d-flex justify-content-center">
-						{# {% if app.user %} #}
-							{% if app.user and (((meeting.inscrits|length + 1) < meeting.userMax) or meeting.userMax == null) %}
-						        <button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-success mr-3">REJOINDRE !</button>
+						{% if app.user and (((meeting.inscrits|length + 1) < meeting.userMax) or meeting.userMax == null) %}
+					        <button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-success mr-3">REJOINDRE !</button>
 						{% endif %}
-							<button type="button" class="btn bg-1 text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-plus-square mr-2"></i>DETAIL MEETING</button>
+						<button type="button" class="btn bg-1 text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-plus-square mr-2"></i>DETAIL MEETING</button>
 						</footer>
 					</div>
 				</div>
@@ -111,7 +110,6 @@
 {% block javascripts %}
 <script>
 var tabMarkers = [
- // [43.26, 5.39], [43.26, 5.40], [43.24, 5.37]
 
 {% for meeting in meetings %}
 
@@ -122,6 +120,7 @@ var tabMarkers = [
 ];
 	
 </script>
+
 	<!-- LEAFLET -->
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 	<script src="{{ asset('assets/js/meeting.js') }}"></script>
