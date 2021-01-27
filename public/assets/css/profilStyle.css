@@ -85,6 +85,8 @@ img.profil-avatar {
 }
 
 .bar-profil {
+    background-image: url(/public/assets/img/image-inscription4.jpg);
+    background-repeat: no-repeat;
     background-color: #5271FF;
     border-bottom: 20px solid white;
 }
