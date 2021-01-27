@@ -8,13 +8,11 @@
 {% endblock %}
 
 {% block header %}
-	<header" >
-		<nav class="d-flex flex-row fixed justify-content-center">
-			<a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-            <a class="align-self-end button-meeting btn p-2 ml-4" href="{{path ('map')}}"><i class="far fa-plus-square fa-2x logo-add mr-2"></i>Creer un Meeting !</a>
-			<a class="button-deconnexion btn p-4 align-self-center nav-link m-2 mr-5 " href="{{ path('app_logout') }}"> 
-            Se déconnecter <i class="fas fa-sign-out-alt"></i></a>
-            </nav>
+	<header>
+		<nav class="navbar navbar-expand-sm col navbar-light d-flex">
+			<a class="logo-user" href="{{ path('accueil') }}"><img class="logo-inscription" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
+            <a class="align-self-end button-meeting btn p-2 mr-2 ml-auto" href="{{path ('map')}}"><i class="far fa-plus-square fa-2x logo-add p-1"></i>Creer un Meeting !</a>
+		</nav>
 	</header>
 {% endblock %}
 
@@ -22,7 +20,7 @@
 
 <div id="modif_class1" class="information ">
 
-    <div class="profil bar-profil sticky-top" >
+    <div class="profil bar-profil" >
 
         <div class="info-perso">
             {%if ( app.user.photo == null ) %}
@@ -102,16 +100,14 @@
                             </div>
                             <footer class="card-footer ">
                             {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
-                                <a class="btn btn-success" href="{{ path('profil_meeting_edit', {'id': meeting.id}) }}">Modifier</a>
+                                <a class="btn btn-success " href="{{ path('profil_meeting_edit', {'id': meeting.id}) }}">Modifier</a>
                             {% endif %}
 
                                 <form method="post" action="{{ path('profil_delete', {'id': meeting.id}) }}" onsubmit="return confirm('Êtes-vous sur de supprimer ce meeting ?');">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ meeting.id) }}">
-                                    <button class="btn btn-danger">Supprimer</button>
+                                    <button class="btn btn-danger ml-4">Supprimer</button>
                                 </form>
-                                <div class="card-like">5 pouces</div>
-                                <div class="card-rejoindre">😀</div>
                             </footer>
                 
                         </article>
@@ -125,38 +121,22 @@
                         {% endif %}
                     {% endfor %}
 
-                    <aside class="aside card border-info mt-3 shadow cache">
-                        <div>
-                            <p class="gros">Bienvenu 'pseudo' ! Tu es sur le timeline de Meet In Mars :-D</p>
-                            <hr>
-                            <p>Regardez les evenements disponibles sur marseille et vous avez la posibilité de participer à ceux qui vous plaisent.</p>
-                            <p>Tu as aussi la possibilité d'ajouter votre propre évenement et partager vos hobbits et passions.</p>
-                        </div>
-                    </aside>
                 </div>
 
             </div> 
         </div>
 
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="tab-pane fade mt-4" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
         
             <div>
-                <h2>Notre code information</h2>
-                <table class="table table-borderless bg-light border border-info">
-                    <thead class="cache">
-                        <tr>
-                            <th scope="col">Attribu</th>
-                            <th scope="col">Sujet</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
+                <table class="table table-borderless bg-primary text-white">
                     <tbody>
                         <tr>
                             <th scope="row" class="typo">Pseudo</th>
                             <td>{{ app.user.pseudo }}</td>
                         </tr>
                     
-                        <tr class="table-secondary">
+                        <tr>
                             <th scope="row" class="typo">Email</th>
                             <td>{{ app.user.email }}</td>
                         </tr>
@@ -165,7 +145,7 @@
                             <td>{{ app.user.age }} ans</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="masque"><a  class="" href="{{ path('profil_user_edit', {'id': app.user.id}) }}">Modifier mes informations</a></th>
+                            <th><a class="button-edit btn" href="{{ path('profil_user_edit', {'id': app.user.id}) }}">Modifier mes informations</a></th>
                         </tr>
                     </tbody>
                 </table>

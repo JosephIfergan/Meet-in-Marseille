@@ -167,10 +167,14 @@ form[name="inscrits"]{
   height: auto;
 }
 .card header{
-  /* background-color: #5272ff70; */
-  background-color: #5272ff8e;
+  /*background-color: #5272ff70;
+  */background-color: #5272ff8e;
   border-radius: 6px 6px 0 0;
   border-bottom: 1px solid #5271ff;
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  -ms-border-radius: 6px 6px 0 0;
+  -o-border-radius: 6px 6px 0 0;
 }
 .card-body{
   background-color: rgba(252, 252, 252, 0.144);

@@ -57,9 +57,7 @@ a.pad2 {
     padding-left: 3%;
     padding-right: 3%;
 }
-.nav-tabs {
-    border-bottom:0 solid white;
-}
+
 a.nav-item:hover {
     color: whitesmoke;
     transition: .5s;
@@ -80,6 +78,8 @@ img.profil-avatar {
     height: 95px;
     object-fit: cover;
     border-radius: 50%;
+    position: absolute;
+    left: 10%;
 }
 
 .bar-profil .ita {
@@ -95,12 +95,7 @@ img.profil-avatar {
     font-size: 20px;
 }
 
-.bar-profil {
-    background-image: url(/public/assets/img/image-inscription4.jpg);
-    background-repeat: no-repeat;
-    background-color: #5271FF;
-    border-bottom: 20px solid white;
-}
+
 
 
 .profil {
@@ -108,12 +103,6 @@ img.profil-avatar {
     /* position: relative; */
 }
 
-.profil-avatar {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-75%);
-    left: 10%;
-}
 
 .cache {
     display: none;
@@ -169,7 +158,6 @@ div .marge-body {
     width: 300px;
     background: #f5f4f4;
     height: 250px;
-    position: sticky;
     top: 230px !important;
 }
 
@@ -384,4 +372,12 @@ img.card-avatar {
     .profil-avatar {
         left: 7% !important;
     }
+}
+
+.button-edit {
+    color: white;
+}
+
+.logo-user {
+    margin-left: 600px;
 }

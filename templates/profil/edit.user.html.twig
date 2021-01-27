@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Userss{% endblock %}
+{% block title %}Modifier mes informations{% endblock %}
 
 {% block body %}
-    <h1>Edit Usersss</h1>
+    <h1 class="text-white text-center m-4">Modifier mon profil</h1>
 
     {# {{ include('user/_form.html.twig', {'button_label': 'Update'}) }} #}
                 {{ form_start(formuser) }}
 
-<div class="d-flex flex-column">
-                    <label class="w-50 p-0 ml-auto mr-auto mb-4">
+<div class="d-flex flex-column m-4">
+                    <label class="w-50 p-0 ml-auto mr-auto mb-4 bg-transparent">
                         {{ form_widget(formuser.pseudo) }}
                     </label>
                     <label class="w-50 p-0 ml-auto mr-auto mb-4">
@@ -37,6 +37,6 @@
 
 
 
-    <a href="{{ path('profil') }}">Revenir au profil</a>
+    <a class="btn btn-success font-weight-bold m-4" href="{{ path('profil') }}">Revenir au profil</a>
 
 {% endblock %}
