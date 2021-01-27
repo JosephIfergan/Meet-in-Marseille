@@ -117,8 +117,7 @@ margin-left: 20px;
   }
 
 
-      
-    .btn:hover {
+ .btn:hover {
       background-color: #13dcfb;
       color: white;
       animation: pulse1 0.7s infinite;
