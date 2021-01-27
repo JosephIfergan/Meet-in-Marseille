@@ -38,9 +38,8 @@ background-image: url("../img/background-bleu.jpg");
     border: 0;
     border-bottom: 1px solid white;
 }
-.formulaire p{
-  font-size:
- }
+
+
 .form-check{
   padding-left: 2rem;
   color: white;
@@ -114,7 +113,7 @@ h2 {
   .aside img {
 width: 350px;
 height: 350px;
-margin-left: 50px;
+margin-left: 20px;
   }
 
 
@@ -124,4 +123,13 @@ margin-left: 50px;
       color: white;
       animation: pulse1 0.7s infinite;
     }
+
+#new {
+  margin-left: 100px;
+}
+
+.jesuis {
+  font-weight: bold;
+  font-size: 20px;
+}
 

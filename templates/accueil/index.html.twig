@@ -65,20 +65,23 @@
 
 {% block body %}
 
-	<div class="slideshow justify-content-center d-flex">
+	<div
+		class="slideshow justify-content-center d-flex">
 		<!-- SLIDERS JS ICI -->
 		<h1 class="bienvenue align-self-lg-center align-self-sm-start">
 			Partagez vos passions avec les autres.</h1>
-	
-		{% if app.user %}
-			<a class="align-self-center button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-			<a class="align-self-center button-meeting btn p-2 ml-4" href="{{path ('map')}}">
-				<i class="far fa-plus-square fa-2x logo-add mr-3"></i>Creer un Meeting !</a>
-		{% else %}
-			<a class="align-self-center button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-			<a class="align-self-center button-meeting btn p-2 ml-4" href="{{ path('accueil') }}#fonctionnement">Comment ça marche ?</a>
-		{% endif %}
+		<div class="buttons">
+			{% if app.user %}
+				<a class="align-self-center button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
+				<a class="align-self-center button-meeting btn p-2 ml-4" href="{{path ('map')}}">
+					<i class="far fa-plus-square fa-2x logo-add mr-3"></i>Creer un Meeting !</a>
+			{% else %}
 
+				<a class="align-self-center button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
+				<a class="align-self-center button-meeting btn p-2 ml-4" href="{{ path('accueil') }}#fonctionnement">Comment ça marche ?</a>
+
+			{% endif %}
+		</div>
 	</div>
 
 
@@ -110,23 +113,72 @@
 		</div>
 	</section>
 
-	<div class="faq">
+	
+<section id="faq">
+<h3 class="text-center mt-4">Foire aux questions</h3>
+	
+<div class="faq">
 
-	<div class="bloc2">
-<img src="assets/img/logo-white.png" alt="MeetInMarseille">
-<h4>Est-ce que le site est accessible pour tous ?</h4>
-<p> Évidemment ! Les meetings sont ouverts à tous, et chacun a la possibilité de créer son propre en meeting, en fonction de ses centres d'intérêts ! </p>
-	</div>
+		<div class="bloc1 p-3">
+			<img src="assets/img/logo-white.png" alt="MeetInMarseille">
+			<h4>Meet in Marseille c'est quoi ?</h4>
+			<p>Meet in Marseille est la première plateforme en ligne vous permettant de partager votre temps, vos passions, hobbies et sorties avec les autres. C'est simple, rapide et totalement gratuit !</p>
+		</div>
 
-
-	<div class="bloc1">
-	<img src="assets/img/logo-white.png" alt="MeetInMarseille">
-<h4>Meet in Marseille c'est quoi ?</h4>
-<p>Meet in Marseille est la première plateforme en ligne vous permettant de partager votre temps, vos passions, hobbies et sorties avec les autres. C'est simple, rapide et totalement gratuit !</p>
-</div>
-	</div>
+		
+		<div class="bloc2 p-3">
+			<img src="assets/img/logo-white.png" alt="MeetInMarseille">
+			<h4>Est-ce que le site est accessible pour tous ?</h4>
+			<p>
+				Évidemment ! Les meetings sont ouverts à tous, et chacun a la possibilité de créer son propre en meeting, en fonction de ses centres d'intérêts !
+			</p>
+		</div>
 	
 
+	<div class="bloc3 p-3">
+		<img src="assets/img/logo-white.png" alt="MeetInMarseille">
+		<h4>Quel est le nombre maximum de participant ?</h4>
+		<p>Il n'y a pas de limite de participants. Néanmoins, il faudra contacter l'établissement où se déroule ton meeting au préalable afin de savoir combien de personnes ils peuvent recevoir au maximum.</p>
+	</div>
+
+	<div class="bloc4 p-3">
+		<img src="assets/img/logo-white.png" alt="MeetInMarseille">
+		<h4>Mon meeting ne rentre dans aucune catégorie, je fais quoi ?!</h4>
+		<p>Pas de panique, on a sélectionné les catégories les plus populaires parmi les internautes. Mais tu es libre de personnaliser ton Meeting avec la catégorie "Autres".</p>
+	</div>
+
+	<div class="bloc5 p-3">
+		<img src="assets/img/logo-white.png" alt="MeetInMarseille">
+		<h4>Peut-on annuler un Meeting ?</h4>
+		<p>Bien sûr ! Pour cela, il faut te rendre dans ton espace utilisateur, sélectionner le Meeting que tu souhaites annuler, et cliquer sur "Supprimer"</p>
+	</div>
+
+	<div class="bloc6 p-3">
+		<img src="assets/img/logo-white.png" alt="MeetInMarseille">
+		<h4>Peut-on modifier un Meeting après l'avoir créer ?</h4>
+		<p>Bien sûr ! Pour cela, il faut te rendre dans ton espace utilisateur, sélectionner le Meeting que tu souhaites mettre à jour, et cliquer sur "Modifier"</p>
+	</div>
+
+	<div class="bloc7 p-3">
+		<img src="assets/img/logo-white.png" alt="MeetInMarseille">
+		<h4>Je n'arrive pas à créer mon Meeting ! </h4>
+		<p>Un tutoriel est à ta disposition en cliquant sur le bouton "Comment ça fonctionne ?". Si le problème persiste, il faut contacter notre <a href="#">support</a>.</p>
+	</div>
+
+	<div class="bloc8 p-3">
+		<img src="assets/img/logo-white.png" alt="MeetInMarseille">
+		<h4>Est-ce que je peux créer un Meeting en dehors de Marseille ?</h4>
+		<p>Pour l'instant, non. Mais nous travaillons actuellement pour élargir la zone disponibles pour la création de Meeting</p>
+	</div>
+
+	<div class="bloc9 p-3">
+		<img src="assets/img/logo-white.png" alt="MeetInMarseille">
+		<h4>Votre équipe a l'air trop génial ! Vous recrutez ?</h4>
+		<p>Oui, tu peux nous envoyer ton CV via ce <a href="#">lien</a> ou à recrutement@meetinmarseille.fr 
+		(mais tu ne seras pas payé).</p>
+	</div>
+
+	</div>
+</section>
 
 {% endblock %}
-
