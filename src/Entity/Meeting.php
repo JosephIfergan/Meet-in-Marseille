@@ -59,6 +59,23 @@ class Meeting
      */
     private $titre;
 
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="billets")
+     */
+    private $inscrits;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photoMeeting;
+
+    public function __construct()
+    {
+        $this->participants = new ArrayCollection();
+        $this->inscrits = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -169,6 +186,43 @@ class Meeting
     public function setTitre(string $titre): self
     {
         $this->titre = $titre;
+
+        return $this;
+    }
+
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getInscrits(): Collection
+    {
+        return $this->inscrits;
+    }
+
+    public function addInscrit(User $inscrit): self
+    {
+        if (!$this->inscrits->contains($inscrit)) {
+            $this->inscrits[] = $inscrit;
+        }
+
+        return $this;
+    }
+
+    public function removeInscrit(User $inscrit): self
+    {
+        $this->inscrits->removeElement($inscrit);
+
+        return $this;
+    }
+
+    public function getPhotoMeeting(): ?string
+    {
+        return $this->photoMeeting;
+    }
+
+    public function setPhotoMeeting(?string $photoMeeting): self
+    {
+        $this->photoMeeting = $photoMeeting;
 
         return $this;
     }

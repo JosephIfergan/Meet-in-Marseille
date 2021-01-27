@@ -23,7 +23,7 @@ class ProfilController extends AbstractController
     /**
      * @Route("/profil", name="profil")
      */
-    public function index(UserRepository $userRepository, MeetingRepository $meetingRepository, Request $request ): Response
+    public function index(UserRepository $userRepository, Request $request ): Response
     {
         
         return $this->render('profil/index.html.twig', [
@@ -111,32 +111,32 @@ class ProfilController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="profil_user_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+    // /**
+    //  * @Route("/new", name="profil_user_new", methods={"GET","POST"})
+    //  */
+    // public function new(Request $request): Response
+    // {
+    //     $user = new User();
+    //     $form = $this->createForm(UserType::class, $user);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE
-            $user = $this->getUser();
-            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE A LA TABLE MEETING
-            $user -> setUser($user);
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE
+    //         $user = $this->getUser();
+    //         // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE A LA TABLE MEETING
+    //         $user -> setUser($user);
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->persist($user);
+    //         $entityManager->flush();
 
-            return $this->redirectToRoute('user_index');
-        }
+    //         return $this->redirectToRoute('user_index');
+    //     }
 
-        return $this->render('user/new.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
-    }
+    //     return $this->render('user/new.html.twig', [
+    //         'user' => $user,
+    //         'form' => $form->createView(),
+    //     ]);
+    // }
 
 }

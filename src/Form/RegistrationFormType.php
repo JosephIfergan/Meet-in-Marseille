@@ -25,7 +25,8 @@ class RegistrationFormType extends AbstractType
             ->add('email',EmailType::class, [
                 'label' => false, // je cache le label dans le formulaire
                 'attr' => [
-                    'placeholder' => 'Saisisser votre email'
+                    'placeholder' => 'Saisis ton email',
+                    'class' => 'text-white !important'
                 ],
 
             ])
@@ -39,13 +40,14 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('pseudo',TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Choisir un pseudo'
+                    'placeholder' => 'Choisis un pseudo',
+                    'class' => 'text-white !important'
                 ]
             ])
             ->add('sexe', ChoiceType::class, [
                 'choices' => [
-                    'un homme' => 'homme',
-                    'une femme' => 'femme',
+                    'Un homme' => 'Homme',
+                    'Une femme' => 'Femme',
                 ],
                 'expanded' => true,
                 'attr' => [
@@ -55,11 +57,11 @@ class RegistrationFormType extends AbstractType
             ->add('age',IntegerType::class, [
                 'label' => false, // je cache le label dans le formulaire
                 'attr' => [
-                    'placeholder' => 'Votre age',
+                    'placeholder' => 'Ton âge',
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez renseigner votre age s\'il vous plait',
+                        'message' => 'Merci de renseigner ton âge',
                     ]),
                 ]
             ])
@@ -73,11 +75,11 @@ class RegistrationFormType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Entrer un mot de passe s\'il-vous plait',
+                        'message' => 'Choisis un mot de passe ',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} charactères',
+                        'minMessage' => 'Attention, ton mot de passe doit contenir au moins {{ limit }} charactères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),

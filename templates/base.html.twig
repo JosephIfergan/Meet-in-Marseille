@@ -40,15 +40,21 @@
 
 
 		<body>
-			{% block header %}{% endblock %}
+				{% block header %}{% endblock %}
 
 			{% block body %}
-				<div id="mapid"></div>
 			{% endblock %}
-
-			<footer id="footer">
-				<p class="text-center">&copy; Réalisé par ... | 2021</p>
+     {% block footer %}
+			<footer>
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2020 Copyright:
+    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+<!-- Footer -->
 			</footer>
+      {% endblock %}
 
 			<!-- JQUERY -->
 			<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
