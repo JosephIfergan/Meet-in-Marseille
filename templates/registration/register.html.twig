@@ -1,6 +1,5 @@
 {% block stylesheets %}
-	<link
-	rel="stylesheet" href="{{ asset('assets/css/RegisterStyle.css') }} ">
+	<link rel="stylesheet" href="{{ asset('assets/css/RegisterStyle.css') }} ">
 	<!-- police-->
 	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 
@@ -13,66 +12,46 @@
 
 {% block header %}
 	<header>
-			<nav class="navbar navbar-expand-sm col navbar-light d-flex justify-content-center">
-
-
+		<nav class="navbar navbar-expand-sm col navbar-light d-flex justify-content-center">
 			<a href="{{ path('accueil') }}"><img class="logo-inscription" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
-			</nav>
-
+		</nav>
 	</header>
 {% endblock %}
 {% block body %}
-
-	<div class="background-inscription">
-		<div id="base_inscription">
-			{# <h1 class="color-1 text-uppercase text-center display-4 opacity-0">{{ messageConfirmation }}</h1> #}
-			<h4 class="text-center color-2">{{ messageConfirmation2 }}
-				<a href="{{ path('app_login') }}">{{ messageConfirmation3 }}</a>
-			</h4>
-			{% for flashError in app.flashes('verify_email_error') %}
-				<div class="alert alert-danger" role="alert">{{ flashError }}</div>
-			{% endfor %}
-
-			<div id="container" class="container d-flex flex-row flex-wrap justify-content-around">
-
-
-				<div class="formulaire align-self-center">
-					{{ form_start(registrationForm) }}
-					<div class="d-flex flex-row flex-wrap justify-content-center forsexe">
-						<p class="text-white mr-3 display-5 bottom-mobile">Je suis ...</p>
-						{{ form_widget(registrationForm.sexe) }}
-					</div>
-					<label
-						class="w-100 p-0">
-						<!-- AVEC form_widget on a pas le label juste le input-->
-						{{ form_widget(registrationForm.pseudo) }}
-					</label>
-					<label
-						class="w-100">
-						<!-- AVEC form_row on a le label et le input-->
-						{{ form_widget(registrationForm.email) }}
-					</label>
-					<label class="w-100">
-						{{ form_widget(registrationForm.age) }}
-					</label>
-					<label class="w-100">
-						{{ form_widget(registrationForm.plainPassword) }}
-					</label>
-
-					{{ form_end(registrationForm) }}
-					<button type="submit" class="btn btn-primary d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>
-
-					<a class="p-2 text-white text-decoration" href="{{ path('app_login') }}">Déjà inscrit ? Se connecter !</a>
+		<h3 class="text-center text-white mt-5">{{ messageConfirmation }}
+			<a class="text-white" href="{{ path('app_login') }}">{{ messageConfirmation2 }}</a>
+		</h3>
+	<div id="base_inscription" class="d-flex">
+		{% for flashError in app.flashes('verify_email_error') %}
+			<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+		{% endfor %}
+		<div id="container" class="container d-flex flex-row flex-wrap justify-content-around align-self-center">	
+			<div class="formulaire align-self-center" data-aos="fade-right">
+				{{ form_start(registrationForm) }}
+				<div class="d-flex flex-row flex-wrap justify-content-center forsexe">
+					<p class="jesuis text-white mr-3 display-5">Je suis ...</p>
+					{{ form_widget(registrationForm.sexe) }}
 				</div>
-				<div class="aside">
-					<h2>Rejoins la meilleure communauté de Marseille !</h2>
-					<img src="assets/img/friends.png" alt="">
-				</div>
-
+				<label class="w-100 p-0">
+					{{ form_widget(registrationForm.pseudo) }}
+				</label>
+				<label class="w-100">
+					{{ form_widget(registrationForm.email) }}
+				</label>
+				<label class="w-100">
+					{{ form_widget(registrationForm.age) }}
+				</label>
+				<label class="w-100">
+					{{ form_widget(registrationForm.plainPassword) }}
+				</label>
+				<button type="submit" class="btn d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>	
+				{{ form_end(registrationForm) }}
+				<p class="text-white">Déjà inscrit? <a id="new" class="p-2 text-white text-decoration" href="{{ path('app_login') }}">Se connecter!</a></p>
+			</div>
+			<div class="aside mt-4">
+				<h2 data-aos="fade-up">Rejoins la meilleure communauté de Marseille !</h2>
+				<img src="assets/img/friends2.png" alt="welcome" data-aos="fade-left">
 			</div>
 		</div>
-
 	</div>
-
-
 {% endblock %}
