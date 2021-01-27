@@ -22,27 +22,28 @@
 
 <div id="modif_class1" class="information ">
 
-    <div class="profil bar-profil sticky-top">
-    {%if ( app.user.photo == null ) %}
-        {%if ( app.user.sexe == 'homme' ) %}
-            <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
-        {%else %}
-            <img src="assets/img/avatar-femme.png" class="profil-avatar" alt="avatar">
-        {%endif %}
-    {%else %}
-        <img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="profil-avatar" alt="avatar">
-    {%endif %}
+    <div class="profil bar-profil sticky-top" >
+
+        <div class="info-perso">
+            {%if ( app.user.photo == null ) %}
+                {%if ( app.user.sexe == 'homme' ) %}
+                    <img src="assets/img/avatar.png" class="profil-avatar" alt="avatar">
+                {%else %}
+                    <img src="assets/img/avatar-femme.png" class="profil-avatar" alt="avatar">
+                {%endif %}
+            {%else %}
+                <img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="profil-avatar" alt="avatar">
+            {%endif %}
+        
 
 
+            <div class="pseudo">{{ app.user.pseudo }}</div>
+            <div class="ita">{{ app.user.age }} ans</div>
+            <div class="ita">{{ app.user.email }}</div>
+            <div class="ita">Marseille 13000</div>
+        </div>
 
-
-
-        <div class="pseudo">{{ app.user.pseudo }} </div>
-        <div class="ita">{{ app.user.age }} ans</div>
-        <div class="ita">{{ app.user.email }}</div>
-        <div class="ita padd">Marseille 13000</div>
-
-        <nav class="">
+        <nav class="padd">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active pad" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Mes Meetings</a>
                 <a class="nav-item nav-link pad2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Mes Informations</a>
@@ -113,29 +114,53 @@
         
             <div>
                 <h2>Notre code information</h2>
-                <table class="table">
-                    <thead>
+                <table class="table table-borderless bg-light border border-info">
+                    <thead class="cache">
                         <tr>
-                            <th>Email</th>
-                            <th>Pseudo</th>
-                            <th>Age</th>
-                            <th>photo</th>
-                            <th>Action</th>
-
+                            <th scope="col">Attribu</th>
+                            <th scope="col">Sujet</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-
                         <tr>
-                            <td>{{ app.user.email }}</td>
+                            <th scope="row" class="typo">Pseudo</th>
                             <td>{{ app.user.pseudo }}</td>
-                            <td>{{ app.user.age }}</td>
-                            <td>{{ app.user.photo }}</td>
-                            <td><a  class="btn btn-success" href="{{ path('profil_user_edit', {'id': app.user.id}) }}">Modifier</a></td>
                         </tr>
-
+                        <tr class="table-secondary">
+                            <th scope="row" class="typo">Nom</th>
+                            <td>Jacob</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="typo">Prénom</th>
+                            <td>Larry the Bird</td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <th scope="row" class="typo">Email</th>
+                            <td>{{ app.user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="typo">Age</th>
+                            <td>{{ app.user.age }} ans</td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <th scope="row" class="typo">Sexe</th>
+                            <td>Masculin</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="typo">A propos de moi</th>
+                            <td>bady</td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <th scope="row" class="typo">Centre d'intêret</th>
+                            <td>kory</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="masque"><a  class="" href="{{ path('profil_user_edit', {'id': app.user.id}) }}">Modifier mes informations</a></th>
+                        </tr>
                     </tbody>
                 </table>
+                
             </div>
         </div>
 
