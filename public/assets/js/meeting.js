@@ -23,7 +23,7 @@ for (let m = 0 ; m < tabMarkers.length ; m++) {
   console.log(marker);
   console.log(popup);
   
-}
+};
 
 // INSCRIPTION A UN MEETING ET OUVRIR LIGHTBOX VALIDER INSCRIPTION MEETING
 var lightboxValiderInscription = $('#valider-inscription');
