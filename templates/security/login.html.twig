@@ -10,46 +10,10 @@
 
 {% block body %}
 
-    <header>
-        <nav class="header-pc d-flex flex-row justify-content-end">
-            <a class="p-2 navlogo" href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
-            <a class="btn btn-primary boutton-meeting align-self-center m-2" href="{{ path('map') }}">Voir les meetings<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-            {% if app.user %}
-                <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('app_logout') }}">Se déconnecter</a>
-            {% else %}
-                <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('app_register') }}">S'inscrire</a>
-            {% endif %}            
-        </nav>
-        <!-- HEADER MOBILE-->
-        <nav class="header-mobile navbar navbar-inverse navbar-static-top d-none" role="navigation">
-            <div class="navbar-header d-flex justify-content-end w-100">
-                <a class="mr-auto" href="{{ path('accueil') }}"><img class="logo-mobile" src="assets/img/logo.png" alt="MeetInMarseille"></a>
-                <button type="button" class="navbar-toggle collapsed mr-2" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <i class="fas fa-bars"></i>
-                    <i class="fas fa-times-circle d-none"></i>
-                </button>
-            </div>
-        </nav>
-    </header>
- 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li class="m-auto">
-            {% if app.user %}
-                <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('app_logout') }}">Se déconnecter</a>
-            {% else %}
-                <a class="btn btn-primary boutton-connexion align-self-center m-3" href="{{ path('app_register') }}">S'inscrire</a>
-            {% endif %}
-            </li>
-            <li class="m-auto">
-                <a class="btn btn-primary boutton-meeting align-self-center m-2" href="{{ path('map') }}">Voir les meetings<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-            </li>
-        </ul>
-    </div>
 
 
-    <div class="background-login">
-        <div id="base_login" class="pb-5">
+    <div class="background-inscription">
+        <div id="base_inscription">
             <form method="post">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -61,14 +25,26 @@
                 {% endif %}
                 
                 {% if app.user %}
-                    <h1 class="color-1 text-uppercase text-center display-4 opacity-0 ">bienvenue {{ app.user.pseudo }} !</h1>
-                    <p class="text-center display-5 text-warning">Patienter on vous redirige vers la section Meeting ...</p>
+                    <h1 class="color-1 text-uppercase text-center text-white display-4 opacity-0 ">Bienvenue {{ app.user.pseudo }} !</h1>
+                    <p class="text-center display-5 text-warning">On te redirige vers les Meetings ...</p>
                 {% else %}
-                    <h1 class="color-1 text-uppercase text-center display-4 opacity-0 mb-4">connectez-vous</h1>
+
                 {% endif %}
 
-                <div class="formulaire-inscription">
-                    <input type="email" value="{{ last_username }}" name="email" placeholder="Votre email" id="inputEmail" class="form-control mt-4 mb-4" required autofocus>
+            </form>
+        </div>
+    </div>
+
+    
+    
+
+
+
+			<div id="container" class="container d-flex flex-row flex-wrap justify-content-around">
+				<div class="formulaire align-self-center" data-aos="fade-up">
+                <a href="{{ path('accueil') }}"><img class="logo-connexion" data-aos="fade-down-right" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
+                <h2 class="connexion" data-aos="zoom-in">CONNEXION</h2>
+					<input type="email" value="{{ last_username }}" name="email" placeholder="Votre email" id="inputEmail" class="form-control mt-4 mb-4" required autofocus>
                     <input type="password" name="password" placeholder="Votre mot de passe" id="inputPassword" class="form-control mb-4" required>
 
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
@@ -84,9 +60,16 @@
                         </div>
                     #}
 
-                    <button class="btn btn-primary d-block font-weight-bold mr-auto ml-auto mb-4 w-50" type="submit">Sign in</button>
-                </div>
-            </form>
-        </div>
-    </div>
+                    <button id="connexion" class="btn btn-primary" type="submit">Se connecter</button>
+                    <a id="new" class="p-2 text-white text-decoration" href="{{ path('app_register') }}">Nouveau ? S'inscrire !</a>
+				</div>
+				<div class="aside mt-4">
+					<h2 data-aos="fade-up">Ah, te revoilà ! <br> On t'attendait ! </h2>
+					<img src="assets/img/friends.png" alt="welcome">
+				</div>
+
+			</div>
+		</div>
+
+	</div>
 {% endblock %}

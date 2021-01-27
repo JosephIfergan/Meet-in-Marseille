@@ -4,6 +4,8 @@ body {
 background-image: url("../img/background-bleu.jpg");
     background-size: cover;
     background-position: center;
+    width: 100%;
+    height: 100vh;
 }
 
 h1{
@@ -21,6 +23,13 @@ h3{
 }
 a{
   text-decoration:underline;
+}
+
+.logo-connexion {
+  width: 300px;
+  height: 180px;
+  margin-bottom: 50px;
+  margin-left: 50px;
 }
 #base_inscription{
   min-height: 80vh;
