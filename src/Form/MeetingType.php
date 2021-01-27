@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Validator\Constraints\IsTrue;
 
@@ -53,6 +54,10 @@ class MeetingType extends AbstractType
             ])
             ->add('date')
             ->add('adresse')
+            ->add('latitude', HiddenType::class, [
+            ])
+            ->add('longitude', HiddenType::class, [
+            ])
             ->add('description')
             ->add('photo_meeting', FileType::class, [
                 'label' => 'photo à uploader',

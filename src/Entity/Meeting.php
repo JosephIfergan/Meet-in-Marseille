@@ -70,6 +70,16 @@ class Meeting
      */
     private $photoMeeting;
 
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=7, nullable=true)
+     */
+    private $latitude;
+
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=7, nullable=true)
+     */
+    private $longitude;
+
     public function __construct()
     {
         $this->participants = new ArrayCollection();
@@ -223,6 +233,30 @@ class Meeting
     public function setPhotoMeeting(?string $photoMeeting): self
     {
         $this->photoMeeting = $photoMeeting;
+
+        return $this;
+    }
+
+    public function getLatitude(): ?string
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(?string $latitude): self
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?string
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(?string $longitude): self
+    {
+        $this->longitude = $longitude;
 
         return $this;
     }

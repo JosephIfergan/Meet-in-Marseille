@@ -27,9 +27,8 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         // MESSAGE DE CONFIRMATION
-        $messageConfirmation = "Rejoins nous !";
+        $messageConfirmation = "";
         $messageConfirmation2 = "";
-        $messageConfirmation3 = "";
 
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -49,9 +48,8 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            $messageConfirmation = "félicitations !";
-            $messageConfirmation2 = "Vous faites désormais partie de la communauté MeetInMarseille,";
-            $messageConfirmation3 = "Connectez vous !";
+            $messageConfirmation = "Vous faites désormais partie de la communauté MeetInMarseille,";
+            $messageConfirmation2 = "Connectez vous !";
 
         }
 
@@ -59,7 +57,6 @@ class RegistrationController extends AbstractController
             // MESSAGE DE CONFIRMATION
             'messageConfirmation'   => $messageConfirmation,
             'messageConfirmation2'  => $messageConfirmation2,
-            'messageConfirmation3'  => $messageConfirmation3,
             'registrationForm' => $form->createView(),
         ]);
             
