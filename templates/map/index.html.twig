@@ -39,6 +39,7 @@
 	<h3 class="text-center">Meetings à venir</h3>
 	
 <main class="d-flex flex-row flex-wrap justify-content-around">
+
 	{% for meeting in meetings %}
 
 		{% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
@@ -69,14 +70,23 @@
 											{{ meeting.user.pseudo ?? 'vide'}}
 										</p>
 								</div>
-								{# <p class="font-weight-bold">{{ meeting.id }}</p> #}
 								<p class="font-weight-bold">{{ meeting.titre }}</p>
 								<p><i class="far fa-calendar-alt mr-2 "></i>{{ meeting.date ? meeting.date|date('d-m-Y') : '' }}</p>
 								<p><i class="fas fa-map-marker-alt mr-2 "></i>{{ meeting.adresse }}</p>
+								<p><i class="fas fa-users mr-2"></i>{{meeting.inscrits|length + 1}} participants inscrits</p>
+								
+								{%if ( meeting.userMax != null ) %}
+
+								<p>Il reste <span class="text-danger">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s)</p>
+								{% else %}
+									<p>Inscription illimitées</p>
+								{%endif %}
+
 							</div>
 						</div>
 						<footer class="card-footer d-flex justify-content-center">
-						{% if app.user %}
+						{# {% if app.user %} #}
+							{% if app.user and (((meeting.inscrits|length + 1) < meeting.userMax) or meeting.userMax == null) %}
 						        <button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-success mr-3">REJOINDRE !</button>
 						{% endif %}
 							<button type="button" class="btn bg-1 text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-plus-square mr-2"></i>DETAIL MEETING</button>

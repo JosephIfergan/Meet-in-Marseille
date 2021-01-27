@@ -12,9 +12,15 @@ h1{
 header{
     height: 10vh;
 }
-
+footer{
+    height: 10vh;
+}
 header img {
     width: 150px;
+    height: auto;
+}
+.logo-inscription{
+    width: 200px;
     height: auto;
 }
 .navlogo {

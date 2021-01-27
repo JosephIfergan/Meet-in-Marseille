@@ -8,17 +8,25 @@ background-image: url("../img/background-bleu.jpg");
     height: 100vh;
 }
 
+<<<<<<< HEAD
 .logo-connexion {
   width: 300px;
   height: 180px;
   margin-bottom: 50px;
   margin-left: 50px;
+=======
+#base_inscription{
+  min-height: 80vh;
+>>>>>>> cbfaf045a2e89d20be200166e798bc9bf52839f9
 }
 
 #container {
   width: 100%;
+  max-width: none;
   height: 100%;
-  margin-top: 50px;
+  padding-right: 50px;
+  padding-left: 100px;
+  margin: 50px 0;
 }
 .formulaire{
   max-width: 400px ;
@@ -37,9 +45,11 @@ background-image: url("../img/background-bleu.jpg");
 }
 
 .aside {
-  max-width: 400px;
-
-  /* margin-left: 60px; */
+  max-width: 500px;
+}
+.aside img {
+  width: 80%;
+  margin-left: 10%;
 }
 .form-control {
     background-color: transparent !important;
@@ -131,22 +141,10 @@ margin-left: 20px;
       animation: pulse1 0.7s infinite;
     }
 
-#new {
-  margin-left: 100px;
+@media screen and (max-width: 700px){
+
 }
 
-.jesuis {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.connexion {
-  color: white;
-    font-family: "Baloo Thambi 2", cursive;
-    font-weight: bold;
-    font-size: 30px;
-    margin: 0 0 50px 0;
-    text-align: center;
 }
 
 .inscription2 {
