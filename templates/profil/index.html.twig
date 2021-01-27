@@ -12,6 +12,7 @@
 		<nav class="navbar navbar-expand-sm col navbar-light d-flex">
 			<a class="logo-user" href="{{ path('accueil') }}"><img class="logo-inscription" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
             <a class="align-self-end button-meeting btn p-2 mr-2 ml-auto" href="{{path ('map')}}"><i class="far fa-plus-square fa-2x logo-add p-1"></i>Creer un Meeting !</a>
+            <a class="button-connexion btn p-2 align-self-end ml-3" href="{{ path('app_logout') }}"><i class="fas fa-sign-in-alt logo-user pr-2"></i>Se deconnecter</a>
 		</nav>
 	</header>
 {% endblock %}
@@ -57,13 +58,6 @@
             <div class="marge-body">
 
                 <div class="basse table ">
-                    <nav class="sidebar card mt-3 shadow">
-                
-                        <a href="{{ path('map') }}" class=" active sidebar-actu">Fil d'actualité</a>
-                        <a href="{{ path('profil') }}" class=" sidebar-even">Mes meetings</a>
-                        <a href="{{ path('profil') }}" class=" sidebar-profil">Mon profil</a>
-                        <a href="#" class=" sidebar-abon">Mes abonnées</a>
-                    </nav>
                     {% for meeting in app.user.meetings %}
                         {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
                         

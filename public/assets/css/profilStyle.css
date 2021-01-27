@@ -35,7 +35,6 @@ th.typo {
   
   
   .button-meeting:hover {
-    background-color: #5271ff;
     color: white;
     animation: pulse1 0.7s infinite;
   }
@@ -375,9 +374,27 @@ img.card-avatar {
 }
 
 .button-edit {
+    background-color: #13dcfb;
     color: white;
+    font-family: "Baloo Thambi 2", cursive;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.logo-user {
-    margin-left: 600px;
-}
+.button-edit:hover, .button-connexion:hover {
+    color: white;
+    animation: pulse1 0.7s infinite;
+  }
+
+  .button-connexion {
+    background-color: #13dcfb;
+    color: white;
+    font-family: "Baloo Thambi 2", cursive;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    height: 50px;
+    max-width: 300px;
+    align-items: center;
+    justify-content: center;
+  }
