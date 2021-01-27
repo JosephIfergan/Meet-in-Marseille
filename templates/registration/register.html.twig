@@ -11,16 +11,6 @@
 {% block title %}Inscription MeetInMarseille{% endblock %}
 
 
-{% block header %}
-	<header>
-			<nav class="navbar navbar-expand-sm col navbar-light d-flex justify-content-center">
-
-
-			<a href="{{ path('accueil') }}"><img class="logo-inscription" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
-			</nav>
-
-	</header>
-{% endblock %}
 {% block body %}
 
 	<div class="background-inscription">
@@ -36,7 +26,12 @@
 			<div id="container" class="container d-flex flex-row flex-wrap justify-content-around">
 
 
-				<div class="formulaire align-self-center" data-aos="fade-right">
+				<div class="formulaire align-self-center" data-aos="fade-up">
+
+                <a href="{{ path('accueil') }}"><img class="logo-connexion" data-aos="fade-down-right" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
+                <h3 class="inscription2" data-aos="fade-up"
+     data-aos-duration="3000">Inscription</h3>
+
 					{{ form_start(registrationForm) }}
 					<div class="d-flex flex-row flex-wrap justify-content-center forsexe">
 						<p class="jesuis text-white mr-3 display-5">Je suis ...</p>
@@ -58,15 +53,15 @@
 					<label class="w-100">
 						{{ form_widget(registrationForm.plainPassword) }}
 					</label>
-<button type="submit" class="btn d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>
 
 					{{ form_end(registrationForm) }}
-					
+					<button type="submit" class="btn d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>
+
 					<a id="new" class="p-2 text-white text-decoration" href="{{ path('app_login') }}">Déjà inscrit ? Se connecter !</a>
 				</div>
 				<div class="aside mt-4">
 					<h2 data-aos="fade-up">Rejoins la meilleure communauté de Marseille !</h2>
-					<img src="assets/img/friends.png" alt="welcome" data-aos="fade-left">
+					<img src="assets/img/friends2.png"  alt="welcome" data-aos="zoom-in-up">
 				</div>
 
 			</div>
