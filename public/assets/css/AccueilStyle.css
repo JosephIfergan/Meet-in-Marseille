@@ -36,6 +36,7 @@ header {
   font-family: "Coiny", cursive !important;
   position: absolute;
   margin-top: 300px;
+  font-size: 50px;
   animation: fadeIn ease 3s;
   -webkit-animation: fadeIn ease 3s;
   -moz-animation: fadeIn ease 3s;
@@ -398,3 +399,23 @@ h4 {
   height: 100px;
 }
 
+.bloc {
+  min-width: 400px;
+  max-width: 20%;
+}
+
+h3 {
+  color: white;
+  font-size: 50px;
+  font-family: "Coiny", cursive;
+}
+
+.fa-question-circle {
+  color: white;
+  padding: 10px;
+}
+
+#logokoka {
+  width: 150px;
+  height: 100px;
+}
