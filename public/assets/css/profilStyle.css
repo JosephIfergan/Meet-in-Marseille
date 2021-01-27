@@ -150,3 +150,227 @@ div .marge-body {
 .ggg{
     background-color: aqua;
 }
+
+/* SIDEBAR */
+
+.sidebar {
+    flex: none;
+    width: 300px;
+    background: #f5f4f4;
+    height: 250px;
+    position: sticky;
+    top: 230px !important;
+}
+
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    padding: 0.6em 0;
+    padding-left: 25px;
+    color: gray;
+    transition: .2s;
+    border: solid 1px transparent;
+}
+
+/* .sidebar-actu {
+    margin-top: 10px;
+} */
+
+.sidebar a::before {
+    content: '';
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 40px;
+    background: url(/public/assets/img/stream-solid.svg) center center / contain no-repeat;
+    transition: opacity .3s;
+}
+
+.sidebar .sidebar-abon::before {
+    width: 20px;
+    height: 20px;
+    background: url(/public/assets/img/users-solid.svg) center center / contain no-repeat;
+}
+
+.sidebar .sidebar-even::before {
+    width: 20px;
+    height: 20px;
+    background: url(/public/assets/img/calendar-alt-regular.svg) center center / contain no-repeat;
+}
+
+.sidebar .sidebar-profil::before {
+    width: 20px;
+    height: 20px;
+    background: url(/public/assets/img/user-solid.svg) center center / contain no-repeat;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    color: black;
+    border: solid 1px #DBDBDB;
+    border-radius: 3px;
+    background: white;
+    font-weight: bold;
+}
+
+.sidebar a:hover::before,
+.sidebar a.active::before {
+    opacity: 1;
+}
+
+
+
+.main {
+    width: 100%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.basse {
+    display: flex;
+}
+
+/* CARD ACTUS */
+
+.text-color {
+    color: rgb(121, 121, 121);
+}
+
+.trait-bas {
+    border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+.card {
+    margin-bottom: 15px;
+    top: 15px;
+}
+
+article.card {
+    max-width: 100%;
+}
+
+.card-body {
+    padding: 10px 4px 20px 5px;
+    background: #f5f4f4;
+}
+
+.card-body .largetotal {
+    width: calc(100% + 10px);
+    display: block;
+    margin: 10px -6px -20px;
+}
+
+.largetotal {
+    height: 415px;
+    object-fit: contain;
+}
+
+.card-footer {
+    display: flex;
+    padding: 10px;
+}
+
+.card-like::before,
+.card-rejoindre {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.card-rejoindre {
+    margin-left: auto;
+}
+
+
+
+/* FORM CREE EVENEMENT */
+
+
+.form-e {
+    background-color: #373737;
+    margin-top: 10%;
+    max-width: 55%;
+}
+
+.btn-color-e {
+    background-color: #454444;
+    color: white;
+}
+
+.hr-color-e {
+    background-color: rgb(121, 121, 121);
+}
+
+.card-header {
+    padding: 10px;
+    position: relative;
+}
+
+.card-header-avatar {
+    padding-left: 65px;
+}
+
+.card-avatar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+}
+img.card-avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.card-pseudo {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    margin: 0px 0;
+}
+
+.card-date {
+    color: #808080;
+    font-size: 12px;
+}
+
+.cache {
+    display: none;
+}
+
+/* PHONE RESPOSIVE */
+@media only screen and (max-width: 425px) {
+
+}
+
+/* TABLETTE RESPONSIVE */
+@media only screen and (max-width: 990px) {
+    .sidebar a {
+        width: 50%;
+    }
+    .sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100% !important;
+        height: 93px !important;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 155px !important;
+        z-index: 1;
+    }
+    .basse {
+        flex-wrap: wrap;
+    }
+    .sidebar-actu {
+    margin-top: 0;
+    }
+    .profil-avatar {
+        left: 7% !important;
+    }
+}
