@@ -46,9 +46,8 @@ background-image: url("../img/background-bleu.jpg");
     border: 0;
     border-bottom: 1px solid white;
 }
-.formulaire p{
-  font-size:
- }
+
+
 .form-check{
   padding-left: 2rem;
   color: white;
@@ -119,11 +118,14 @@ h2 {
   }
 
 
+  .aside img {
+width: 350px;
+height: 350px;
+margin-left: 20px;
+  }
 
 
-
-      
-    .btn:hover {
+ .btn:hover {
       background-color: #13dcfb;
       color: white;
       animation: pulse1 0.7s infinite;

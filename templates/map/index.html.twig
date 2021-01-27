@@ -7,6 +7,7 @@
 	<!-- LEAFLET -->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
 	<link rel="stylesheet" href="{{ asset('assets/css/mapStyle.css') }} ">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 {% endblock %}
 
 {% block header %}
@@ -22,19 +23,18 @@
 {% block body %}
 
 	<div id="mapid"></div>
-	<div class="d-flex m-3 justify-content-center">
-		<a class="btn btn-info btn-map mr-2" href="{{ path('accueil') }}">Retour à l'accueil</a>				
+	<div class="d-flex m-3 justify-content-center">				
 		{% if app.user %}
-		<button type="button" class="btn bg-1 text-white btn-map" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo">Creer mon Meeting !</button>
+		<button type="button" class="btn bg-primary text-white btn-map" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo">Creer mon Meeting !</button>
 	    {% else %}
-		<a href="{{path ('app_register')}}" class="btn bg-1 text-white btn-map">Creer mon Meeting !</a>
+		<a href="{{path ('app_register')}}" class="btn bg-primary text-white btn-map m-4 p-3">Creer mon Meeting !</a>
 		{% endif %}
 	    
 	</div>
 
 	{{ include('map/lightbox-creerMeeting.html.twig') }}
 
-	<h3 class="text-uppercase text-center mt-4 mb-4 color-1">Liste des meetings à venir</h3>
+	<h3 class="text-center">Meetings à venir</h3>
 	
 <main class="d-flex flex-row flex-wrap justify-content-around">
 

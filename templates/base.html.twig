@@ -35,7 +35,7 @@
 		href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
 		<!--BALOO THAMBI FONT-->
 		<link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;700&display=swap" rel="stylesheet"> {% block stylesheets %}{% endblock %}
-
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 		</head>
 
 
@@ -44,10 +44,52 @@
 
 			{% block body %}
 			{% endblock %}
-{% block footer %}
-			<footer id="footer" class="bg-1">
-				<p class="text-center mb-0 p-3">&copy; Réalisé par ... | 2021</p>
-			</footer>
+     {% block footer %}
+			<footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>À propos de l'équipe</h6>
+            <p class="text-justify">Meet in Marseille&copy; a été créé par Joseph, Maxime, Moussa et Marc dans le cadre d'une soutenance de fin de formation chez WebForce3&copy;. 
+			Ce site est exclusivement notre propriété, donc n'essayez pas de voler notre code ou notre visuel, sous peine de poursuites judiciaires. Bon on a pas les moyens de payer un avocat mais soyez gentils, on a bossé dessus. Et puis voler, c'est mal. Merci.</p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Liens utiles</h6>
+            <ul class="footer-links">
+              <li><a href="{{ path('map') }}">Meetings</a></li>
+              <li><a href="{{ path('app_login') }}">Connexion</a></li>
+              <li><a href="{{ path('app_register') }}">Inscription</a></li>
+			  <li><a href="{{ path('accueil') }}#faq">FAQ</a></li>
+			  <li><a href="#">Support/Réclamations</a></li>
+              <li><a href="#">Recrutement</a></li>
+            </ul>
+          </div>
+		  <div class="col-xs-6 col-md-3">
+           <a href="{{ path('accueil') }}"><img class="logo" id="logofooter" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by 
+         <a href="{{ path('accueil') }}">Meet in Marseille</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>   
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>
       {% endblock %}
 
 			<!-- JQUERY -->

@@ -65,20 +65,23 @@
 
 {% block body %}
 
-	<div class="slideshow justify-content-center d-flex">
+	<div
+		class="slideshow justify-content-center d-flex">
 		<!-- SLIDERS JS ICI -->
 		<h1 class="bienvenue align-self-lg-center align-self-sm-start">
 			Partagez vos passions avec les autres.</h1>
-	
-		{% if app.user %}
-			<a class="align-self-center button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-			<a class="align-self-center button-meeting btn p-2 ml-4" href="{{path ('map')}}">
-				<i class="far fa-plus-square fa-2x logo-add mr-3"></i>Creer un Meeting !</a>
-		{% else %}
-			<a class="align-self-center button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
-			<a class="align-self-center button-meeting btn p-2 ml-4" href="{{ path('accueil') }}#fonctionnement">Comment ça marche ?</a>
-		{% endif %}
+		<div class="buttons">
+			{% if app.user %}
+				<a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
+				<a class="align-self-end button-meeting btn p-2 ml-4" href="{{path ('map')}}">
+					<i class="far fa-plus-square fa-2x logo-add mr-3"></i>Creer un Meeting !</a>
+			{% else %}
 
+				<a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
+				<a class="align-self-end button-meeting btn p-2 ml-4" href="{{ path('accueil') }}#fonctionnement">Comment ça marche ?</a>
+
+			{% endif %}
+		</div>
 	</div>
 
 
@@ -110,11 +113,33 @@
 		</div>
 	</section>
 
-	<div class="faq">
+	
+<section id="faq">
 
-	<div class="bloc2">
-<img src="assets/img/logo-white.png" alt="MeetInMarseille">
-<h4>Est-ce que le site est accessible pour tous ?</h4>
-<p> Évidemment ! Les meetings sont ouverts à tous, et chacun a la possibilité de créer son propre en meeting, en fonction de ses centres d'intérêts ! </p>
+<h3 class="text-center" data-aos="fade-down"><i class="far fa-question-circle"></i>FAQ<i class="far fa-question-circle"></i></h3>
+
+	
+<div class="faq d-flex flex-wrap flex-row justify-content-around">
+
+		<div class="bloc p-3" data-aos="fade-right">
+			
+			<h4>Meet in Marseille c'est quoi ?</h4>
+			<p>Meet in Marseille est une plateforme en ligne vous permettant de partager votre temps, vos passions, hobbies et sorties avec les autres. C'est simple, rapide et totalement gratuit !</p>
+		</div>
+
+		
+		<div class="bloc p-3" data-aos="fade-up">
+		
+			<h4>Est-ce que le site est accessible pour tous ?</h4>
+			<p>
+				Évidemment ! Les Meetings sont ouverts à tous, et chacun a la possibilité de créer son propre en Meeting, en fonction de ses centres d'intérêts !
+			</p>
+		</div>
+	
+
+	<div class="bloc p-3" data-aos="fade-left">
+
+		<h4>Quel est le nombre maximum de participants ?</h4>
+		<p>Il n'y a pas de limite de participants. Néanmoins, il faudra contacter l'établissement où se déroule ton Meeting afin de savoir combien de personnes ils peuvent recevoir.</p>
 	</div>
 {% endblock %}
