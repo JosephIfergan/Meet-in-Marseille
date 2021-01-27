@@ -290,13 +290,12 @@ form[name="inscrits"] {
     height: 30%;
     padding-bottom: 1rem;
     background-color: #5271ff;
-    opacity: 0;
     transition: all 0.3s ease-in;
     border-radius: 3px;
   }
-  #valider-inscription.active {
-    top:  35%;
-  }
+  /* #valider-inscription.active {
+    top: 35% !important;
+  } */
   #valider-inscription p{
     padding: 8px;
     font-size: 16px;
@@ -313,6 +312,7 @@ form[name="inscrits"] {
 @media screen and (min-width : 1550px) {
   #valider-inscription p{
     font-size: 30px;
+    margin-bottom: 40px !important;
   }
 }
 @media screen and (min-width : 1200px) {
@@ -324,10 +324,7 @@ form[name="inscrits"] {
   #valider-inscription.active {
     top:  35%;
   }
-  
-#valider-inscription p{
-  margin-bottom:10px;
-}
+
 #valider-inscription button{
   font-size: 20px;
   min-width: 200px;

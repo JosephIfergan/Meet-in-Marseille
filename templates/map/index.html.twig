@@ -75,12 +75,14 @@
 								<p><i class="fas fa-map-marker-alt mr-2 "></i>{{ meeting.adresse }}</p>
 								<p><i class="fas fa-users mr-2"></i>{{meeting.inscrits|length + 1}} participants inscrits</p>
 								
-								{%if ( meeting.userMax != null ) %}
+								{% if ((meeting.userMax != null) and (meeting.UserMax - (meeting.inscrits|length + 1)) != 0)  %}
 
 								<p>Il reste <span class="text-success">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s)</p>
+								{% elseif (meeting.UserMax - (meeting.inscrits|length + 1)) == 0 %}
+								    <p class="text-danger">Ce meeting est complet</p>
 								{% else %}
 									<p>Inscription illimitée</p>
-								{%endif %}
+								{% endif %}
 
 							</div>
 						</div>
