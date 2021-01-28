@@ -216,7 +216,9 @@ form[name="inscrits"]{
 .color2{
   color: #13dcfb !important;
 }
-
+.display-popup{
+  font-size: 18px;
+}
 /* LIGHTBOX VALIDER INSCRIPTION */
 
 #valider-inscription{
