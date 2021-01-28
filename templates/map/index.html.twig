@@ -23,12 +23,12 @@
 
 	<div id="mapid"></div>
 	<div class="d-flex m-3 justify-content-center">
-	<button type="button" class="btn bg-primary text-white btn-map" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo">Creer mon Meeting !</button>
 	    				
 		{% if app.user %}
-
-		<a href="{{path ('profil')}}" class="btn btn-success">Mes Meetings</a>
+        <button type="button" class="btn btn-map mb-2" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo"><i class="far fa-plus-square fa-1x logo-add mr-3"></i>Creer mon Meeting !</button>
+		<a href="{{path ('profil')}}" class="btn btn-mm ml-3">Mes Meetings</a>
 		{% else %}
+        <a href="{{path ('app_register')}}" class="btn btn-map">Creer mon Meeting !</a>
 		{% endif %}
 		
 	    
@@ -36,7 +36,8 @@
 
 	{{ include('map/lightbox-creerMeeting.html.twig') }}
 
-	<h3 class="text-center text-white">Meetings à venir</h3>
+	<h3 class="a-venir"><i class="fab fa-hotjar mr-2"></i>Meetings à venir<i class="fab fa-hotjar ml-2"></i></h3>
+	
 	
 <main class="d-flex flex-row flex-wrap justify-content-around">
 
@@ -81,7 +82,7 @@
 								
 								{% if ((meeting.userMax != null) and (meeting.UserMax - (meeting.inscrits|length + 1)) != 0)  %}
 
-								<p>Il reste <span class="text-success">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s)</p>
+								<p>Il reste <span class="places">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s)</p>
 								{% elseif (meeting.UserMax - (meeting.inscrits|length + 1)) == 0 %}
 								    <p class="text-danger">Ce meeting est complet</p>
 								{% else %}
@@ -92,9 +93,9 @@
 						</div>
 						<footer class="card-footer d-flex justify-content-center">
 						{% if app.user and (((meeting.inscrits|length + 1) < meeting.userMax) or meeting.userMax == null) %}
-					        <button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-success mr-3">REJOINDRE !</button>
+					        <button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-join mr-3">REJOINDRE !</button>
 						{% endif %}
-						<button type="button" class="btn bg-1 text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-plus-square mr-2"></i>DETAIL MEETING</button>
+						<button type="button" class="btn btn-details text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-info-circle mr-2"></i>DETAIL MEETING</button>
 						</footer>
 					</div>
 				</div>
