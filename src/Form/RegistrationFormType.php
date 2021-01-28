@@ -57,6 +57,7 @@ class RegistrationFormType extends AbstractType
             ->add('age',IntegerType::class, [
                 'label' => false, // je cache le label dans le formulaire
                 'attr' => [
+                    'min' => '16',
                     'placeholder' => 'Ton âge',
                     'class' => 'text-white !important'
                 ],
