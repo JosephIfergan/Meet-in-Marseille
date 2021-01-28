@@ -1,7 +1,7 @@
 body {
     box-sizing: border-box;
     font-family: 'Baloo Thambi 2', cursive !important;
-background-image: url("../img/background-bleu.jpg");
+    background-image: url("../img/background-bleu.jpg");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -29,8 +29,14 @@ a{
 #base_inscription{
   min-height: 80vh;
 }
-
-#container {
+#base_login h1{
+  margin-top:50px;
+}
+#base_login p{
+  animation: pulse2 1.2s infinite;
+  font-size: 25px;
+}
+#container, #container2 {
   width: 100%;
   max-width: none;
   height: 100%;
@@ -39,7 +45,7 @@ a{
   margin: 50px 0;
 }
 
-.formulaire{
+.formulaire, .formulaire-login{
   max-width: 400px ;
 }
 
@@ -52,14 +58,14 @@ a{
 }
 
 
-/* FORMULAIRE INSCRIPTION */
+/* FORMULAIRE INSCRIPTION  ET CONNEXION*/
 .form-control {
   background-color: transparent !important;
   border: 0;
   border-radius: 0;
   border-bottom: 1px solid white;
 }
-.formulaire button{
+.formulaire button, .formulaire-login button{
   background-color: #5271ff;
   color: white;
   max-width: 300px;
@@ -86,9 +92,10 @@ a{
 color: white;
 }
 
-.formulaire p{
+.formulaire p, .formulaire-login p {
   font-size: 20px;
 }
+
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 590px){
@@ -98,9 +105,16 @@ color: white;
   .formulaire p{
     margin-bottom: 10px;
   }
+  .formulaire-login p{
+    margin-bottom: 10px;
+  }
   h3{
     font-size: 20px;
     margin-bottom: 0 !important;    
+  }
+  #base_login h1{
+    font-size: 30px;
+    margin-top: 70px;
   }
 }
 
@@ -112,7 +126,7 @@ color: white;
     width: 80%;
     margin-left: 10%;
   }
-  #container {
+  #container, #container2 {
     width: 100%;
     max-width: none;
     height: 100%;
@@ -120,7 +134,7 @@ color: white;
     padding-left: 20px;
     margin: 50px 0;
   }
-  .formulaire{
+  .formulaire, .formulaire-login{
     max-width: 250px ;
   }
   .formulaire button{
@@ -128,13 +142,21 @@ color: white;
     height: auto;
     margin-top:10px;
   }
+  #base_login p{
+    animation: pulse2 1.2s infinite;
+    font-size: 20px;
+  }
 }
 
 @media screen and (min-width: 1400px){
   .aside {
     max-width: 700px;
   }
-  .formulaire{
+  .formulaire-login{
     margin-left:100px;
-  } 
+    width: 600px;
+  }
+  .friends{
+    width: 600px !important;
+  }
 }
