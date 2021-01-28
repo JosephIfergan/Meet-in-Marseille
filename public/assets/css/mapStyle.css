@@ -252,6 +252,127 @@ form[name="inscrits"] {
   font-size: 20px;
 }
 
+.btn-map {
+  background-color: #1a44ff;
+  color: white;
+  font-family: "Baloo Thambi 2", cursive;
+  font-weight: bold;
+  font-size: 30px;
+  display: flex;
+  width: 350px;
+  height: 60px;
+  max-width: 500px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-map:hover {
+  background-color: #06ecf4;
+  animation: pulse1 0.7s infinite;
+  color: white;
+}
+
+.btn-mm {
+  background-color: #06ecf4;
+  color: white;
+  font-family: "Baloo Thambi 2", cursive;
+  font-weight: bold;
+  font-size: 30px;
+  display: flex;
+  width: 300px;
+  height: 60px;
+  max-width: 500px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.btn-mm:hover {
+  background-color: #06ecf4;
+  animation: pulse1 0.7s infinite;
+  color: white;
+}
+
+.btn-details {
+  background-color: #26d1f7;
+  color: white;
+  font-family: "Baloo Thambi 2", cursive;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  height: 40px;
+  max-width: 300px;
+  margin-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.btn-details:hover {
+  background-color: #06ecf4;
+  animation: pulse1 0.7s infinite;
+  color: white;
+}
+
+.a-venir {
+  color: white;
+  font-family: "Baloo Thambi 2", cursive;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 80px;
+  text-align: center;
+}
+
+.a-venir:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+  .btn-join {
+    background-color: #04a92b;
+    color: white;
+    font-family: "Baloo Thambi 2", cursive;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    height: 40px;
+    max-width: 300px;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+  .btn-join:hover {
+    background-color: #06e039;
+    animation: pulse1 0.7s infinite;
+    color: white;
+  }
+
+  /* MEDIA QUERIES */
 @media screen and (max-width : 765px) {
   .card-footer a, .card-footer button{
     min-width: 100px;
@@ -303,9 +424,7 @@ form[name="inscrits"] {
     transition: all 0.3s ease-in;
     border-radius: 3px;
   }
-  /* #valider-inscription.active {
-    top: 35% !important;
-  } */
+
   #valider-inscription p{
     padding: 8px;
     font-size: 16px;
@@ -318,6 +437,14 @@ form[name="inscrits"] {
   .category{
     font-size: 18px;
   }
+  .btn-map, .btn-mm {
+    font-size: 20px !important;
+    width: 350px;
+    height: 60px;
+    max-width: 500px;
+    margin-bottom: 0 !important;
+  }
+
 }
 @media screen and (min-width : 1550px) {
   #valider-inscription p{
@@ -335,129 +462,8 @@ form[name="inscrits"] {
     top:  35%;
   }
 
-#valider-inscription button{
+  #valider-inscription button{
   font-size: 20px;
   min-width: 200px;
-}
-}
-
-.btn-map {
-    background-color: #1a44ff;
-    color: white;
-    font-family: "Baloo Thambi 2", cursive;
-    font-weight: bold;
-    font-size: 30px;
-    display: flex;
-    width: 350px;
-    height: 60px;
-    max-width: 500px;
-    margin-bottom: 20px;
-    align-items: center;
-    justify-content: center;
-  
-}
-
-  .btn-map:hover {
-    background-color: #06ecf4;
-    animation: pulse1 0.7s infinite;
-    color: white;
   }
-
-  .btn-mm {
-    background-color: #06ecf4;
-    color: white;
-    font-family: "Baloo Thambi 2", cursive;
-    font-weight: bold;
-    font-size: 30px;
-    display: flex;
-    width: 300px;
-    height: 60px;
-    max-width: 500px;
-    margin-bottom: 20px;
-    align-items: center;
-    justify-content: center;
-  
 }
-
-  .btn-mm:hover {
-    background-color: #06ecf4;
-    animation: pulse1 0.7s infinite;
-    color: white;
-  }
-
-  .btn-details {
-    background-color: #26d1f7;
-    color: white;
-    font-family: "Baloo Thambi 2", cursive;
-    font-weight: bold;
-    font-size: 20px;
-    display: flex;
-    height: 40px;
-    max-width: 300px;
-    margin-bottom: 30px;
-    align-items: center;
-    justify-content: center;
-  
-}
-
-  .btn-details:hover {
-    background-color: #06ecf4;
-    animation: pulse1 0.7s infinite;
-    color: white;
-  }
-
-  .a-venir {
-    color: white;
-    font-family: "Baloo Thambi 2", cursive;
-    font-weight: bold;
-    font-size: 40px;
-    margin: 80px;
-    text-align: center;
-  }
-
-  .a-venir:hover {
-      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-      transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
-      perspective: 1000px;
-      
-    }
-    
-    @keyframes shake {
-      10%, 90% {
-        transform: translate3d(-1px, 0, 0);
-      }
-      
-      20%, 80% {
-        transform: translate3d(2px, 0, 0);
-      }
-    
-      30%, 50%, 70% {
-        transform: translate3d(-4px, 0, 0);
-      }
-    
-      40%, 60% {
-        transform: translate3d(4px, 0, 0);
-      }
-    }
-
-    .btn-join {
-      background-color: #04a92b;
-      color: white;
-      font-family: "Baloo Thambi 2", cursive;
-      font-weight: bold;
-      font-size: 20px;
-      display: flex;
-      height: 40px;
-      max-width: 300px;
-      margin-bottom: 30px;
-      align-items: center;
-      justify-content: center;
-    
-  }
-  
-    .btn-join:hover {
-      background-color: #06e039;
-      animation: pulse1 0.7s infinite;
-      color: white;
-    }
