@@ -20,98 +20,87 @@
 {% endblock %}
 
 {% block body %}
-
 	<div id="mapid"></div>
-	<div class="d-flex m-3 justify-content-center">
-	    				
-		{% if app.user %}
-        <button type="button" class="btn btn-map mb-2" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo"><i class="far fa-plus-square fa-1x logo-add mr-3"></i>Creer mon Meeting !</button>
-		<a href="{{path ('profil')}}" class="btn btn-mm ml-3">Mes Meetings</a>
-		{% else %}
-        <a href="{{path ('app_register')}}" class="btn btn-map">Creer mon Meeting !</a>
-		{% endif %}
-		
-	    
-	</div>
+		<div class="d-flex m-3 justify-content-center">
 
-	{{ include('map/lightbox-creerMeeting.html.twig') }}
+			{% if app.user %}
+        		<button type="button" class="btn btn-map mb-2" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo"><i class="far fa-plus-square fa-1x logo-add mr-3"></i>Creer mon Meeting !</button>
+				<a href="{{path ('profil')}}" class="btn btn-mm ml-3"><i class="fas fa-users mr-2"></i>Mes Meetings</a>
+			{% else %}
+        		<a href="{{path ('app_register')}}" class="btn btn-map">Creer mon Meeting !</a>
+			{% endif %}   
+		</div>
+		{{ include('map/lightbox-creerMeeting.html.twig') }}
+		<h3 class="a-venir"><i class="fab fa-hotjar mr-2"></i>Meetings à venir<i class="fab fa-hotjar ml-2"></i></h3>
+		<main class="d-flex flex-row flex-wrap justify-content-around">
 
-	<h3 class="a-venir"><i class="fab fa-hotjar mr-2"></i>Meetings à venir<i class="fab fa-hotjar ml-2"></i></h3>
-	
-	
-<main class="d-flex flex-row flex-wrap justify-content-around">
+		{% for meeting in meetings %}
 
-	{% for meeting in meetings %}
-
-		{% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
-			<section>
-				<div class="container fil-actu">
-					<div class="card mb-4">
-						<header class="w-100 d-flex flex-row position-relative h-auto">
-								
-							<h5 class="titre-meeting text-uppercase m-auto text-center">{{ meeting.categorie }}</h5>
-						</header>
-						<hr class="m-0">
-						<div id="details" class="card-body d-flex flex-row flex-wrap align-items-center justify-content-around text-white text-center p-1">
-							<div class="mr-3">
-								{% if (meeting.photoMeeting != null)%}
-									<img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="photo-meeting" alt="photo meeting">
-								{% else %}
-									<img src="assets/img/meeting-sansphoto.png" class="photo-meeting" alt="photo meeting">
-								{% endif %}
-							</div>
-							<div>
-								<div class="mb-3">
-   									<p class="mb-3">
-									   	{%if ( meeting.user.photo == null ) %}
-        									{%if ( meeting.user.sexe == 'homme' ) %}
-												<img src="assets/img/avatar-homme.jpg" class="profil-avatar-map mr-2" alt="avatar">
-        									{%else %}
-												<img src="assets/img/avatar-femme.jpg" class="profil-avatar-map mr-2" alt="avatar">
-        									{%endif %}
-    									{%else %}
-										<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
-										{%endif %}
-										{{ meeting.user.pseudo ?? 'vide'}}
-									</p>
+			{% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
+				<section>
+					<div class="container fil-actu">
+						<div class="card mb-4">
+							<header class="w-100 d-flex flex-row position-relative h-auto">
+								<h5 class="titre-meeting text-uppercase m-auto text-center">{{ meeting.categorie }}</h5>
+							</header>
+							<hr class="m-0">
+							<div id="details" class="card-body d-flex flex-row flex-wrap align-items-center justify-content-around text-white text-center p-1">
+								<div class="mr-3">
+									{% if (meeting.photoMeeting != null)%}
+										<img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="photo-meeting" alt="photo meeting">
+									{% else %}
+										<img src="assets/img/meeting-sansphoto.png" class="photo-meeting" alt="photo meeting">
+									{% endif %}
 								</div>
-								<p class="font-weight-bold">{{ meeting.titre }}</p>
-								<p><i class="far fa-calendar-alt mr-2 "></i>{{ meeting.date ? meeting.date|date('d-m-Y') : '' }}</p>
-								<p><i class="fas fa-map-marker-alt mr-2 "></i>{{ meeting.adresse }}</p>
-								<p><i class="fas fa-users mr-2"></i>{{meeting.inscrits|length + 1}} participants inscrits</p>
-								
-								{% if ((meeting.userMax != null) and (meeting.UserMax - (meeting.inscrits|length + 1)) != 0)  %}
+								<div>
+									<div class="mb-3">
+   										<p class="mb-3">
+										   	{%if ( meeting.user.photo == null ) %}
+        										{%if ( meeting.user.sexe == 'homme' ) %}
+													<img src="assets/img/avatar-homme.jpg" class="profil-avatar-map mr-2" alt="avatar">
+        										{%else %}
+													<img src="assets/img/avatar-femme.jpg" class="profil-avatar-map mr-2" alt="avatar">
+        										{%endif %}
+    										{%else %}
+											<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
+											{%endif %}
+											{{ meeting.user.pseudo ?? 'vide'}}
+										</p>
+									</div>
+									<p class="font-weight-bold">{{ meeting.titre }}</p>
+									<p><i class="far fa-calendar-alt mr-2 "></i>{{ meeting.date ? meeting.date|date('d-m-Y') : '' }}</p>
+									<p><i class="fas fa-map-marker-alt mr-2 "></i>{{ meeting.adresse }}</p>
+									<p><i class="fas fa-users mr-2"></i>{{meeting.inscrits|length + 1}} participants inscrits</p>
 
-								<p>Il reste <span class="places">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s)</p>
-								{% elseif (meeting.UserMax - (meeting.inscrits|length + 1)) == 0 %}
-								    <p class="text-danger">Ce meeting est complet</p>
-								{% else %}
-									<p>Inscription illimitée</p>
-								{% endif %}
-
+									{% if ((meeting.userMax != null) and (meeting.UserMax - (meeting.inscrits|length + 1)) != 0)  %}
+										<p>Il reste <span class="places">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s)</p>
+									{% elseif (meeting.UserMax - (meeting.inscrits|length + 1)) == 0 %}
+									    <p class="text-danger">Ce meeting est complet</p>
+									{% else %}
+										<p>Inscription illimitée</p>
+									{% endif %}
+								</div>
 							</div>
+							<footer class="card-footer d-flex justify-content-center">
+							{% if app.user and (((meeting.inscrits|length + 1) < meeting.userMax) or meeting.userMax == null) %}
+						        <button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-join mr-3"><i class="fas fa-thumbs-up mr-2 mb-1"></i>PARTICIPER !</button>
+								{% else %} 
+								<a href="{{path ('app_login')}}" class="btn btn-join mr-3"><i class="fas fa-thumbs-up mr-2"></i>PARTICIPER !</a>
+							{% endif %}
+							<button type="button" class="btn btn-details text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-info-circle mr-2"></i>DETAIL MEETING</button>
+							</footer>
 						</div>
-						<footer class="card-footer d-flex justify-content-center">
-						{% if app.user and (((meeting.inscrits|length + 1) < meeting.userMax) or meeting.userMax == null) %}
-					        <button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-join mr-3">REJOINDRE !</button>
-							{% else %} 
-							<a href="{{path ('app_login')}}" class="btn btn-join mr-3">REJOINDRE !</a>
-							
-						{% endif %}
-						<button type="button" class="btn btn-details text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-info-circle mr-2"></i>DETAIL MEETING</button>
-						</footer>
 					</div>
-				</div>
-			</section>
-		{% endif %}
-		{{ include('map/lightbox-afficherMeeting.html.twig') }}
+				</section>
+			{% endif %}
+			{{ include('map/lightbox-afficherMeeting.html.twig') }}
 		{% else %}
-		<tr>
-			<td colspan="10">Pas de meetings prévus pour l'instant</td>
-		</tr>
-	{% endfor %}
+			<tr>
+				<td colspan="10">Pas de meetings prévus pour l'instant</td>
+			</tr>
+		{% endfor %}
 
-</main>
+	</main>
 
 {# LIGHTBOX VALIDER INSCRIPTION #}
 	{{ include('map/lightbox-validerInscription.html.twig') }}
