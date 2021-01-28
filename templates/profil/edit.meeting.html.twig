@@ -3,9 +3,43 @@
 {% block title %}Modifier Meeting{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Modifier mon meeting</h1>
-
-    {{ include('meeting/_form.html.twig', {'button_label': 'Update'}) }}
-
+    <h1 class="text-center text-white">Modifier mon meeting</h1>
+        <div class="d-flex flex-column m-4">
+            {{ form_start(form) }}
+                <label class="w-50 p-0 ml-auto mr-auto mb-4 bg-transparent">
+                    {{ form_widget(form.categorie) }}
+                </label>
+                <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                    <!-- AVEC form_widget on a pas le label juste le input-->
+                    {{ form_widget(form.sousCategorie) }}
+                </label>
+                <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                    <!-- AVEC form_widget on a pas le label juste le input-->
+                    {{ form_widget(form.titre) }}
+                </label>
+                <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                    <!-- AVEC form_widget on a pas le label juste le input-->
+                    {{ form_widget(form.UserMax) }}
+                </label>
+                <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                    <!-- AVEC form_widget on a pas le label juste le input-->
+                    {{ form_widget(form.date) }}
+                </label>
+                <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                    <!-- AVEC form_widget on a pas le label juste le input-->
+                    {{ form_widget(form.adresse) }}
+                </label>
+                <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                    <!-- AVEC form_widget on a pas le label juste le input-->
+                    {{ form_widget(form.description) }}
+                </label>
+                <label class="w-50 p-0 ml-auto mr-auto mb-4">
+                    <!-- AVEC form_widget on a pas le label juste le input-->
+                    {{ form_widget(form.photo_meeting) }}
+                </label>
+                    {{ form_widget(form._token) }}
+                <button type="submit" class="btn btn-primary d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Modifier') }}</button>
+        {{ form_end(form) }} 
+    </div>
     <a class="btn btn-danger m-3" href="{{ path('profil') }}">Revenir à mon profil</a>
 {% endblock %}

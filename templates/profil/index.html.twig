@@ -23,9 +23,9 @@
 
 <div id="modif_class1" class="information ">
 
-    <div class="profil bar-profil" >
+    <div class="profil bar-profil d-flex flex-row" >
 
-        <div class="info-perso">
+        <div class="info-perso mr-3">
             {%if ( app.user.photo == null ) %}
                 {%if ( app.user.sexe == 'homme' ) %}
                     <img src="assets/img/avatar-homme.jpg" class="profil-avatar" alt="avatar">
@@ -35,109 +35,90 @@
             {%else %}
                 <img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="profil-avatar" alt="avatar">
             {%endif %}
-        
-
-
-            <div class="pseudo">{{ app.user.pseudo }}</div>
-            <div class="ita">{{ app.user.age }} ans</div>
-            <div class="ita">{{ app.user.email }}</div>
-            <div class="ita">Marseille 13000</div>
+        </div>
+        <div>
+            <p class="pseudo mt-2">{{ app.user.pseudo }}</p>
+            <p class="ita">{{ app.user.age }} ans</p>
+            <p class="ita">{{ app.user.email }}</p>
         </div>
 
-        <nav class="padd">
+
+    </div>
+            <nav class="padd">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active pad" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Mes Meetings</a>
                 <a class="nav-item nav-link pad2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Mes Informations</a>
             </div>
         </nav>
 
+    <div class="tab-content " id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="d-flex flex-row flex-wrap justify-content-around">
+                {% for meeting in app.user.meetings %}
+                    {% if (meeting != null) %}
 
-    </div>
-    
-    <div class="tab-content d-flex flex-row flex-wrap justify-content-around" id="nav-tabContent">
-        {# <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> #}
+                    <article class="card shadow mt-5">
 
-                    {% for meeting in app.user.meetings %}
-                        {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
-                        
-
-                        <article class="card shadow mt-5">
-                
-                            <div class="card-header card-header-avatar">
-                                {%if ( app.user.photo == null ) %}
-                                    {%if ( app.user.sexe == 'homme' ) %}
-                                        <img src="assets/img/avatar-homme.jpg" class="card-avatar" alt="avatar">
-                                    {%else %}
-                                        <img src="assets/img/avatar-femme.jpg" class="card-avatar" alt="avatar">
-                                    {%endif %}
+                        <div class="card-header card-header-avatar">
+                            {%if ( app.user.photo == null ) %}
+                                {%if ( app.user.sexe == 'homme' ) %}
+                                    <img src="assets/img/avatar-homme.jpg" class="card-avatar" alt="avatar">
                                 {%else %}
-                                    <img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="card-avatar" alt="avatar">
+                                    <img src="assets/img/avatar-femme.jpg" class="card-avatar" alt="avatar">
                                 {%endif %}
-                                <div class="card-pseudo"> {{ app.user.pseudo }}</div>
-                            </div>
-                            <div class="card-body">
-                                <p class="text-center color-1 display-6 text-uppercase mb-0">{{ meeting.titre }}</p>
-                                <hr>
-                                <div class="pl-3 text-muted trait-bas">
-                                    <div class="row p-3">Catégorie : <span class="color-1 ml-2">{{ meeting.categorie }}</span> </div>
-                                    <div class="row p-3">Date et heure : <span class="color-1 ml-2">{{ meeting.date ? meeting.date|date('Y-m-d') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }} </span></div>
-                                    <div class="row p-3">Adresse : <span class="color-1 ml-2">{{ meeting.adresse }} </span></div>
-                                    <div class="row p-3">Description : <span class="color-1 ml-2">{{ meeting.description }} </span></div>
-                                </div>
-								{% if (meeting.photoMeeting != null)%}
-
-                                <div class="img-illus">
-                                    <img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="largetotal" alt="image-du-meeting">
-                                </div>
-                								{% endif %}
-
-                            </div>
-                            <footer class="card-footer ">
-                            {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
-                                <a class="btn btn-success " href="{{ path('profil_meeting_edit', {'id': meeting.id}) }}">Modifier</a>
+                            {%else %}
+                                <img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="card-avatar" alt="avatar">
+                            {%endif %}
+                                <div class="card-pseudo"> {{ app.user.pseudo }}</div>                                
+                        </div>
+                        <div class="card-body">
+                            <p class="text-center color-1 display-6 text-uppercase mb-0">{{ meeting.titre }}</p>
+                            {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') <= date() %}
+                                <p class="text-danger text-center font-weight-bold">Ce Meeting à déja eu lieu</p>
                             {% endif %}
-
-                                <form method="post" action="{{ path('profil_delete', {'id': meeting.id}) }}" onsubmit="return confirm('Êtes-vous sur de supprimer ce meeting ?');">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ meeting.id) }}">
-                                    <button class="btn btn-danger ml-4">Supprimer</button>
-                                </form>
-                            </footer>
-                
-                        </article>
-                            
-                        {% else %}
-                        <tr>
-                            <p colspan="10">Vous n'avez pas créé de meeting(s)</p>
-                        </tr>
+                            <hr>
+                            <div class="pl-3 text-muted trait-bas">
+                                <div class="row p-3">Catégorie : <span class="color-1 ml-2">{{ meeting.categorie }}</span> </div>
+                                <div class="row p-3">Date et heure : <span class="color-1 ml-2">{{ meeting.date ? meeting.date|date('Y-m-d') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }} </span></div>
+                                <div class="row p-3">Adresse : <span class="color-1 ml-2">{{ meeting.adresse }} </span></div>
+                                <div class="row p-3">Description : <span class="color-1 ml-2">{{ meeting.description }} </span></div>
+                            </div>
+			    			{% if (meeting.photoMeeting != null)%}
+                            <div class="img-illus">
+                                <img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="largetotal" alt="image-du-meeting">
+                            </div>
+        	    			{% endif %}
+                        </div>
+                        <footer class="card-footer ">
+                        {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
+                            <a class="btn btn-success " href="{{ path('profil_meeting_edit', {'id': meeting.id}) }}">Modifier</a>
                         {% endif %}
-                    {% endfor %}
+                            <form method="post" action="{{ path('profil_delete', {'id': meeting.id}) }}" onsubmit="return confirm('Êtes-vous sur de supprimer ce meeting ?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ meeting.id) }}">
+                                <button class="btn btn-danger ml-4">Supprimer</button>
+                            </form>
+                        </footer>
 
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
+                    </article>
+                    {% else %}
+                    <tr>
+                        <p class="text-white" colspan="10">Vous n'avez pas créé de meeting(s)</p>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
 
         <div class="tab-pane fade mt-4" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-        
-            <div>
-                <table class="table table-borderless bg-primary text-white">
+                <table class="table table-borderless text-white">
                     <tbody>
-                        <tr>
+                        <tr class="bb-blanc">
                             <th scope="row" class="typo">Pseudo</th>
                             <td>{{ app.user.pseudo }}</td>
                         </tr>
-                    
-                        <tr>
+                        </hr>
+                        <tr class="bb-blanc">
                             <th scope="row" class="typo">Email</th>
                             <td>{{ app.user.email }}</td>
                         </tr>
@@ -150,12 +131,7 @@
                         </tr>
                     </tbody>
                 </table>
-                
-            </div>
         </div>
-
     </div>
-
 </div>
-<hr>
 {% endblock %}

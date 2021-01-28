@@ -20,10 +20,15 @@ background-image: url("../img/background-bleu.jpg");
 }
 /* LIST */
 
-th.typo {
+.table td{
     font-weight: bold;
 }
-
+th a{
+    margin-top: 20px;
+}
+.bb-blanc{
+    border-bottom: 1px solid white;
+}
 /* NAV TABS */
 
 .button-meeting {
@@ -74,7 +79,8 @@ a.nav-item:hover {
 }
 
 .padd {
-    padding-top: 35px;
+    padding: 25px 0 0 10%;
+
 }
 
 nav.bg {
@@ -88,7 +94,7 @@ img.profil-avatar {
     height: 95px;
     object-fit: cover;
     border-radius: 50%;
-    position: absolute;
+    /* position: absolute; */
     left: 10%;
 }
 
@@ -97,20 +103,22 @@ img.profil-avatar {
     font-size: 16px;
     color: white;
     font-family: "baloo thambi 2";
+    margin-bottom: 0;
+
 }
 
 .bar-profil .pseudo {
     font-weight: bold;
     color: white;
     font-size: 20px;
+    margin-bottom: 3px;
 }
 
 
 
 
 .profil {
-    padding: 20px 0 0 19%;
-    /* position: relative; */
+    padding: 20px 0 0 10%;
 }
 
 
@@ -357,10 +365,25 @@ img.card-avatar {
     align-items: center;
     justify-content: center;
   }
+
+.table{
+    width: 70%;
+    margin: auto;
+
+}
+tbody{
+    padding:50px;
+}
 /* PHONE RESPOSIVE */
 @media only screen and (max-width: 650px) {
     .button-meeting, .button-connexion  {
         display: none !important;
+    }
+    .card{
+        max-width: 350px !important;
+    }
+    .card-body .largetotal{
+        width: 320px;
     }
 }
 
@@ -373,7 +396,10 @@ img.card-avatar {
         height: 40px;
 
       }
-
+      .button-edit {
+        font-size: 16px !important;
+        width: 250px;
+    }
 }
 
 /* TABLETTE RESPONSIVE */
