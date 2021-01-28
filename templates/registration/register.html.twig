@@ -13,8 +13,7 @@
 {% block header %}
 	<header>
 		<nav class="navbar navbar-expand-sm col navbar-light d-flex justify-content-start">
-			<a href="{{ path('accueil') }}"><img class="logo-inscription" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
-			
+			<a href="{{ path('accueil') }}"><img class="logo-inscription" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>		
 		</nav>
 	</header>
 {% endblock %}
@@ -45,7 +44,7 @@
 				<label class="w-100">
 					{{ form_widget(registrationForm.plainPassword) }}
 				</label>
-				<button type="submit" class="btn d-block font-weight-bold mr-auto ml-auto w-50">{{ button_label|default('Créer mon compte !') }}</button>	
+				<button type="submit" class="btn d-block font-weight-bold mr-auto ml-auto mt-3 w-50">{{ button_label|default('Créer mon compte !') }}</button>	
 				{{ form_end(registrationForm) }}
 				<p class="text-white">Déjà inscrit? <a id="new" class="p-2 text-white text-decoration" href="{{ path('app_login') }}">Se connecter!</a></p>
 			</div>
