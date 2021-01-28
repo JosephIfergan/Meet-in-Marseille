@@ -53,7 +53,11 @@
 						<hr class="m-0">
 						<div id="details" class="card-body d-flex flex-row flex-wrap align-items-center justify-content-around text-white text-center p-1">
 							<div class="mr-3">
-								<img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="photo-meeting" alt="avatar">
+								{% if (meeting.photoMeeting != null)%}
+									<img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="photo-meeting" alt="photo meeting">
+								{% else %}
+									<img src="assets/img/meeting-sansphoto.png" class="photo-meeting" alt="photo meeting">
+								{% endif %}
 							</div>
 							<div>
 								<div class="mb-3">
