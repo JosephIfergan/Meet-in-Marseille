@@ -4,8 +4,9 @@
 
 {% block body %}
     <h1 class="text-center text-white">Modifier mon meeting</h1>
-        <div class="d-flex flex-column m-4">
-            {{ form_start(form) }}
+                {{ form_start(form) }}
+
+        <div class="d-flex flex-column justify-content-center m-auto">
                 <label class="w-50 p-0 ml-auto mr-auto mb-4 bg-transparent">
                     {{ form_widget(form.categorie) }}
                 </label>
