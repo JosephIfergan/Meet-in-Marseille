@@ -10,18 +10,18 @@ var marseille = [43.3, 5.4];
 var myMap = L.map('mapid').setView(marseille, 13);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
   maxZoom: 15,
-  minZoom: 12,
+  minZoom: 11,
 }).addTo(myMap);
 
 var marker = L.marker(marseille).addTo(myMap);
 marker.bindPopup('<h4>Marseille</h4>');
 
 for (let m = 0 ; m < tabMarkers.length ; m++) {
-  let popup = document.querySelector('#meeting_titre').value; 
-  let marker = L.marker(tabMarkers[m]).addTo(myMap);
-  marker.bindPopup(popup);
+  // let popup = document.querySelector('#meeting_titre').value; 
+  let marker = L.marker(tabMarkers[m].pos).addTo(myMap);
+  marker.bindPopup(tabMarkers[m].popup);
   console.log(marker);
-  console.log(popup);
+  // console.log(popup);
   
 };
 

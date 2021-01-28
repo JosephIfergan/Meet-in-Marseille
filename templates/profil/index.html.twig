@@ -8,13 +8,15 @@
 {% endblock %}
 
 {% block header %}
-	<header>
-		<nav class="navbar navbar-expand-sm col navbar-light d-flex">
-			<a class="logo-user" href="{{ path('accueil') }}"><img class="logo-inscription" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
-            <a class="align-self-end button-meeting btn p-2 mr-2 ml-auto" href="{{path ('map')}}"><i class="far fa-plus-square fa-2x logo-add p-1"></i>Creer un Meeting !</a>
-            <a class="button-connexion btn p-2 align-self-end ml-3" href="{{ path('app_logout') }}"><i class="fas fa-sign-in-alt logo-user pr-2"></i>Se deconnecter</a>
+
+    	<header>
+		<nav class="navbar navbar-expand-sm col navbar-light d-flex justify-content-end">
+			<a class="ml-3 mr-auto" href="{{ path('accueil') }}"><img class="logo-inscription" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
+            <a class="button-meeting btn p-2 mr-3" href="{{ path('map')}}"><i class="far fa-plus-square fa-2x logo-add"></i>Creer un Meeting !</a>
+            <a class="button-connexion btn p-2 mr-2" href="{{ path('app_logout') }}"><i class="fas fa-sign-in-alt logo-user pr-2"></i>Se deconnecter</a>		
 		</nav>
 	</header>
+
 {% endblock %}
 
 {% block body %}
@@ -52,20 +54,16 @@
 
     </div>
     
-    <div class="tab-content marge-body" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <div class="tab-content d-flex flex-row flex-wrap justify-content-around" id="nav-tabContent">
+        {# <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> #}
 
-            <div class="marge-body">
-
-                <div class="basse table ">
                     {% for meeting in app.user.meetings %}
                         {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
                         
 
-                    <main class="main m-aut">
-                        <article class="card shadow">
+                        <article class="card shadow mt-5">
                 
-                            <header class="card-header card-header-avatar">
+                            <div class="card-header card-header-avatar">
                                 {%if ( app.user.photo == null ) %}
                                     {%if ( app.user.sexe == 'homme' ) %}
                                         <img src="assets/img/avatar-homme.jpg" class="card-avatar" alt="avatar">
@@ -76,21 +74,23 @@
                                     <img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="card-avatar" alt="avatar">
                                 {%endif %}
                                 <div class="card-pseudo"> {{ app.user.pseudo }}</div>
-                                <div class="card-date">Il y a 2 min</div>
-                            </header>
+                            </div>
                             <div class="card-body">
-                                <p>{{ meeting.description }}</p>
+                                <p class="text-center color-1 display-6 text-uppercase mb-0">{{ meeting.titre }}</p>
                                 <hr>
                                 <div class="pl-3 text-muted trait-bas">
-                                    <div class="row">Theme : {{ meeting.categorie }} </div>
-                                    <div class="row">Date et heure : {{ meeting.date ? meeting.date|date('Y-m-d H:i:s') : '' }} </div>
-                                    <div class="row">Localisation : {{ meeting.adresse }} </div>
+                                    <div class="row p-3">Catégorie : <span class="color-1 ml-2">{{ meeting.categorie }}</span> </div>
+                                    <div class="row p-3">Date et heure : <span class="color-1 ml-2">{{ meeting.date ? meeting.date|date('Y-m-d') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }} </span></div>
+                                    <div class="row p-3">Adresse : <span class="color-1 ml-2">{{ meeting.adresse }} </span></div>
+                                    <div class="row p-3">Description : <span class="color-1 ml-2">{{ meeting.description }} </span></div>
                                 </div>
+								{% if (meeting.photoMeeting != null)%}
 
                                 <div class="img-illus">
                                     <img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="largetotal" alt="image-du-meeting">
                                 </div>
-                
+                								{% endif %}
+
                             </div>
                             <footer class="card-footer ">
                             {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
@@ -106,8 +106,6 @@
                 
                         </article>
                             
-                    </main>
-
                         {% else %}
                         <tr>
                             <p colspan="10">Vous n'avez pas créé de meeting(s)</p>
@@ -115,10 +113,19 @@
                         {% endif %}
                     {% endfor %}
 
-                </div>
 
-            </div> 
-        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="tab-pane fade mt-4" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
         

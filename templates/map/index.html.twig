@@ -119,8 +119,9 @@ var tabMarkers = [
 
 {% for meeting in meetings %}
 
-[{{meeting.latitude??'43.26'}}, {{meeting.longitude??'5.39'}}],
-
+{pos:[{{meeting.latitude??'43.26'}}, {{meeting.longitude??'5.39'}}],
+popup:'<p class="display-popup">catégorie : <span class="color-1">{{meeting.categorie}}</span></p><br><h3 class="text-center color-1 m-0">{{meeting.titre}}</h3><br><p class="color-1 display-popup">le {{ meeting.date ? meeting.date|date('d-m-Y') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }}</p>'
+},
 {% endfor %}
 
 ];
