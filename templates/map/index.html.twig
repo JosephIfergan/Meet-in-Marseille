@@ -61,9 +61,9 @@
    									<p class="mb-3">
 									   	{%if ( meeting.user.photo == null ) %}
         									{%if ( meeting.user.sexe == 'homme' ) %}
-												<img src="assets/img/avatar.png" class="profil-avatar-map mr-2" alt="avatar">
+												<img src="assets/img/avatar-homme.jpg" class="profil-avatar-map mr-2" alt="avatar">
         									{%else %}
-												<img src="assets/img/avatar-femme.png" class="profil-avatar-map mr-2" alt="avatar">
+												<img src="assets/img/avatar-femme.jpg" class="profil-avatar-map mr-2" alt="avatar">
         									{%endif %}
     									{%else %}
 										<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
