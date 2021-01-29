@@ -84,7 +84,7 @@
 							<footer class="card-footer d-flex justify-content-center">
 							{% if app.user and (((meeting.inscrits|length + 1) < meeting.userMax) or meeting.userMax == null) %}
 						        <button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-join mr-3"><i class="fas fa-thumbs-up mr-2 mb-1"></i>PARTICIPER !</button>
-								{% else %} 
+							{% elseif ((meeting.inscrits|length + 1) < meeting.userMax) or (meeting.userMax == null) %} 
 								<a href="{{path ('app_login')}}" class="btn btn-join mr-3"><i class="fas fa-thumbs-up mr-2"></i>PARTICIPER !</a>
 							{% endif %}
 							<button type="button" class="btn btn-details text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-info-circle mr-2"></i>DETAIL MEETING</button>
