@@ -1,7 +1,3 @@
-body {
-  /* opacity:0.7 */
-}
-
 #mapid { 
     z-index: 0;
     height: 80vh;
@@ -48,7 +44,7 @@ header img {
     max-width: 300px;
     height: 50px;
     margin-bottom: 20px;
-    align-items: center; /* changer sa*/
+    align-items: center;
     justify-content: center;
   }
 
@@ -116,8 +112,6 @@ h5 {
     font-size: 20px;
     height: 50px;
     width: 200px;
-    /* margin-left: 140px; */
-
 }
 form[name="inscrits"]{
   align-self: center;
@@ -159,10 +153,9 @@ form[name="inscrits"]{
 }
 
 .container{
-    padding: 0 15px !important;
-    min-width: 600px;
-    /* max-width: 420px; */
-    margin: 0 auto;
+  padding: 0 15px !important;
+  min-width: 600px;
+  margin: 0 auto;
 } 
 
 .photo-meeting{
@@ -171,8 +164,7 @@ form[name="inscrits"]{
   height: auto;
 }
 .card header{
-  /*background-color: #5272ff70;
-  */background-color: #5271ff;
+  background-color: #5271ff;
   border-radius: 6px 6px 0 0;
   border-bottom: 1px solid #5271ff;
   -webkit-border-radius: 6px 6px 0 0;
@@ -189,7 +181,7 @@ form[name="inscrits"]{
 }
 .card-footer{
   background-color: #5271ff;
-  border-radius: 0 0 8px 8px !important;
+  border-radius: 0 0 5px 5px !important;
 }
 .card-body p{
   font-size: 20px;
@@ -199,7 +191,6 @@ form[name="inscrits"]{
   color: #5271ff;
   width: 100%;
 }
-
 .modal-title{
   font-size: 25px;
 }
@@ -210,9 +201,7 @@ form[name="inscrits"]{
 
 /* CARD ACTUS */
 
-
 .card-footer {
-    /* display: flex; */
     padding: 10px;
     height: 60px;
 }
@@ -223,34 +212,50 @@ form[name="inscrits"]{
 .display-popup{
   font-size: 18px;
 }
-/* LIGHTBOX VALIDER INSCRIPTION */
 
+/* LIGHTBOX VALIDER INSCRIPTION */
 #valider-inscription{
   position: fixed;
   display: flex;
   flex-direction: column;
-  top:  100%;
+  top: 35%;
   left: 35%;
   z-index: 20;
+  visibility: hidden;
   width: 30%;
-  height: 34%;
-  padding-bottom: 1rem;
+  height: auto;
   background-color: #5271ff;
-  opacity: 0.93;
-  transition: all 0.3s ease-in;
   border-radius: 3px;
-}
-#valider-inscription.active {
-  top:  33%;
+  padding: 5px;
 }
 
+#valider-inscription.active {
+  animation: 1s fadeInValider;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInValider {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 0.97;
+  }
+}
 form[name="inscrits"] {
-  text-align: center;
+  align-self: center;
+  margin-bottom: 10px;
 }
 #valider-inscription p{
-  padding: 8px;
   font-size: 20px;
 }
+#valider-inscription button{
+  font-size: 20px;
+}
+.form-group{
+  margin-bottom: 0;
+}
+/* /////////////////// */
 
 .btn-map {
   background-color: #1a44ff;
@@ -321,7 +326,7 @@ form[name="inscrits"] {
   font-family: "Baloo Thambi 2", cursive;
   font-weight: bold;
   font-size: 40px;
-  margin: 80px;
+  margin: 80px 80px 80px 80px;
   text-align: center;
 }
 
@@ -329,9 +334,8 @@ form[name="inscrits"] {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
-    perspective: 1000px;
-    
-  }
+    perspective: 1000px;    
+}
   
   @keyframes shake {
     10%, 90% {
@@ -351,28 +355,100 @@ form[name="inscrits"] {
     }
   }
 
-  .btn-join {
-    background-color: #04a92b;
-    color: white;
-    font-family: "Baloo Thambi 2", cursive;
-    font-weight: bold;
-    font-size: 20px;
-    display: flex;
-    height: 40px;
-    max-width: 300px;
-    margin-bottom: 30px;
-    align-items: center;
-    justify-content: center;
-  
+.btn-join {
+  background-color: #04a92b;
+  color: white;
+  font-family: "Baloo Thambi 2", cursive;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  height: 40px;
+  max-width: 300px;
+  margin-bottom: 30px;
+  align-items: center;
+  justify-content: center;
 }
 
-  .btn-join:hover {
-    background-color: #06e039;
-    animation: pulse1 0.7s infinite;
-    color: white;
-  }
+.btn-join:hover {
+  background-color: #06e039;
+  animation: pulse1 0.7s infinite;
+  color: white;
+}
 
-  /* MEDIA QUERIES */
+/* POPUP LEAFLET */
+.header-popup{
+  background-color: #5271ff;
+  border-radius: 5px 5px 0 0;
+  padding: 5px !important;
+}
+
+.body-popup{
+  background-color: white;
+  color: #5271ff;
+  padding: 15px;
+}
+
+.footer-popup{
+  background-color: #5271ff;
+  color:white;
+  border-radius: 0 0 5px 5px;
+  padding: 10px;
+}
+
+.leaflet-popup-content-wrapper{
+  background-color: #1a44ff;
+  padding: 10px;
+  color: white;
+  opacity: 0.95;
+  padding: 0;
+  border-radius: 5px;
+}
+
+.leaflet-popup-content{
+margin: 0;
+width: 350px !important;
+}
+
+.leaflet-popup-content-wrapper p{
+  font-size: 18px;
+  margin: 0;
+}
+.leaflet-popup-content-wrapper p span{
+  font-size: 18px;
+  margin-right: 5px;
+  text-transform: lowercase;
+  opacity: 0.8;
+}
+
+/* FORMULAIRE RECHERCHE PAR CATEGORIE */
+form[name="search"] {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+  margin-left: 20px;
+  width: 200px;
+
+}
+#search_categorie{
+  color: white;
+  height: 30px;
+  padding: 0;
+  text-align: center;
+  border: 1px solid white;
+  background-color: transparent;
+}
+form[name="search"] button{
+  height: 30px;
+  padding: 0 10px 3px 10px;
+  margin-left: 10px;
+}
+#search_categorie option{
+  color: white;
+  background-color: #585fff;
+}
+
+
+/* MEDIA QUERIES */
 @media screen and (max-width : 765px) {
   .card-footer a, .card-footer button{
     min-width: 100px;
@@ -403,30 +479,20 @@ form[name="inscrits"] {
     min-width: auto;
     /* max-width: 420px; */
     margin: 0 auto;
-} 
+  } 
   .card{
     /* padding: 0 15px !important; */
     max-width: 330px;
     margin: 0 auto;
-} 
-
-  #valider-inscription{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    top:  100%;
-    left: 20%;
-    z-index: 20;
-    width: 60%;
-    height: 30%;
-    padding-bottom: 1rem;
-    background-color: #5271ff;
-    transition: all 0.3s ease-in;
-    border-radius: 3px;
   }
-
-  #valider-inscription p{
-    padding: 8px;
+  .a-venir{
+    margin: 40px 35px 50px 35px;
+  }
+  #valider-inscription{
+    left: 15% !important;
+    width: 70% !important;
+  }
+  #valider-inscription p, #valider-inscription button{
     font-size: 16px;
   }
   .modal-dialog{
@@ -437,33 +503,33 @@ form[name="inscrits"] {
   .category{
     font-size: 18px;
   }
-  .btn-map, .btn-mm {
-    font-size: 20px !important;
-    width: 350px;
-    height: 60px;
+  .btn-map, .btn-mm{
+    font-size: 17px !important;
+    width: 220px;
+    height: 50px;
     max-width: 500px;
     margin-bottom: 0 !important;
+    line-height: 1.2;
+  }
+  .fa-plus-square{
+    font-size: 20px !important;
+  }
+  .leaflet-popup-content{
+    margin: 0;
+    width: 250px !important;
+    }
+}
+@media screen and (max-width : 990px) {
+  #valider-inscription{
+    left: 25%;
+    width: 50%;
   }
 
 }
 @media screen and (min-width : 1550px) {
   #valider-inscription p{
-    font-size: 30px;
+    font-size: 26px;
     margin-bottom: 40px !important;
   }
 }
-@media screen and (min-width : 1200px) {
-  #valider-inscription{
-    top:  100%;
-    height: 30%;
-    background-color: #5271ff;
-  }
-  #valider-inscription.active {
-    top:  35%;
-  }
 
-  #valider-inscription button{
-  font-size: 20px;
-  min-width: 200px;
-  }
-}

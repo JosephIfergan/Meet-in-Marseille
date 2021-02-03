@@ -7,23 +7,20 @@ var marseille = [43.3, 5.4];
   [43.26, 5.39], [43.26, 5.40], [43.24, 5.37]
 ]; */
 
-var myMap = L.map('mapid').setView(marseille, 13);
+var myMap = L.map('mapid').setView(marseille, 12);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
   maxZoom: 15,
   minZoom: 11,
 }).addTo(myMap);
 
-var marker = L.marker(marseille).addTo(myMap);
-marker.bindPopup('<h4>Marseille</h4>');
-
+// var marker = L.marker(marseille).addTo(myMap);
+// marker.bindPopup('<h4>Marseille</h4>');
 for (let m = 0 ; m < tabMarkers.length ; m++) {
-  // let popup = document.querySelector('#meeting_titre').value; 
   let marker = L.marker(tabMarkers[m].pos).addTo(myMap);
   marker.bindPopup(tabMarkers[m].popup);
   console.log(marker);
-  // console.log(popup);
-  
 };
+
 
 // INSCRIPTION A UN MEETING ET OUVRIR LIGHTBOX VALIDER INSCRIPTION MEETING
 var lightboxValiderInscription = $('#valider-inscription');
@@ -49,8 +46,6 @@ fermerLightboxInscription.addEventListener('click', function () {
   lightboxValiderInscription.removeClass('active');
   console.log(fermerLightboxInscription);
 });
-
-
 
 
       //  

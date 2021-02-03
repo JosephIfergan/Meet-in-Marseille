@@ -18,8 +18,8 @@
 	</header>
 {% endblock %}
 {% block body %}
-		<h3 class="text-center text-white mt-5">{{ messageConfirmation }}
-			<a class="text-white" href="{{ path('app_login') }}">{{ messageConfirmation2 }}</a>
+		<h3 class="text-center text-white">{{ messageConfirmation }}
+			<a href="{{ path('app_login') }}">{{ messageConfirmation2 }}</a>
 		</h3>
 	<div id="base_inscription" class="d-flex">
 		{% for flashError in app.flashes('verify_email_error') %}

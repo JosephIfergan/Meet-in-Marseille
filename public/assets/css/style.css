@@ -1,154 +1,169 @@
 body {
-    width: 100% !important;
-    background-image: url("../img/background-bleu.jpg");
-    background-size: cover;
+  width: 100% !important;
+  background-image: url("../img/background-bleu.jpg");
+  background-size: cover;
   background-position: center;
 }
 
 h1{
-    color:red;
-    font-family: 'Coiny', cursive !important;
+  font-family: 'Coiny', cursive !important;
 }
+
+h5{
+  font-family: "Coiny", cursive !important;
+}
+/* HEADER */
 header{
-    height: 10vh;
+  height: 10vh;
 }
 
 header img {
-    width: 150px;
-    height: auto;
+  width: 150px;
+  height: auto;
 }
+
 .logo-inscription{
-    width: 200px;
-    height: auto;
+  width: 200px;
+  height: auto;
 }
 .navlogo {
-    margin-left: 10px;
-    margin-right: auto;
-
+  margin-left: 10px;
+  margin-right: auto;
 }
 
-
 img.profil-avatar-accueil {
-    width: 35px;
-    height: 35px;
-    object-fit: cover;
-    border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 img.profil-avatar-map {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-left: 5px;
-  }
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+img.inscrit-avatar-map {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#btn-inscription_meeting{
+  opacity: 0.85 !important;
+  cursor: pointer;
+}
 
 @keyframes pulse1 { /* POUR PULSER COMMENT CA FONCTIONNE HOVER */
-    0% {
-        transform: scale(1, 1);
-    }
-  
-    50% {
-        transform: scale(1.05, 1.05);
-    }
-  
-    100% {
-        transform: scale(1, 1);
-    }
+  0% {
+      transform: scale(1, 1);
   }
+
+  50% {
+      transform: scale(1.05, 1.05);
+  }
+
+  100% {
+      transform: scale(1, 1);
+  }
+}
 @keyframes pulse2 { /* POUR PULSER COMMENT CA FONCTIONNE HOVER */
-    0% {
-        transform: scale(0.9, 0.9);
-    }
-  
-    50% {
-        transform: scale(1, 1);
-    }
-  
-    100% {
-        transform: scale(0.9, 0.9);
-    }
+  0% {
+      transform: scale(0.9, 0.9);
   }
-#btn-inscription_meeting{
-    opacity: 0.85 !important;
-    cursor: pointer;
+
+  50% {
+      transform: scale(1, 1);
+  }
+
+  100% {
+      transform: scale(0.9, 0.9);
+  }
 }
+
+/* STYLE */
+
 .color-1{
-    color:  #5271ff;
+  color:  #5271ff;
 }
+
 .color-2{
-    color:  #5abffa;
+  color:  #5abffa;
 }
+
 .bg-1{
-    background-color:  #5271ff !important;
+  background-color:  #5271ff !important;
 }
+
 .color-2{
-    color:  #5abffa;
+  color:  #5abffa;
 }
 
 /* FOOTER */
-.site-footer
-{
+.site-footer{
   background-color:#26272b;
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
   color:#737373;
 }
-.site-footer hr
-{
+
+.site-footer hr{
   border-top-color:#bbb;
   opacity:0.5
 }
-.site-footer hr.small
-{
+
+.site-footer hr.small{
   margin:20px 0
 }
-.site-footer h6
-{
+
+.site-footer h6{
   color:#fff;
   font-size:16px;
   text-transform:uppercase;
   margin-top:5px;
   letter-spacing:2px
 }
-.site-footer a
-{
+
+.site-footer a{
   color:#737373;
 }
-.site-footer a:hover
-{
+
+.site-footer a:hover{
   color:#3366cc;
   text-decoration:none;
 }
-.footer-links
-{
+
+.footer-links{
   padding-left:0;
   list-style:none
 }
-.footer-links li
-{
+.footer-links li{
   display:block
 }
-.footer-links a
-{
+
+.footer-links a{
   color:#737373
 }
-.footer-links a:active,.footer-links a:focus,.footer-links a:hover
-{
+
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover{
   color:#3366cc;
   text-decoration:none;
 }
-.footer-links.inline li
-{
+
+.footer-links.inline li{
   display:inline-block
 }
-.site-footer .social-icons
-{
+
+.site-footer .social-icons{
   text-align:right
 }
-.site-footer .social-icons a
-{
+
+.site-footer .social-icons a{
   width:40px;
   height:40px;
   line-height:40px;
@@ -157,28 +172,26 @@ img.profil-avatar-map {
   border-radius:100%;
   background-color:#33353d
 }
+
 #logofooter {
   width: 150px;
   height: 100px;
 }
-.copyright-text
-{
+
+.copyright-text{
   margin:0
 }
 
-.social-icons
-{
+.social-icons{
   padding-left:0;
   margin-bottom:0;
   list-style:none
 }
-.social-icons li
-{
+.social-icons li{
   display:inline-block;
   margin-bottom:4px
 }
-.social-icons li.title
-{
+.social-icons li.title{
   margin-right:15px;
   text-transform:uppercase;
   color:#96a2b2;
@@ -200,58 +213,46 @@ img.profil-avatar-map {
   -o-transition:all .2s linear;
   transition:all .2s linear
 }
-.social-icons a:active,.social-icons a:focus,.social-icons a:hover
-{
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover{
   color:#fff;
   background-color:#29aafe
 }
-.social-icons.size-sm a
-{
+.social-icons.size-sm a{
   line-height:34px;
   height:34px;
   width:34px;
   font-size:14px
 }
-.social-icons a.facebook:hover
-{
+.social-icons a.facebook:hover{
   background-color:#3b5998
 }
-.social-icons a.twitter:hover
-{
+.social-icons a.twitter:hover{
   background-color:#00aced
 }
-.social-icons a.linkedin:hover
-{
+.social-icons a.linkedin:hover{
   background-color:#007bb6
 }
-.social-icons a.dribbble:hover
-{
+.social-icons a.dribbble:hover{
   background-color:#ea4c89
 }
 
 /* MEDIA QUERIES */
-@media (max-width:767px)
-{
-  .social-icons li.title
-  {
+@media (max-width:767px){
+  .social-icons li.title{
     display:block;
     margin-right:0;
     font-weight:600
   }
-  .site-footer
-  {
+  .site-footer{
     padding-bottom:0
   }
-  .site-footer .copyright-text,.site-footer .social-icons
-  {
+  .site-footer .copyright-text,.site-footer .social-icons{
     text-align:center
   }
 }
 
-@media (max-width:991px)
-{
-  .site-footer [class^=col-]
-  {
+@media (max-width:991px){
+  .site-footer [class^=col-]{
     margin-bottom:30px
   }
 }

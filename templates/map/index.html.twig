@@ -22,88 +22,35 @@
 {% block body %}
 	<div id="mapid"></div>
 		<div class="d-flex m-3 justify-content-center">
-
 			{% if app.user %}
-        		<button type="button" class="btn btn-map mb-2" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo"><i class="far fa-plus-square fa-1x logo-add mr-3"></i>Creer mon Meeting !</button>
+        		<button type="button" class="btn btn-map mb-2" data-toggle="modal" data-target="#creerMeetingModal" data-whatever="@mdo"><i class="far fa-plus-square fa-1x logo-add mr-2"></i>Creer mon Meeting !</button>
 				<a href="{{path ('profil')}}" class="btn btn-mm ml-3"><i class="fas fa-users mr-2"></i>Mes Meetings</a>
 			{% else %}
         		<a href="{{path ('app_register')}}" class="btn btn-map">Creer mon Meeting !</a>
 			{% endif %}   
 		</div>
 		{{ include('map/lightbox-creerMeeting.html.twig') }}
-		<h3 class="a-venir"><i class="fab fa-hotjar mr-2"></i>Meetings à venir<i class="fab fa-hotjar ml-2"></i></h3>
+		<h3 id="meetingavenir" class="a-venir"><i class="fab fa-hotjar mr-2"></i>Meetings à venir<i class="fab fa-hotjar ml-2"></i></h3>
+		
+		{# FORMULAIRE RECHERCHE PAR CATEGORIE #}
+		{{ form_start(formSearch) }}
+			{{ form_widget(formSearch.categorie) }}
+    			<button class="btn btn-info">{{ button_label|default('Rechercher') }}</button>
+		{{ form_end(formSearch) }}
+
 		<main class="d-flex flex-row flex-wrap justify-content-around">
-
-		{% for meeting in meetings %}
-
-			{% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
-				<section>
-					<div class="container fil-actu">
-						<div class="card mb-4">
-							<header class="w-100 d-flex flex-row position-relative h-auto">
-								<h5 class="titre-meeting text-uppercase m-auto text-center">{{ meeting.categorie }}</h5>
-							</header>
-							<hr class="m-0">
-							<div id="details" class="card-body d-flex flex-row flex-wrap align-items-center justify-content-around text-white text-center p-1">
-								<div class="mr-3">
-									{% if (meeting.photoMeeting != null)%}
-										<img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="photo-meeting" alt="photo meeting">
-									{% else %}
-										<img src="assets/img/meeting-sansphoto.png" class="photo-meeting" alt="photo meeting">
-									{% endif %}
-								</div>
-								<div>
-									<div class="mb-3">
-   										<p class="mb-3">
-										   	{%if ( meeting.user.photo == null ) %}
-        										{%if ( meeting.user.sexe == 'homme' ) %}
-													<img src="assets/img/avatar-homme.jpg" class="profil-avatar-map mr-2" alt="avatar">
-        										{%else %}
-													<img src="assets/img/avatar-femme.jpg" class="profil-avatar-map mr-2" alt="avatar">
-        										{%endif %}
-    										{%else %}
-											<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
-											{%endif %}
-											{{ meeting.user.pseudo ?? 'vide'}}
-										</p>
-									</div>
-									<p class="font-weight-bold">{{ meeting.titre }}</p>
-									<p><i class="far fa-calendar-alt mr-2 "></i>{{ meeting.date ? meeting.date|date('d-m-Y') : '' }}</p>
-									<p><i class="fas fa-map-marker-alt mr-2 "></i>{{ meeting.adresse }}</p>
-									<p><i class="fas fa-users mr-2"></i>{{meeting.inscrits|length + 1}} participants inscrits</p>
-
-									{% if ((meeting.userMax != null) and (meeting.UserMax - (meeting.inscrits|length + 1)) != 0)  %}
-										<p>Il reste <span class="places">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s)</p>
-									{% elseif (meeting.UserMax - (meeting.inscrits|length + 1)) == 0 %}
-									    <p class="text-danger">Ce meeting est complet</p>
-									{% else %}
-										<p>Inscription illimitée</p>
-									{% endif %}
-								</div>
-							</div>
-							<footer class="card-footer d-flex justify-content-center">
-							{% if app.user and (((meeting.inscrits|length + 1) < meeting.userMax) or meeting.userMax == null) %}
-						        <button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting(event)" class="btn btn-join mr-3"><i class="fas fa-thumbs-up mr-2 mb-1"></i>PARTICIPER !</button>
-							{% elseif ((meeting.inscrits|length + 1) < meeting.userMax) or (meeting.userMax == null) %} 
-								<a href="{{path ('app_login')}}" class="btn btn-join mr-3"><i class="fas fa-thumbs-up mr-2"></i>PARTICIPER !</a>
-							{% endif %}
-							<button type="button" class="btn btn-details text-white" data-toggle="modal" data-target="#afficherMeetingModal{{loop.index0}}"><i class="fas fa-info-circle mr-2"></i>DETAIL MEETING</button>
-							</footer>
-						</div>
-					</div>
-				</section>
-			{% endif %}
-			{{ include('map/lightbox-afficherMeeting.html.twig') }}
-		{% else %}
-			<tr>
-				<td colspan="10">Pas de meetings prévus pour l'instant</td>
-			</tr>
-		{% endfor %}
-
-	</main>
-
+			{% for meeting in meetings %}
+				{% if formSearch.categorie.vars.value != null and formSearch.categorie.vars.value != 'tout' %}
+					{% if (meeting.categorie == formSearch.categorie.vars.value) %}
+						{{ include('map/card-meeting.html.twig') }}
+					{% endif %}
+				{% else %}
+					{{ include('map/card-meeting.html.twig') }}
+				{% endif %}
+			{% endfor %}
+		</main>
 {# LIGHTBOX VALIDER INSCRIPTION #}
-	{{ include('map/lightbox-validerInscription.html.twig') }}
+		{{ include('map/lightbox-validerInscription.html.twig') }}
 {% endblock %}
 
 {% block javascripts %}
@@ -113,14 +60,13 @@ var tabMarkers = [
 {% for meeting in meetings %}
 
 {pos:[{{meeting.latitude??'43.26'}}, {{meeting.longitude??'5.39'}}],
-popup:'<p class="display-popup">catégorie : <span class="color-1">{{meeting.categorie}}</span></p><br><h3 class="text-center color-1 m-0">{{meeting.titre}}</h3><br><p class="color-1 display-popup">le {{ meeting.date ? meeting.date|date('d-m-Y') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }}</p>'
+popup:'<div class="header-popup"><p class="text-uppercase text-center p-2"><span>catégorie :</span>{{meeting.categorie}}</p></div><div class="body-popup"><p class="text-center">Meeting crée par <img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="inscrit-avatar-map ml-2 mr-1" alt="avatar">{{meeting.user.pseudo}}</p><h3 class="text-center mt-3">{{meeting.titre}}</h3></div><div class="footer-popup">{% if ((meeting.userMax != null) and (meeting.UserMax - (meeting.inscrits|length + 1)) != 0)  %}<p class="text-center mb-2">Il reste {{meeting.UserMax - (meeting.inscrits|length + 1) }} place(s)</p>{% elseif (meeting.UserMax - (meeting.inscrits|length + 1)) == 0 %}<p class="text-center text-danger mb-2">Ce meeting est complet</p>{% else %}<p class="text-center mb-2">Inscription illimitée</p>{% endif %}<p>le {{ meeting.date ? meeting.date|date('d-m-Y') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }}</p></div>'
 },
 {% endfor %}
 
 ];
 	
 </script>
-
 	<!-- LEAFLET -->
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 	<script src="{{ asset('assets/js/meeting.js') }}"></script>

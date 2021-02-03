@@ -1,0 +1,45 @@
+{% block body %}
+	<div id="afficherParticipant_inscit{{loop.index0}}" class="modal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header justify-content-center">
+					<h5 class="modal-title w-100 text-center" id="exampleModalLabel">Inscrits à {{ billet.titre }}</h5>
+					<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="pl-3">
+                        <p class="ml-5 mb-3">
+                            <img src="{{ asset('uploads/' ~ billet.user.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
+                            {{ billet.user.pseudo }}
+                        </p>
+        	            {% for inscrit in billet.inscrits %}
+        	                <p class="ml-5 mb-3">
+        	                    {%if ( inscrit.photo == null ) %}
+        	                        {%if ( inscrit.sexe == 'homme' ) %}
+        	                            <img src="assets/img/avatar-homme.jpg" class="profil-avatar-map mr-2" alt="avatar">
+        	                        {%else %}
+        	                            <img src="assets/img/avatar-femme.jpg" class="profil-avatar-map mr-2" alt="avatar">
+        	                        {%endif %}
+        	                    {%else %}
+        	                        <img src="{{ asset('uploads/' ~ inscrit.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
+        	                    {%endif %}    
+        	                    {{inscrit.pseudo}} ({{inscrit.age}} ans)
+        	                </p>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				{% if ((billet.userMax != null) and (billet.UserMax - (billet.inscrits|length + 1)) != 0)  %}
+				    <p class="text-white">Il reste {{billet.UserMax - (billet.inscrits|length + 1) }} place(s) encore disponible</p>
+				{% elseif (billet.UserMax - (billet.inscrits|length + 1)) == 0 %}
+				    <p class="text-danger">Ce meeting est complet</p>
+				{% else %}
+					<p class="text-white">Inscription illimitée</p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use App\Entity\Meeting;
 use App\Form\MeetingType;
+use App\Form\InscritsType;
 use App\Repository\MeetingRepository;
 // POUR L'UPLOAD
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -24,11 +25,32 @@ class ProfilController extends AbstractController
      * @Route("/profil", name="profil")
      */
     public function index(UserRepository $userRepository,MeetingRepository $meetingRepository, Request $request ): Response
-    {
-        
+    {        
+        $meeting = new Meeting();
+
+        $formInscrits = $this->createForm(InscritsType::class, $meeting);
+        $formInscrits->handleRequest($request);
+
+        if ($formInscrits->isSubmitted() && $formInscrits->isValid()) {
+            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE
+            $user = $this->getUser();
+
+            $id_meeting = $formInscrits->get('id_meeting')->getData();
+            $meeting = $meetingRepository-> find($id_meeting);
+            // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE A LA TABLE MEETING
+            $meeting -> removeInscrit($user);            
+            
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($meeting);
+            $entityManager->flush();
+
+        }
+
         return $this->render('profil/index.html.twig', [
-            'meetings' => $meetingRepository->findBy(array(), array('id'=>'desc')), // AFFICHAGE PAR ORDRE DECCROISSANT
+            'meetings' => $meetingRepository->findBy(array(), array('id'=>'asc')), // AFFICHAGE PAR ORDRE DECROISSANT
             'users' => $userRepository->findAll(),
+            'formInscritsRetire' => $formInscrits->createView(),
+
         ]);
 
     }
@@ -112,5 +134,4 @@ class ProfilController extends AbstractController
             'formuser' => $form->createView(),
         ]);
     }
-
 }

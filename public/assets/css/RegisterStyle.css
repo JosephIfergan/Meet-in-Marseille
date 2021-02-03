@@ -1,21 +1,26 @@
 body {
-    box-sizing: border-box;
-    font-family: 'Baloo Thambi 2', cursive !important;
-    background-image: url("../img/background-bleu.jpg");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
+  box-sizing: border-box;
+  font-family: 'Baloo Thambi 2', cursive !important;
+  background-image: url("../img/background-bleu.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
 }
-
 
 h2 {
   font-family: 'coiny';
   text-align: center;
   color:white;
 }
+
 h3{
-  margin-top : 60px !important;
+  margin-top : 5rem !important;
 }
+
+h3 a{
+  color: #13dcfb;
+}
+
 a{
   text-decoration:underline;
 }
@@ -32,7 +37,7 @@ a{
 #base_login h1{
   margin-top:50px;
 }
-#base_login p{
+#base_login p, #msgconfirm{
   animation: pulse2 1.2s infinite;
   font-size: 25px;
 }
@@ -57,6 +62,13 @@ a{
   margin-left: 10%;
 }
 
+.connect { /* TITRE 'CONNEXION' AU DESSUS DU FORMULAIRE*/
+  color: white;
+  font-family: "Coiny", cursive;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
 
 /* FORMULAIRE INSCRIPTION  ET CONNEXION*/
 .form-control {
@@ -89,7 +101,7 @@ a{
 }
 
 .form-control::placeholder {
-color: white;
+  color: white;
 }
 
 .formulaire p, .formulaire-login p {
@@ -100,13 +112,16 @@ color: white;
 /* MEDIA QUERIES */
 @media screen and (max-width: 590px){
   #container{
-    margin: 100px 0 50px 0 !important;
+    margin: 0 0 50px 0 !important;
   }
   .formulaire p{
     margin-bottom: 10px;
   }
   .formulaire-login p{
     margin-bottom: 10px;
+  }
+  .formulaire-login h3{
+    margin-top: 0 !important;
   }
   h3{
     font-size: 20px;
@@ -161,10 +176,3 @@ color: white;
   }
 }
 
-.connect {
-  color: white;
-  font-family: "Coiny", cursive;
-  font-weight: bold;
-  font-size: 30px;
-  text-align: center;
-  }

@@ -13,7 +13,7 @@
 		<nav class="navbar navbar-expand-sm col navbar-light d-flex justify-content-end">
 			<a class="ml-3 mr-auto" href="{{ path('accueil') }}"><img class="logo-inscription" src="assets/img/logo-white.png" alt="MeetInMarseille"></a>
             <a class="button-meeting btn p-2 mr-3" href="{{ path('map')}}"><i class="far fa-plus-square fa-2x logo-add"></i>Creer un Meeting !</a>
-            <a class="button-connexion btn p-2 mr-2" href="{{ path('app_logout') }}"><i class="fas fa-sign-in-alt logo-user pr-2"></i>Se deconnecter</a>		
+            <a class="button-deconnexion btn p-2 mr-2" href="{{ path('app_logout') }}"><i class="fas fa-sign-in-alt logo-user pr-2"></i>Se deconnecter</a>		
 		</nav>
 	</header>
 
@@ -21,7 +21,6 @@
 
 {% block body %}
 
-<div id="modif_class1" class="information ">
 
     <div class="profil bar-profil d-flex flex-row" >
 
@@ -44,53 +43,58 @@
 
 
     </div>
-            <nav class="padd">
+    <a class="modifier-user_profil"href="{{ path('profil_user_edit', {'id': app.user.id}) }}"><i class="fas fa-user-edit mr-1"></i><span>modifier profil</span></a>
+
+            <nav class="nav-meetings">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active pad" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Mes Meetings</a>
-                <a class="nav-item nav-link pad2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Mes Informations</a>
+                <a class="nav-item nav-link active" id="nav-meeting-tab" data-toggle="tab" href="#nav-meeting" role="tab" aria-controls="nav-meeting" aria-selected="true">Mes Meetings</a>
+                <a class="nav-item nav-link pad2" id="nav-inscription-tab" data-toggle="tab" href="#nav-inscription" role="tab" aria-controls="nav-inscription" aria-selected="false">Mes Participations</a>
             </div>
         </nav>
 
     <div class="tab-content " id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="tab-pane fade show active" id="nav-meeting" role="tabpanel" aria-labelledby="nav-meeting-tab">
             <div class="d-flex flex-row flex-wrap justify-content-around">
-                {% for meeting in app.user.meetings %}
-                    {% if (meeting != null) %}
-
-                    <article class="card shadow mt-5">
+                {% for meeting in app.user.meetings|reverse %}
+                    <article class="card shadow mt-5 mb-2">
 
                         <div class="card-header card-header-avatar">
-                            {%if ( app.user.photo == null ) %}
-                                {%if ( app.user.sexe == 'homme' ) %}
+                            {% if ( app.user.photo == null ) %}
+                                {% if ( app.user.sexe == 'homme' ) %}
                                     <img src="assets/img/avatar-homme.jpg" class="card-avatar" alt="avatar">
-                                {%else %}
+                                {% else %}
                                     <img src="assets/img/avatar-femme.jpg" class="card-avatar" alt="avatar">
                                 {%endif %}
-                            {%else %}
+                            {% else %}
                                 <img src="{{ asset('uploads/' ~ app.user.photo ) }}" class="card-avatar" alt="avatar">
-                            {%endif %}
-                                <div class="card-pseudo"> {{ app.user.pseudo }}</div>                                
+                            {% endif %}
+                                <div class="card-pseudo color-1"> {{ app.user.pseudo }}</div>                                
                         </div>
                         <div class="card-body">
-                            <p class="text-center color-1 display-6 text-uppercase mb-0">{{ meeting.titre }}</p>
+                            <p class="text-center color-1 display-6 text-uppercase mb-0 font-weight-bold">{{ meeting.titre }}</p>
                             {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') <= date() %}
                                 <p class="text-danger text-center font-weight-bold">Ce Meeting à déja eu lieu</p>
                             {% endif %}
                             <hr>
                             <div class="pl-3 text-muted trait-bas">
-                                <div class="row p-3">Catégorie : <span class="color-1 ml-2">{{ meeting.categorie }}</span> </div>
-                                <div class="row p-3">Date et heure : <span class="color-1 ml-2">{{ meeting.date ? meeting.date|date('Y-m-d') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }} </span></div>
-                                <div class="row p-3">Adresse : <span class="color-1 ml-2">{{ meeting.adresse }} </span></div>
-                                <div class="row p-3">Description : <span class="color-1 ml-2">{{ meeting.description }} </span></div>
+                                <div class="row p-3">Catégorie : <span class="color-1 ml-2 font-weight-bold">{{ meeting.categorie }}</span> </div>
+                                <div class="row p-3">Date et heure : <span class="color-1 ml-2 font-weight-bold">{{ meeting.date ? meeting.date|date('Y-m-d') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }} </span></div>
+                                <div class="row p-3">Adresse : <span class="color-1 ml-2 font-weight-bold">{{ meeting.adresse }} </span></div>
+                                <div class="row p-3">Description : <span class="color-1 ml-2 font-weight-bold">{{ meeting.description }} </span></div>
+                                <div class="row justify-content-center p-3 color-1">{{ meeting.inscrits|length }} personnes se sont inscrits à votre meeting
+                                <button id="voirParticipant" type="button" class="btn btn-primary text-white ml-2" data-toggle="modal" data-target="#afficherParticipant{{loop.index0}}"><i class="fas fa-info-circle mr-1 p-0"></i>Afficher participants</button>
+                                </div>
                             </div>
 			    			{% if (meeting.photoMeeting != null)%}
-                            <div class="img-illus">
-                                <img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="largetotal" alt="image-du-meeting">
+                            <div>
+                                <img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="meeting-image" alt="image-du-meeting">
                             </div>
+                            {% else %}
+                                <img src="assets/img/meeting-sansphoto.png" class="meeting-image" alt="logo meetinmarseille">
         	    			{% endif %}
                         </div>
-                        <footer class="card-footer ">
-                        {% if date(meeting.date ? meeting.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
+                        <footer class="card-footer justify-content-center">
+                        {% if date(meeting.date) >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
                             <a class="btn btn-success " href="{{ path('profil_meeting_edit', {'id': meeting.id}) }}"><i class="fas fa-edit mr-2"></i>Modifier</a>
                         {% endif %}
                             <form method="post" action="{{ path('profil_delete', {'id': meeting.id}) }}" onsubmit="return confirm('Êtes-vous sur de supprimer ce meeting ?');">
@@ -99,38 +103,68 @@
                                 <button class="btn btn-danger ml-4"><i class="fas fa-trash-alt mr-2"></i>Supprimer</button>
                             </form>
                         </footer>
-
-                    </article>
-                    {% else %}
-                    <tr>
-                        <p class="text-white" colspan="10">Vous n'avez pas créé de meeting(s)</p>
-                    </tr>
-                    {% endif %}
+                    </article>                                        
+                    		{{ include('profil/lightbox-afficherParticipant.html.twig') }}
                 {% endfor %}
+                {% if (app.user.meetings is empty) %}
+                    <h3 class="text-white display-5 m-5">Vous n'avez pas encore créé de meeting(s) ...</h3>
+                {% endif %}
             </div>
         </div>
 
-        <div class="tab-pane fade mt-4" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <table class="table table-borderless text-white">
-                    <tbody>
-                        <tr class="bb-blanc">
-                            <th scope="row" class="typo">Pseudo</th>
-                            <td>{{ app.user.pseudo }}</td>
-                        </tr>
-                        <tr class="bb-blanc">
-                            <th scope="row" class="typo">Email</th>
-                            <td>{{ app.user.email }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="typo">Age</th>
-                            <td>{{ app.user.age }} ans</td>
-                        </tr>
-                        <tr>
-                            <th><a class="button-edit btn" href="{{ path('profil_user_edit', {'id': app.user.id}) }}"><i class="fas fa-user-edit mr-2"></i>Modifier mes informations</a></th>
-                        </tr>
-                    </tbody>
-                </table>
+
+        <div class="tab-pane fade mt-4" id="nav-inscription" role="tabpanel" aria-labelledby="nav-inscription-tab">
+                <div class="d-flex flex-row flex-wrap justify-content-around">
+                {% for billet in app.user.billets|reverse %}
+                        <article class="card shadow mt-5 mb-2">
+                            <div class="card-header card-header-avatar">
+                                {% if ( billet.user.photo == null ) %}
+                                    {% if ( billet.user.sexe == 'homme' ) %}
+                                        <img src="assets/img/avatar-homme.jpg" class="card-avatar" alt="avatar">
+                                    {% else %}
+                                        <img src="assets/img/avatar-femme.jpg" class="card-avatar" alt="avatar">
+                                    {% endif %}
+                                {% else %}
+                                    <img src="{{ asset('uploads/' ~ billet.user.photo ) }}" class="card-avatar" alt="avatar">
+                                {% endif %}
+                                    <div class="card-pseudo color-1"> {{ billet.user.pseudo }}</div>                                
+                            </div>
+                            <div class="card-body">
+                                <p class="text-center color-1 display-6 text-uppercase mb-0 font-weight-bold">{{ billet.titre }}</p>
+                                {% if date(billet.date ? billet.date|date('d-m-Y-H:i') : '') <= date() %}
+                                    <p class="text-danger text-center text-uppercase font-weight-bold">Ce Meeting à déja eu lieu</p>
+                                {% endif %}
+                                <hr>
+                                <div class="pl-3 text-muted trait-bas">
+                                    <div class="row p-3">Catégorie : <span class="color-1 ml-2 font-weight-bold">{{ billet.categorie }}</span> </div>
+                                    <div class="row p-3">Date et heure : <span class="color-1 ml-2 font-weight-bold">{{ billet.date ? billet.date|date('Y-m-d') : '' }} à {{ billet.date ? billet.date|date('H:i') : '' }} </span></div>
+                                    <div class="row p-3">Adresse : <span class="color-1 ml-2 font-weight-bold">{{ billet.adresse }} </span></div>
+                                    <div class="row p-3">Description : <span class="color-1 ml-2 font-weight-bold">{{ billet.description }} </span></div>
+                                    <div class="row justify-content-center p-3 color-1">{{ billet.inscrits|length + 1 }} personnes se sont inscrits à ce meeting
+                                    <button id="voirParticipant" type="button" class="btn btn-primary text-white ml-2" data-toggle="modal" data-target="#afficherParticipant_inscit{{loop.index0}}"><i class="fas fa-info-circle mr-1 p-0"></i>Afficher participants</button>
+                                    </div>
+                                </div>
+			        			{% if (billet.photoMeeting != null)%}
+                                <div>
+                                    <img src="{{ asset('uploads/' ~ billet.photoMeeting ) }}" class="meeting-image" alt="image-du-meeting">
+                                </div>
+        	        			{% endif %}
+                            </div>
+                            <footer class="card-footer justify-content-center">
+                                {% if date(billet.date ? billet.date|date('d-m-Y-H:i') : '') >= date() %} {#POUR LISTER SEULEMENT LES MEETINGS A VENIR #}
+						            <button id="btn-inscription_meeting" data-id="{{ billet.id}}" onclick="DesinscriptionMeeting(event)" class="btn btn-danger text-uppercase"><i class="fas fa-trash-alt mr-2"></i>se désinscrire</button>
+                                {% endif %}
+                            </footer>
+                        </article>
+                        {# LIGHTBOX VALIDER INSCRIPTION #}
+	                    {{ include('profil/lightbox-validerDesinscription.html.twig') }}
+                        {# LIGHTBOX AFFICHER PARTICIPANT #}
+                        {{ include('profil/lightbox-afficherParticipant_inscription.html.twig') }}
+                {% endfor %}
+                {% if (app.user.billets is empty) %}
+                    <h3 class="text-white display-5 m-5">Vous êtes inscrits à aucun meeting(s) ...</h3>
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

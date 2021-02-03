@@ -1,0 +1,9 @@
+{% block body %}
+	<section id="valider-desinscription" >
+    	<i class="fas fa-times-circle text-white btn align-self-end"></i>
+		<p class="text-white text-center mt-4 mb-4">Merci {{app.user.pseudo}} de valider pour annuler votre participation au meeting de {{billet.user.pseudo}}</p>
+		{{ form_start(formInscritsRetire) }}
+    		<button class="btn btn-danger text-uppercase">{{ button_label|default('annuler participation') }}</button>
+		{{ form_end(formInscritsRetire) }}
+	</section>
+{% endblock %}

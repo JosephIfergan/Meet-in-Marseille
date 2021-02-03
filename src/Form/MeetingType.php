@@ -53,7 +53,13 @@ class MeetingType extends AbstractType
                 ]         
             ])
             ->add('date')
-            ->add('adresse')
+            ->add('adresse',TextType::class, [
+                'required' => false,
+                'attr' => [
+
+                    'placeholder' => 'Laisser vide si meeting en ligne'
+                    ] 
+            ])
             ->add('latitude', HiddenType::class, [
             ])
             ->add('longitude', HiddenType::class, [

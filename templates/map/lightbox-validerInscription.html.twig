@@ -1,13 +1,11 @@
 {% block body %}
 	{% if app.user %}
 		<section id="valider-inscription" >
-    		<i class="fas fa-times-circle mr-2 ml-auto mt-2 text-white btn p-0"></i>
-<div class="d-flex flex-column justify-content-end h-100">
-			<p class="text-white text-center mt-3 ">Merci {{app.user.pseudo}} de valider pour vous inscrire à ce meeting</p>
+    		<i class="fas fa-times-circle text-white btn align-self-end"></i>
+			<p class="text-white text-center mt-4 mb-4">Merci {{app.user.pseudo}} de valider pour participer à ce meeting</p>
 			{{ form_start(formInscrits) }}
-    			<button class="btn btn-success">{{ button_label|default('Valider insciption') }}</button>
+    			<button class="btn btn-success text-uppercase">{{ button_label|default('Valider participation') }}</button>
 			{{ form_end(formInscrits) }}
-			</div>
 		</section>
 	{% endif %}
 {% endblock %}

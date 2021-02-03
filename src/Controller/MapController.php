@@ -9,7 +9,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Meeting;
 use App\Form\MeetingType;
+// POUR INSCRITPION A UN MEETING
 use App\Form\InscritsType;
+// POUR LA RECHERCHE PAR CATEGORIE
+use App\Form\SearchType;
 // POUR L'UPLOAD
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -27,8 +30,13 @@ class MapController extends AbstractController
         $form = $this->createForm(MeetingType::class, $meeting);
         $form->handleRequest($request);
 
+        // FORMULAIRE INSCRIPTION MEETING
         $formInscrits = $this->createForm(InscritsType::class, $meeting);
         $formInscrits->handleRequest($request);
+        
+        // FORMULAIRE RECHERCHE PAR CATEGORIE
+        $formSearch = $this->createForm(SearchType::class);
+        $formSearch->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // POUR DONNE LES INFOS DE L'UTILISATEUR CONNECTE
@@ -85,11 +93,15 @@ class MapController extends AbstractController
         }
 
         return $this->render('map/index.html.twig', [
-            'meetings' => $meetingRepository->findBy(array(), array('id'=>'desc')), // AFFICHAGE PAR ORDRE DECCROISSANT
+            'meetings' => $meetingRepository->findBy(array(), array('date'=>'asc')), // AFFICHAGE PAR ORDRE DECCROISSANT
             'meeting' => $meeting,
             'form' => $form->createView(),
             'formInscrits' => $formInscrits->createView(),
+            'formSearch' => $formSearch->createView(), // FORMULAIRE RECHERCHE PAR CATEGORIE
         ]);
+
+
+
 
     }
 

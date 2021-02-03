@@ -35,8 +35,8 @@
             <div class="formulaire-login align-self-center" data-aos="fade-right">
                 <h3 class="connect" data-aos="fade-up" data-aos-duration="3000">CONNEXION</h3>
                     <form method="post">
-                        <input type="email" value="{{ last_username }}" name="email" placeholder="Votre email" id="inputEmail" class="form-control mt-4 mb-4" required autofocus>
-                        <input type="password" name="password" placeholder="Votre mot de passe" id="inputPassword" class="form-control mb-4" required>
+                        <input type="email" value="{{ last_username }}" name="email" placeholder="Votre email" id="inputEmail" class="form-control text-white mt-4 mb-4" required autofocus>
+                        <input type="password" name="password" placeholder="Votre mot de passe" id="inputPassword" class="form-control text-white mb-4" required>
 
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 

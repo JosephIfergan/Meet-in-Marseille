@@ -32,17 +32,12 @@
 			</div>
 			<div class="modal-footer">
 				{% if ((meeting.userMax != null) and (meeting.UserMax - (meeting.inscrits|length + 1)) != 0)  %}
-				<p class="text-white">Il reste <span class="text-success">{{meeting.UserMax - (meeting.inscrits|length + 1) }}</span> place(s) encore disponible</p>
+				<p class="text-white">Il reste {{meeting.UserMax - (meeting.inscrits|length + 1) }} place(s) encore disponible</p>
 				{% elseif (meeting.UserMax - (meeting.inscrits|length + 1)) == 0 %}
 				    <p class="text-danger">Ce meeting est complet</p>
 				{% else %}
 					<p class="text-white">Inscription illimitée</p>
 				{% endif %}
-				{# {% if app.user %}
-					<button id="btn-inscription_meeting" data-id="{{ meeting.id}}" onclick="InscriptionMeeting2(event)" type="button" class="btn btn-success">Rejoindre !</button>
-				{% else %}
-					<a href="{{path ('app_register')}}" class="btn btn-primary">Rejoindre !</a>
-				{% endif %} #}
 			</div>
 		</div>
 		</div>
