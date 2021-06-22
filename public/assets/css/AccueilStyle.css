@@ -35,7 +35,7 @@ header {
   color: white;
   font-family: "Coiny", cursive !important;
   position: absolute;
-  margin-top: 300px;
+  margin-top: 150px;
   font-size: 50px;
   animation: fadeIn ease 3s;
   -webkit-animation: fadeIn ease 3s;
@@ -148,16 +148,58 @@ header {
   width: 150px;
   height: 150px;
 }
+/* BACKGROUND SLIDESHOW */
 
-.slideshow {
+.z-1{
+  z-index: 1;
+}
+
+.container-slider{
+  width: 100%;
+  height: 100vh;
+}
+
+.slider{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 2s;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+
+.visibles {
+  opacity: 1;
+}
+
+.slider:nth-of-type(1){
+  background-image: url('../img/slideshow1.jpg');
+}
+.slider:nth-of-type(2){
+  background-image: url('../img/slideshow5.jpg');
+}
+.slider:nth-of-type(3){
+  background-image: url('../img/slideshow3.jpg');
+}
+.slider:nth-of-type(4){
+  background-image: url('../img/slideshow4.jpg');
+}
+
+/* .slideshow {
   background-image: url("../img/slideshow1.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
   height: 100vh;
+} */
+.mt-80{
+  margin-top: 200px;
 }
-
-
+/* //////// */
 
 .etape1,
 .etape2,
@@ -249,10 +291,6 @@ i {
   justify-content: center;
 }
 
-.buttons {
-  display: flex;
-}
-
 .button-connexion {
   background-color: #5abffa;
   color: white;
@@ -286,8 +324,8 @@ i {
   font-weight: bold;
   font-size: 20px;
   display: flex;
-  width: 300px;
-  height: 70px;
+  width: 250px;
+  height: 60px;
   margin-bottom: 20px;
   align-items: center;
   justify-content: center;
@@ -311,6 +349,57 @@ i {
   color: white;
   animation: pulse1 0.7s infinite;
 }
+.icone-fire{
+  width: 35px;
+  margin-bottom: 5px;
+}
+
+/* FAQ */
+#faq {
+  margin-top: 200px;
+  color: white;
+  font-family: "Baloo Thambi 2", cursive;
+
+}
+
+#faq img {
+  width: 100px;
+  height: 100px;
+}
+
+
+h4 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.faq {
+  display: flex;
+  margin: 50px;
+}
+
+.faq img {
+  width: 200px;
+  height: 100px;
+}
+
+.bloc {
+  min-width: 400px;
+  max-width: 20%;
+}
+
+h3 {
+  color: white;
+  font-size: 50px;
+  font-family: "Coiny", cursive;
+}
+
+.fa-question-circle {
+  color: white;
+  padding: 10px;
+}
+
+
 
 /* MEDIA QUERIES POUR SECTION DESCRIPTION */
 
@@ -328,6 +417,9 @@ i {
   }
   .description div p:last-child {
     margin-right: 0 !important;
+  }
+  .bienvenue{
+    margin-top: 80px;
   }
 }
 
@@ -418,49 +510,14 @@ i {
   .bienvenue{
     font-size: 40px ;
   }
+  .bloc {
+    min-width: 360px !important; 
+  }
 }
 
-#faq {
-  margin-top: 200px;
-  color: white;
-  font-family: "Baloo Thambi 2", cursive;
-
-}
-
-#faq img {
-  width: 100px;
-  height: 100px;
-}
-
-
-h4 {
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.faq {
-  display: flex;
-  margin: 50px;
-}
-
-.faq img {
-  width: 200px;
-  height: 100px;
-}
-
-.bloc {
-  min-width: 400px;
-  max-width: 20%;
-}
-
-h3 {
-  color: white;
-  font-size: 50px;
-  font-family: "Coiny", cursive;
-}
-
-.fa-question-circle {
-  color: white;
-  padding: 10px;
+@media screen and (min-width: 1500px) {
+  .bienvenue {
+    font-size: 70px;
+  }
 }
 

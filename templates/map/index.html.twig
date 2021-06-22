@@ -57,11 +57,13 @@
 <script>
 var tabMarkers = [
 
-{% for meeting in meetings %}
 
+{% for meeting in meetings %}
+{% if date(meeting.date) >= date() %}
 {pos:[{{meeting.latitude??'43.26'}}, {{meeting.longitude??'5.39'}}],
 popup:'<div class="header-popup"><p class="text-uppercase text-center p-2"><span>catégorie :</span>{{meeting.categorie}}</p></div><div class="body-popup"><p class="text-center">Meeting crée par <img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="inscrit-avatar-map ml-2 mr-1" alt="avatar">{{meeting.user.pseudo}}</p><h3 class="text-center mt-3">{{meeting.titre}}</h3></div><div class="footer-popup">{% if ((meeting.userMax != null) and (meeting.UserMax - (meeting.inscrits|length + 1)) != 0)  %}<p class="text-center mb-2">Il reste {{meeting.UserMax - (meeting.inscrits|length + 1) }} place(s)</p>{% elseif (meeting.UserMax - (meeting.inscrits|length + 1)) == 0 %}<p class="text-center text-danger mb-2">Ce meeting est complet</p>{% else %}<p class="text-center mb-2">Inscription illimitée</p>{% endif %}<p>le {{ meeting.date ? meeting.date|date('d-m-Y') : '' }} à {{ meeting.date ? meeting.date|date('H:i') : '' }}</p></div>'
 },
+{% endif %}
 {% endfor %}
 
 ];

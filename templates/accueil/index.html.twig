@@ -12,7 +12,7 @@
 
 
 {% block header %}
-	<header class="container-fluid">
+	<header class="container-fluid z-1">
 		<div class="row">
 			<nav class="navbar navbar-expand-sm col navbar-light">
 				<a href="{{ path('accueil') }}"><img class="logo" src="assets/img/logo.png" alt="MeetInMarseille"></a>
@@ -62,32 +62,29 @@
 	</header>
 {% endblock %}
 
-
 {% block body %}
-
-	<div
-		class="slideshow justify-content-center d-flex">
-		<!-- SLIDERS JS ICI -->
-		<h1 class="bienvenue align-self-lg-center align-self-sm-start">
-			Partagez vos passions avec les autres.</h1>
-		<div class="buttons">
+	<div class="container-slider d-flex justify-content-center">
+		<ol>
+            <li class="slider visibles"></li>
+            <li class="slider"></li>
+            <li class="slider"></li>
+            <li class="slider"></li>
+        </ol>
+		<h1 class="bienvenue align-self-center">Partagez vos passions avec les autres</h1>
+		<div class="d-flex z-1 mt-80">
 			{% if app.user %}
 				<a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
 				<a class="align-self-end button-meeting btn p-2 ml-4" href="{{path ('map')}}">
-					<i class="far fa-plus-square fa-2x logo-add mr-3"></i>Creer un Meeting !</a>
+					<i class="far fa-plus-square fa-2x logo-add mr-3"></i>Creer un Meeting !
+				</a>
 			{% else %}
-
 				<a class="align-self-end button-meeting btn p-2" href="{{ path('map') }}">Voir les meeting<img class="icone-fire ml-1" src="assets/img/icone-fire.png" alt="icone fire"></a>
 				<a class="align-self-end button-meeting btn p-2 ml-4" href="{{ path('accueil') }}#fonctionnement">Comment ça marche ?</a>
-
 			{% endif %}
 		</div>
 	</div>
 
-
 	<!-- COMMENT ÇA MARCHE ? -->
-
-
 	<section id="fonctionnement">
 		<h2 class="text-center p-2">Comment ça marche ?</h2>
 		<div class="ccm d-flex flex-row justify-content-around flex-wrap">
@@ -105,7 +102,7 @@
 				<img src="assets/img/logo2.png" alt="etape2">
 			</div>
 			<i class="fas fa-long-arrow-alt-right m-auto fa-10x d-flex justify-content-center flex-fonctionnement"></i>
-			<div class="etape3 flex-fonctionnement" data-aos="fade-left">
+			<div class="etape3 flex-fonctionnement" data-aos="fade-right">
 				<p class="number">&#9314;</p>
 				<a class="btn" href="{{ path('map') }}">Je rencontre les utilisateurs !</a>
 				<img src="assets/img/logo3.png" alt="etape3">
@@ -113,70 +110,47 @@
 		</div>
 	</section>
 
-	
-<section id="faq">
-
-<h3 class="text-center" data-aos="fade-down"><i class="far fa-question-circle"></i>FAQ<i class="far fa-question-circle"></i></h3>
-
-	
-<div class="faq d-flex flex-wrap flex-row justify-content-around">
-
-		<div class="bloc p-3" data-aos="fade-right">
-			
-			<h4>Meet in Marseille c'est quoi ?</h4>
-			<p>Meet in Marseille est une plateforme en ligne vous permettant de partager votre temps, vos passions, hobbies et sorties avec les autres. C'est simple, rapide et totalement gratuit !</p>
+	<section id="faq">
+		<h3 class="text-center" data-aos="fade-down"><i class="far fa-question-circle"></i>FAQ<i class="far fa-question-circle"></i></h3>
+		<div class="faq d-flex flex-wrap flex-row justify-content-around">
+			<div class="bloc p-3" data-aos="fade-up-right">
+				<h4>Meet in Marseille c'est quoi ?</h4>
+				<p>Meet in Marseille est une plateforme en ligne vous permettant de partager votre temps, vos passions, hobbies et sorties avec les autres. C'est simple, rapide et totalement gratuit !</p>
+			</div>
+			<div class="bloc p-3" data-aos="fade-up">
+				<h4>Est-ce que le site est accessible pour tous ?</h4>
+				<p>Évidemment ! Les Meetings sont ouverts à tous, et chacun a la possibilité de créer son propre en Meeting, en fonction de ses centres d'intérêts !</p>
+			</div>
+			<div class="bloc p-3" data-aos="fade-left">
+				<h4>Quel est le nombre maximum de participants ?</h4>
+				<p>Il n'y a pas de limite de participants. Néanmoins, il faudra contacter l'établissement où se déroule ton Meeting afin de savoir combien de personnes ils peuvent recevoir.</p>
+			</div>
+			<div class="bloc p-3" data-aos="fade-up-right">
+				<h4>Mon Meeting ne rentre dans aucune catégorie, je fais quoi ?!</h4>
+				<p>Pas de panique, on a sélectionné les catégories les plus populaires parmi les internautes. Mais tu es libre de personnaliser ton Meeting avec la catégorie "Autres".</p>
+			</div>
+			<div class="bloc p-3" data-aos="fade-up">
+				<h4>Peut-on annuler un Meeting ?</h4>
+				<p>Bien sûr ! Pour cela, il faut te rendre dans ton espace utilisateur, dans l'onglet "Mes Meetings". Sélectionnes le Meeting que tu souhaites annuler, et cliquer sur "Supprimer"</p>
+			</div>
+			<div class="bloc p-3" data-aos="fade-up-right">
+				<h4>Je n'arrive pas à créer mon Meeting ! </h4>
+				<p>Un tutoriel est à ta disposition en cliquant sur le bouton <a href="#fonctionnement">Comment ça fonctionne ?</a> <br>
+				Si le problème persiste, tu peux contacter notre <a href="#">support</a>.</p>
+			</div>
+			<div class="bloc p-3" data-aos="fade-left">
+				<h4>Peut-on modifier un Meeting après l'avoir créer ?</h4>
+				<p>Bien sûr ! Pour cela, il faut te rendre dans ton espace utilisateur, dans l'onglet "Mes Meetings". Sélectionnes le Meeting que tu souhaites mettre à jour, et cliquer sur "Modifier"</p>
+			</div>
+			<div class="bloc p-3" data-aos="fade-up">
+				<h4>Est-ce que je peux créer un Meeting en dehors de Marseille ?</h4>
+				<p>Pour l'instant, non. Mais nous travaillons actuellement pour élargir les zone disponibles.</p>
+			</div>
+			<div class="bloc p-3" data-aos="fade-left">
+				<h4>Votre équipe a l'air trop génial ! Vous recrutez ?</h4>
+				<p>Oui, tu peux nous envoyer ton CV via ce <a href="#">lien</a> ou à recrutement@meetinmarseille.fr 
+				<b>(mais tu ne seras pas payé)</b>.</p>
+			</div>
 		</div>
-
-		
-		<div class="bloc p-3" data-aos="fade-up">
-		
-			<h4>Est-ce que le site est accessible pour tous ?</h4>
-			<p>
-				Évidemment ! Les Meetings sont ouverts à tous, et chacun a la possibilité de créer son propre en Meeting, en fonction de ses centres d'intérêts !
-			</p>
-		</div>
-	
-
-	<div class="bloc p-3" data-aos="fade-left">
-
-		<h4>Quel est le nombre maximum de participants ?</h4>
-		<p>Il n'y a pas de limite de participants. Néanmoins, il faudra contacter l'établissement où se déroule ton Meeting afin de savoir combien de personnes ils peuvent recevoir.</p>
-	</div>
-
-	<div class="bloc p-3" data-aos="fade-right">
-		
-		<h4>Mon Meeting ne rentre dans aucune catégorie, je fais quoi ?!</h4>
-		<p>Pas de panique, on a sélectionné les catégories les plus populaires parmi les internautes. Mais tu es libre de personnaliser ton Meeting avec la catégorie "Autres".</p>
-	</div>
-
-	<div class="bloc p-3" data-aos="fade-up">
-		<h4>Peut-on annuler un Meeting ?</h4>
-		<p>Bien sûr ! Pour cela, il faut te rendre dans ton espace utilisateur, dans l'onglet "Mes Meetings". Sélectionnes le Meeting que tu souhaites annuler, et cliquer sur "Supprimer"</p>
-	</div>
-
-	<div class="bloc p-3" data-aos="fade-right">
-		<h4>Je n'arrive pas à créer mon Meeting ! </h4>
-		<p>Un tutoriel est à ta disposition en cliquant sur le bouton <a href="#fonctionnement">Comment ça fonctionne ?</a> <br>
-		Si le problème persiste, tu peux contacter notre <a href="#">support</a>.</p>
-	</div>
-
-	<div class="bloc p-3" data-aos="fade-left">
-		<h4>Peut-on modifier un Meeting après l'avoir créer ?</h4>
-		<p>Bien sûr ! Pour cela, il faut te rendre dans ton espace utilisateur, dans l'onglet "Mes Meetings". Sélectionnes le Meeting que tu souhaites mettre à jour, et cliquer sur "Modifier"</p>
-	</div>
-
-	<div class="bloc p-3" data-aos="fade-up">
-		<h4>Est-ce que je peux créer un Meeting en dehors de Marseille ?</h4>
-		<p>Pour l'instant, non. Mais nous travaillons actuellement pour élargir les zone disponibles.</p>
-	</div>
-
-	<div class="bloc p-3" data-aos="fade-left">
-		<h4>Votre équipe a l'air trop génial ! Vous recrutez ?</h4>
-		<p>Oui, tu peux nous envoyer ton CV via ce <a href="#">lien</a> ou à recrutement@meetinmarseille.fr 
-		<b>(mais tu ne seras pas payé)</b>.</p>
-	</div>
-
-	</div>
-</section>
-
+	</section>
 {% endblock %}

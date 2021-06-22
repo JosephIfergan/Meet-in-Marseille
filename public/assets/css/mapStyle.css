@@ -162,6 +162,7 @@ form[name="inscrits"]{
   width: 200px;
   min-height: 180px;
   height: auto;
+  margin-right: 1rem;
 }
 .card header{
   background-color: #5271ff;
@@ -522,6 +523,9 @@ form[name="search"] button{
   }
   #search_categorie{
     padding-left: 5px;
+  }
+  .photo-meeting{
+    margin-right: 0;
   }
 }
 @media screen and (max-width : 990px) {

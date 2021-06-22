@@ -12,15 +12,15 @@
 					<div class="pl-3">
         	            {% for inscrit in meeting.inscrits %}
         	                <p class="ml-5 mb-3">
-        	                    {%if ( inscrit.photo == null ) %}
-        	                        {%if ( inscrit.sexe == 'homme' ) %}
+        	                    {% if ( inscrit.photo == null ) %}
+        	                        {% if ( inscrit.sexe == 'homme' ) %}
         	                            <img src="assets/img/avatar-homme.jpg" class="profil-avatar-map mr-2" alt="avatar">
-        	                        {%else %}
+        	                        {% else %}
         	                            <img src="assets/img/avatar-femme.jpg" class="profil-avatar-map mr-2" alt="avatar">
-        	                        {%endif %}
-        	                    {%else %}
+        	                        {% endif %}
+        	                    {% else %}
         	                        <img src="{{ asset('uploads/' ~ inscrit.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
-        	                    {%endif %}    
+        	                    {% endif %}    
         	                    {{inscrit.pseudo}} ({{inscrit.age}} ans)
         	                </p>
 						{% endfor %}

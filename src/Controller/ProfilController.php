@@ -72,12 +72,36 @@ class ProfilController extends AbstractController
     /**
      * @Route("/{id}/edit", name="profil_meeting_edit", methods={"GET","POST"})
      */
-    public function editMeeting(Request $request, Meeting $meeting): Response
+    public function editMeeting(Request $request, Meeting $meeting, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(MeetingType::class, $meeting);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $photoFile = $form->get('photo_meeting')->getData();
+                // this condition is needed because the 'brochure' field is not required
+                // so the PDF file must be processed only when a file is uploaded
+                if ($photoFile) {
+                    $originalFilename = pathinfo($photoFile->getClientOriginalName(), PATHINFO_FILENAME);
+                    // this is needed to safely include the file name as part of the URL
+                    $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $photoFile->guessExtension();
+
+                    // Move the file to the directory where brochures are stored
+                    try {
+                        $photoFile->move(
+                            $this->getParameter('photos_directory'),        // NE PAS OUBLIER DE CREER LE DOSSIER
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                        // ... handle exception if something happens during file upload
+                    }
+
+                    // updates the 'brochureFilename' property to store the PDF file name
+                    // instead of its contents
+                    $meeting->setPhotoMeeting($newFilename);       // ON ENREGISTRE LE NOM DU FICHIER
+
+                }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('profil');

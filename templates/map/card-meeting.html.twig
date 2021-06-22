@@ -7,7 +7,7 @@
 				</header>
 				<hr class="m-0">
 				<div id="details" class="card-body d-flex flex-row flex-wrap align-items-center justify-content-around text-white text-center p-1">
-					<div class="mr-3">
+					<div>
 						{% if (meeting.photoMeeting != null)%}
 							<img src="{{ asset('uploads/' ~ meeting.photoMeeting ) }}" class="photo-meeting" alt="photo meeting">
 						{% else %}
@@ -25,7 +25,7 @@
     								{% endif %}
     							{% else %}
 								<img src="{{ asset('uploads/' ~ meeting.user.photo ) }}" class="profil-avatar-map mr-2" alt="avatar">
-								{%endif %}
+								{% endif %}
 								{{ meeting.user.pseudo ?? 'vide'}}
 							</p>
 						</div>
